@@ -1,0 +1,75 @@
+//
+// Commun à tous les widgets
+//
+
+.sidebar-module
+
+	&:not(:last-child)
+		margin-bottom: 20px
+
+.sidebar-module-content
+	+clearfix
+	border-top: 1px solid #333333
+	padding: 10px 10px 0 0
+
+//
+// Widget de recrutement
+//
+
+.recruitment-class
+	float: left
+	margin-bottom: 6px
+	width: 50%
+
+	&.last
+		margin-bottom: 0
+
+//
+// Widget des dernières activités
+//
+
+.guild-feed
+	margin-bottom: 6px
+
+	small
+		color: adjust-lightness($body-font-color, -50%)
+		display: block
+
+	&:last-child
+		margin-bottom: 0
+
+//
+// Widget des discussions populaires
+//
+
+.popular-thread
+	@extend .guild-feed
+
+//
+// Widget d'avancée raids
+//
+
+.encounter-zone
+	padding-bottom: 6px
+
+.zone-progress
+	background-color: adjust-lightness(#262626, -5%)
+	+border-radius(5px)
+	height: 10px
+	position: relative
+
+	@for $i from 0 to 5
+		.complete-#{$i * 25}
+			width: #{$i * 25%}
+
+	.normal-mode
+		background-color: $widget-encounter-progress-normal-mode
+		+border-radius(5px)
+		height: 100%
+		left: 0
+		position: absolute
+		top: 0
+
+	.heroic-mode
+		@extend .normal-mode
+		background-color: $widget-encounter-progress-heroic-mode

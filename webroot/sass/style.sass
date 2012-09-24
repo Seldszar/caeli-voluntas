@@ -1,0 +1,244 @@
+@import compass
+@import compass/reset
+@import icons/*.png
+
+//------------------------------------------------------------------------------------------
+
+$body-background-color: #1A1A1A
+$body-font-color: #E6E6E6
+
+$page-width: 800px
+$page-background-color: #212121
+
+$link-color: #96A3BB
+$link-color-hover: #FFFFFF
+
+$button-background-color: #3A3A3A
+
+//------------------------------------------------------------------------------------------
+
+*
+	+box-sizing(border-box)
+	outline: none
+
+html
+	height: 100%
+
+body
+	background: $body-background-color image-url('background.jpg') no-repeat fixed $page-width top
+	color: $body-font-color
+	font-family: 'Open Sans', Arial, sans-serif
+	font-size: 13px
+	line-height: 1.4em
+	height: 100%
+
+table
+	width: 100%
+
+	tr
+		border-bottom: 1px solid #333
+
+	thead
+		color: adjust-lightness($body-font-color, -50%)
+		font-size: 11px
+
+		td
+			padding-bottom: 10px
+			vertical-align: bottom
+
+	tbody
+
+		td
+			padding: 10px 0
+
+caption, th, td
+	vertical-align: top
+
+h1, h2, h3
+	font-family: Oswald, sans-serif
+	font-weight: 300
+	line-height: 1
+	margin-bottom: 10px
+
+em
+	color: adjust-lightness($body-font-color, -25%)
+
+h1
+	font-size: 32px
+
+	em
+		font-size: 24px
+
+h2
+	font-size: 24px
+
+	em
+		font-size: 18px
+   
+h3
+	font-size: 18px
+
+	em
+		font-size: 14px
+
+a
+	color: $link-color
+	cursor: pointer
+	text-decoration: none
+
+	&.ui-button
+		@extend a
+		background-color: $button-background-color
+		border: 1px solid transparent
+		+border-radius(3px)
+		cursor: pointer
+		display: inline-block
+		font-size: 11px
+		padding: 5px 18px
+		text-transform: uppercase
+
+		&.inactive
+			opacity: 0.5
+
+		&:hover, &.checked
+			+background-image(linear-gradient(adjust-lightness($button-background-color, 7%), adjust-lightness($button-background-color, 2%)))
+			border: 1px solid adjust-lightness($button-background-color, 6%)
+
+	&:hover
+		color: $link-color-hover !important
+
+p
+
+	&:not(:last-child)
+		margin-bottom: 10px
+
+img
+	max-width: 100%
+
+ul, ol
+	margin: 0 0 10px 24px
+
+ul
+	list-style-type: square
+
+ol
+	list-style-type: decimal-leading-zero
+
+	ol
+		list-style-type: lower-alpha
+		margin-left: 17px
+
+blockquote
+	background-color: rgba(0, 0, 0, 0.25)
+	+border-radius(6px)
+	margin: 10px 0
+	padding: 12px 20px
+
+	blockquote
+		margin-top: 0
+
+//------------------------------------------------------------------------------------------
+
+.float-left
+	float: left
+
+.float-right
+	float: right
+
+.display-none
+	display: none
+
+.center
+	text-align: center
+
+.no-margin
+	margin: 0 !important
+
+.no-padding
+	padding: 0 !important
+
+.section
+
+	&:not(:last-child):not(:only-child)
+	margin-bottom: 20px
+
+//------------------------------------------------------------------------------------------
+
+#topbar
+	+clearfix
+	color: adjust-lightness($body-font-color, -50%)
+	padding: 10px 20px
+
+	ul
+		list-style: none
+		margin: 0
+
+		li
+			display: inline-block
+
+	.float-left
+
+		li
+			margin-right: 20px
+
+	.float-right
+
+		li
+			margin-left: 20px
+
+#footer
+	@extend #topbar
+	font-size: 11px
+	padding: 6px 20px
+
+#page
+	background-color: $page-background-color
+	width: $page-width
+	min-height: 100%
+
+#header
+	background: image-url('header.jpg') repeat-x top left
+	height: $header-height + 2px
+	position: relative
+	padding-bottom: 2px
+
+#logo
+	+single-transition(opacity, 0.25s)
+	background-image: image-url('logo.png')
+	height: image-height('logo.png')
+	left: ($logo-width- image-width('logo.png')) / 2
+	position: absolute
+	top: ($header-height - image-height('logo.png')) / 2
+	width: image-width('logo.png')
+
+	&:hover
+		opacity: 0.75
+
+#menu
+	float: right
+
+	a
+		+single-transition(color, 0.25s)
+		display: block
+		float: left
+		height: $header-height
+		width: (($page-width - $logo-width) / $menu-num-elements)
+
+		span
+			display: block
+			padding-top: +center($header-height, $menu-font-size)
+
+		&:hover
+			color: #96A3BB !important
+
+#content
+	+clearfix
+
+#left
+	float: left
+	width: ($page-width - $sidebar-width - 10px)
+
+#right
+	float: left
+	margin-left: 10px
+	width: $sidebar-width

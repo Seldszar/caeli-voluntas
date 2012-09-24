@@ -1,0 +1,1388 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a,
+a.ui-button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, ol, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img, a.ui-button img, input[type='submit'] img, input[type='reset'] img, input[type='button'] img, button img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+.icons-sprite, .ui-toolbar a.bold, .ui-toolbar a.bold.ui-button, .ui-toolbar input.bold[type='submit'], .ui-toolbar input.bold[type='reset'], .ui-toolbar input.bold[type='button'], .ui-toolbar button.bold, .ui-toolbar a.bold:hover, .ui-toolbar a.bold.ui-button:hover, .ui-toolbar input.bold[type='submit']:hover, .ui-toolbar input.bold[type='reset']:hover, .ui-toolbar input.bold[type='button']:hover, .ui-toolbar button.bold:hover, .ui-toolbar a.italic, .ui-toolbar a.italic.ui-button, .ui-toolbar input.italic[type='submit'], .ui-toolbar input.italic[type='reset'], .ui-toolbar input.italic[type='button'], .ui-toolbar button.italic, .ui-toolbar a.italic:hover, .ui-toolbar a.italic.ui-button:hover, .ui-toolbar input.italic[type='submit']:hover, .ui-toolbar input.italic[type='reset']:hover, .ui-toolbar input.italic[type='button']:hover, .ui-toolbar button.italic:hover, .ui-toolbar a.underline, .ui-toolbar a.underline.ui-button, .ui-toolbar input.underline[type='submit'], .ui-toolbar input.underline[type='reset'], .ui-toolbar input.underline[type='button'], .ui-toolbar button.underline, .ui-toolbar a.underline:hover, .ui-toolbar a.underline.ui-button:hover, .ui-toolbar input.underline[type='submit']:hover, .ui-toolbar input.underline[type='reset']:hover, .ui-toolbar input.underline[type='button']:hover, .ui-toolbar button.underline:hover, .ui-toolbar a.list, .ui-toolbar a.list.ui-button, .ui-toolbar input.list[type='submit'], .ui-toolbar input.list[type='reset'], .ui-toolbar input.list[type='button'], .ui-toolbar button.list, .ui-toolbar a.list:hover, .ui-toolbar a.list.ui-button:hover, .ui-toolbar input.list[type='submit']:hover, .ui-toolbar input.list[type='reset']:hover, .ui-toolbar input.list[type='button']:hover, .ui-toolbar button.list:hover, .ui-toolbar a.list-item, .ui-toolbar a.list-item.ui-button, .ui-toolbar input.list-item[type='submit'], .ui-toolbar input.list-item[type='reset'], .ui-toolbar input.list-item[type='button'], .ui-toolbar button.list-item, .ui-toolbar a.list-item:hover, .ui-toolbar a.list-item.ui-button:hover, .ui-toolbar input.list-item[type='submit']:hover, .ui-toolbar input.list-item[type='reset']:hover, .ui-toolbar input.list-item[type='button']:hover, .ui-toolbar button.list-item:hover, .ui-toolbar a.quote, .ui-toolbar a.quote.ui-button, .ui-toolbar input.quote[type='submit'], .ui-toolbar input.quote[type='reset'], .ui-toolbar input.quote[type='button'], .ui-toolbar button.quote, .ui-toolbar a.quote:hover, .ui-toolbar a.quote.ui-button:hover, .ui-toolbar input.quote[type='submit']:hover, .ui-toolbar input.quote[type='reset']:hover, .ui-toolbar input.quote[type='button']:hover, .ui-toolbar button.quote:hover, .article-action .view-comments .icon, .article-action .view-comments:hover .icon {
+  background: url('../img/icons-s67a4b152e9.png') no-repeat;
+}
+
+::selection, ::-moz-selection, ::-webkit-selection {
+  background: #96a3bb;
+  color: white;
+}
+
+* {
+  outline: none;
+}
+
+div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #1a1a1a url('../img/background.jpg') no-repeat fixed 800px 0%;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+}
+table tr {
+  border-bottom: 1px solid #333333;
+}
+table thead {
+  color: #676767;
+  font-size: 11px;
+}
+table thead td {
+  padding-bottom: 10px;
+  vertical-align: bottom;
+}
+table tbody td {
+  padding: 10px 0;
+}
+
+caption, th, td {
+  vertical-align: top;
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+em {
+  color: #a6a6a6;
+}
+
+h1 em {
+  font-size: 24px;
+}
+
+h2 em {
+  font-size: 18px;
+}
+
+h3 em {
+  font-size: 14px;
+}
+
+p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+}
+
+a, a.ui-button, input[type='submit'], input[type='reset'], input[type='button'], button {
+  cursor: pointer;
+}
+a.ui-button, input[type='submit'], input[type='reset'], input[type='button'], button {
+  background-color: #3a3a3a;
+  border: 1px solid transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  padding: 5px 18px;
+  text-transform: uppercase;
+}
+a.ui-button.inactive, input.inactive[type='submit'], input.inactive[type='reset'], input.inactive[type='button'], button.inactive {
+  opacity: 0.5;
+}
+a.ui-button:hover, input[type='submit']:hover, input[type='reset']:hover, input[type='button']:hover, button:hover, a.ui-button.checked, input.checked[type='submit'], input.checked[type='reset'], input.checked[type='button'], button.checked {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4c4c4c), color-stop(100%, #404040));
+  background-image: -webkit-linear-gradient(#4c4c4c, #404040);
+  background-image: -moz-linear-gradient(#4c4c4c, #404040);
+  background-image: -o-linear-gradient(#4c4c4c, #404040);
+  background-image: -ms-linear-gradient(#4c4c4c, #404040);
+  background-image: linear-gradient(#4c4c4c, #404040);
+  border: 1px solid #4a4a4a;
+}
+
+ul, ol {
+  list-style-type: square;
+  margin: 0 0 10px 24px;
+}
+
+ol {
+  list-style-type: decimal-leading-zero;
+}
+ol ol {
+  list-style-type: lower-alpha;
+  margin-left: 17px;
+}
+
+blockquote {
+  background-color: rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 12px 20px;
+}
+blockquote blockquote {
+  margin-top: 0;
+}
+
+.span-2 {
+  float: left;
+  width: 235px;
+}
+.span-2:not(:nth-child(2n)) {
+  margin-right: 20px;
+}
+
+.span-3 {
+  float: left;
+  width: 150px;
+}
+.span-3:not(:nth-child(3n)) {
+  margin-right: 20px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.display-none {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+#topbar, #footer {
+  overflow: hidden;
+  *zoom: 1;
+  color: #676767;
+  padding: 10px 20px;
+}
+#topbar ul, #footer ul, #topbar ol, #footer ol {
+  list-style: none;
+  margin: 0;
+}
+#topbar ul li, #footer ul li, #topbar ol li, #footer ol li {
+  display: inline-block;
+}
+#topbar .float-left li, #footer .float-left li {
+  margin-right: 20px;
+}
+#topbar .float-right li, #footer .float-right li {
+  margin-left: 20px;
+}
+
+#footer {
+  font-size: 11px;
+  padding: 6px 20px;
+}
+
+#page {
+  background-color: #212121;
+  width: 800px;
+  min-height: 100%;
+}
+
+#header {
+  background: url('../img/header.jpg') repeat-x top left;
+  height: 62px;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+#logo {
+  -webkit-transition: opacity 0.25s;
+  -moz-transition: opacity 0.25s;
+  -ms-transition: opacity 0.25s;
+  -o-transition: opacity 0.25s;
+  transition: opacity 0.25s false;
+  background-image: url('../img/logo.png');
+  height: 37px;
+  left: 19px;
+  position: absolute;
+  top: 11.5px;
+  width: 182px;
+}
+#logo:hover {
+  opacity: 0.75;
+}
+
+#menu {
+  float: right;
+}
+#menu a, #menu a.ui-button, #menu input[type='submit'], #menu input[type='reset'], #menu input[type='button'], #menu button {
+  -webkit-transition: color 0.25s;
+  -moz-transition: color 0.25s;
+  -ms-transition: color 0.25s;
+  -o-transition: color 0.25s;
+  transition: color 0.25s false;
+  display: block;
+  float: left;
+  height: 60px;
+  width: 145px;
+}
+#menu a span, #menu a.ui-button span, #menu input[type='submit'] span, #menu input[type='reset'] span, #menu input[type='button'] span, #menu button span {
+  display: block;
+  padding-top: 21px;
+}
+#menu a:hover, #menu a.ui-button:hover, #menu input[type='submit']:hover, #menu input[type='reset']:hover, #menu input[type='button']:hover, #menu button:hover {
+  color: #96a3bb !important;
+}
+
+#content {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+.section:last-child, .section:only-child {
+  margin-bottom: 0;
+}
+
+.section-empty, #error #content {
+  overflow: hidden;
+  *zoom: 1;
+  background: transparent url('../img/error.jpg') no-repeat center center !important;
+  height: 500px;
+  position: relative;
+}
+.section-empty h1, #error #content h1 {
+  margin: 200px 0 10px;
+  text-align: center;
+}
+.section-empty p, #error #content p {
+  text-align: center;
+}
+
+#left {
+  float: left;
+  width: 530px;
+}
+
+#right {
+  float: left;
+  margin-left: 10px;
+  width: 260px;
+}
+
+#tooltip {
+  background-color: #212121;
+  border: 1px solid #333333;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 15px black;
+  -moz-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
+  display: none;
+  padding: 10px;
+  position: absolute;
+}
+#tooltip.loading {
+  background-image: url('../img/loader.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 64px;
+  height: 64px;
+}
+#tooltip ul, #tooltip ol {
+  list-style: none;
+  margin: 0;
+}
+#tooltip ul li, #tooltip ol li {
+  margin: 0;
+}
+
+.ui-toolbar {
+  background-color: white;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  padding: 3px;
+}
+.ui-toolbar a, .ui-toolbar a.ui-button, .ui-toolbar input[type='submit'], .ui-toolbar input[type='reset'], .ui-toolbar input[type='button'], .ui-toolbar button {
+  display: block;
+  float: left;
+  height: 20px;
+  padding: 0 !important;
+  width: 24px;
+}
+.ui-toolbar a.bold, .ui-toolbar a.bold.ui-button, .ui-toolbar input.bold[type='submit'], .ui-toolbar input.bold[type='reset'], .ui-toolbar input.bold[type='button'], .ui-toolbar button.bold {
+  background-position: 0 -92px;
+}
+.ui-toolbar a.bold:hover, .ui-toolbar a.bold.ui-button:hover, .ui-toolbar input.bold[type='submit']:hover, .ui-toolbar input.bold[type='reset']:hover, .ui-toolbar input.bold[type='button']:hover, .ui-toolbar button.bold:hover {
+  background-position: 0 -132px;
+}
+.ui-toolbar a.italic, .ui-toolbar a.italic.ui-button, .ui-toolbar input.italic[type='submit'], .ui-toolbar input.italic[type='reset'], .ui-toolbar input.italic[type='button'], .ui-toolbar button.italic {
+  background-position: 0 -372px;
+}
+.ui-toolbar a.italic:hover, .ui-toolbar a.italic.ui-button:hover, .ui-toolbar input.italic[type='submit']:hover, .ui-toolbar input.italic[type='reset']:hover, .ui-toolbar input.italic[type='button']:hover, .ui-toolbar button.italic:hover {
+  background-position: 0 -332px;
+}
+.ui-toolbar a.underline, .ui-toolbar a.underline.ui-button, .ui-toolbar input.underline[type='submit'], .ui-toolbar input.underline[type='reset'], .ui-toolbar input.underline[type='button'], .ui-toolbar button.underline {
+  background-position: 0 -252px;
+}
+.ui-toolbar a.underline:hover, .ui-toolbar a.underline.ui-button:hover, .ui-toolbar input.underline[type='submit']:hover, .ui-toolbar input.underline[type='reset']:hover, .ui-toolbar input.underline[type='button']:hover, .ui-toolbar button.underline:hover {
+  background-position: 0 -212px;
+}
+.ui-toolbar a.list, .ui-toolbar a.list.ui-button, .ui-toolbar input.list[type='submit'], .ui-toolbar input.list[type='reset'], .ui-toolbar input.list[type='button'], .ui-toolbar button.list {
+  background-position: 0 -412px;
+}
+.ui-toolbar a.list:hover, .ui-toolbar a.list.ui-button:hover, .ui-toolbar input.list[type='submit']:hover, .ui-toolbar input.list[type='reset']:hover, .ui-toolbar input.list[type='button']:hover, .ui-toolbar button.list:hover {
+  background-position: 0 -452px;
+}
+.ui-toolbar a.list-item, .ui-toolbar a.list-item.ui-button, .ui-toolbar input.list-item[type='submit'], .ui-toolbar input.list-item[type='reset'], .ui-toolbar input.list-item[type='button'], .ui-toolbar button.list-item {
+  background-position: 0 -492px;
+}
+.ui-toolbar a.list-item:hover, .ui-toolbar a.list-item.ui-button:hover, .ui-toolbar input.list-item[type='submit']:hover, .ui-toolbar input.list-item[type='reset']:hover, .ui-toolbar input.list-item[type='button']:hover, .ui-toolbar button.list-item:hover {
+  background-position: 0 -532px;
+}
+.ui-toolbar a.quote, .ui-toolbar a.quote.ui-button, .ui-toolbar input.quote[type='submit'], .ui-toolbar input.quote[type='reset'], .ui-toolbar input.quote[type='button'], .ui-toolbar button.quote {
+  background-position: 0 -172px;
+}
+.ui-toolbar a.quote:hover, .ui-toolbar a.quote.ui-button:hover, .ui-toolbar input.quote[type='submit']:hover, .ui-toolbar input.quote[type='reset']:hover, .ui-toolbar input.quote[type='button']:hover, .ui-toolbar button.quote:hover {
+  background-position: 0 -292px;
+}
+
+ul, ol {
+  overflow: hidden;
+  *zoom: 1;
+}
+ul.link-list, ol.link-list {
+  margin: 0;
+}
+ul.link-list li, ol.link-list li {
+  overflow: hidden;
+  *zoom: 1;
+  background-color: #191919;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  position: relative;
+}
+ul.link-list li:hover, ol.link-list li:hover {
+  background-color: #1c1c1c !important;
+}
+ul.link-list li:last-child, ol.link-list li:last-child {
+  margin-bottom: 0;
+}
+
+.link-inner {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.link-rem {
+  font-style: italic;
+}
+
+.link-action {
+  float: right;
+}
+.link-action a, .link-action a.ui-button, .link-action input[type='submit'], .link-action input[type='reset'], .link-action input[type='button'], .link-action button {
+  background-color: #212121;
+  float: left;
+  margin-left: 1px;
+  padding: 4px 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.link-action a.recruitment-spec, .link-action a.recruitment-spec.ui-button, .link-action input.recruitment-spec[type='submit'], .link-action input.recruitment-spec[type='reset'], .link-action input.recruitment-spec[type='button'], .link-action button.recruitment-spec {
+  width: 116px;
+}
+.link-action a:hover, .link-action a.ui-button:hover, .link-action input[type='submit']:hover, .link-action input[type='reset']:hover, .link-action input[type='button']:hover, .link-action button:hover {
+  background-color: #2b2b2b;
+}
+.link-action a:not(.checked), .link-action a.ui-button:not(.checked), .link-action input[type='submit']:not(.checked), .link-action input[type='reset']:not(.checked), .link-action input[type='button']:not(.checked), .link-action button:not(.checked) {
+  opacity: 0.5;
+}
+.link-action a:first-child, .link-action a.ui-button:first-child, .link-action input[type='submit']:first-child, .link-action input[type='reset']:first-child, .link-action input[type='button']:first-child, .link-action button:first-child {
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -ms-border-radius: 5px 0 0 5px;
+  -o-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+}
+.link-action a:last-child, .link-action a.ui-button:last-child, .link-action input[type='submit']:last-child, .link-action input[type='reset']:last-child, .link-action input[type='button']:last-child, .link-action button:last-child {
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  -ms-border-radius: 0 5px 5px 0;
+  -o-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.message, .error-message, .success-message {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #313131), color-stop(100%, #404040));
+  background-image: -webkit-linear-gradient(#313131, #404040);
+  background-image: -moz-linear-gradient(#313131, #404040);
+  background-image: -o-linear-gradient(#313131, #404040);
+  background-image: -ms-linear-gradient(#313131, #404040);
+  background-image: linear-gradient(#313131, #404040);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 7px 14px;
+}
+
+.error-message {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6b0808), color-stop(100%, #870a0a));
+  background-image: -webkit-linear-gradient(#6b0808, #870a0a);
+  background-image: -moz-linear-gradient(#6b0808, #870a0a);
+  background-image: -o-linear-gradient(#6b0808, #870a0a);
+  background-image: -ms-linear-gradient(#6b0808, #870a0a);
+  background-image: linear-gradient(#6b0808, #870a0a);
+}
+
+.success-message {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #266b08), color-stop(100%, #30870a));
+  background-image: -webkit-linear-gradient(#266b08, #30870a);
+  background-image: -moz-linear-gradient(#266b08, #30870a);
+  background-image: -o-linear-gradient(#266b08, #30870a);
+  background-image: -ms-linear-gradient(#266b08, #30870a);
+  background-image: linear-gradient(#266b08, #30870a);
+}
+
+#breadcrumb {
+  overflow: hidden;
+  *zoom: 1;
+}
+#breadcrumb ul, #breadcrumb ol {
+  list-style: none;
+  margin: 0;
+}
+#breadcrumb li {
+  float: left;
+  margin-right: 11px !important;
+  padding-right: 16px;
+}
+#breadcrumb li:not(:last-child) {
+  background: url('../img/arrow.png') no-repeat center right;
+}
+#breadcrumb li.last {
+  color: #e6e6e6;
+}
+
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.ui-sortable-helper {
+  opacity: 0.5;
+}
+
+.by-line {
+  color: silver;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+#page-header {
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  padding: 30px 20px;
+  position: relative;
+}
+
+#page-content {
+  overflow: hidden;
+  *zoom: 1;
+  background-position: left top;
+  min-height: 87px;
+  padding: 20px;
+  position: relative;
+}
+
+body.one_column #page-content {
+  background-repeat: repeat-x;
+  background-image: url('../img/full-page-content.jpg');
+}
+body.two_column #page-content {
+  background-repeat: no-repeat;
+  background-image: url('../img/page-content.jpg');
+}
+body#user #page-content {
+  background-repeat: no-repeat;
+  background-image: url('../img/user-page-content.jpg');
+  background-position: top right;
+}
+
+#event-header {
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  min-height: 198px;
+  padding: 60px 20px 30px;
+}
+
+#event-type {
+  color: #a6a6a6;
+  font-size: 16px;
+}
+
+#event-description {
+  color: #cdcdcd;
+  font-style: italic;
+  margin-top: 30px;
+  padding: 0 40px;
+}
+
+#event-action {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.event-participants {
+  float: left;
+  width: 260px;
+}
+.event-participants:not(:last-child) {
+  margin-right: 20px;
+}
+
+.avatar {
+  border: 5px solid #212121;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.max-150px {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.ui-button-set {
+  overflow: hidden;
+  *zoom: 1;
+  display: inline-block;
+}
+.ui-button-set li {
+  margin-left: 1px !important;
+}
+.ui-button-set li a, .ui-button-set li a.ui-button, .ui-button-set li input[type='submit'], .ui-button-set li input[type='reset'], .ui-button-set li input[type='button'], .ui-button-set li button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  float: left;
+}
+.ui-button-set li:first-child a, .ui-button-set li:first-child a.ui-button, .ui-button-set li:first-child input[type='submit'], .ui-button-set li:first-child input[type='reset'], .ui-button-set li:first-child input[type='button'], .ui-button-set li:first-child button {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+.ui-button-set li:last-child a, .ui-button-set li:last-child a.ui-button, .ui-button-set li:last-child input[type='submit'], .ui-button-set li:last-child input[type='reset'], .ui-button-set li:last-child input[type='button'], .ui-button-set li:last-child button {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -ms-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#login {
+  margin: 50px auto;
+  width: 340px;
+}
+
+ul.ui-sortable > li, ol.ui-sortable > li {
+  cursor: move;
+}
+ul.link-list > li, ol.link-list > li {
+  overflow: hidden;
+  *zoom: 1;
+}
+ul.link-list > li:not(:hover) .on-hover, ol.link-list > li:not(:hover) .on-hover {
+  opacity: 0.2;
+}
+ul.link-list > li ul, ol.link-list > li ul, ul.link-list > li ol, ol.link-list > li ol {
+  list-style: none;
+  margin: 0;
+}
+ul.link-list > li ul li, ol.link-list > li ul li, ul.link-list > li ol li, ol.link-list > li ol li {
+  float: left;
+}
+ul.link-list > li ul .float-left li, ol.link-list > li ul .float-left li, ul.link-list > li ol .float-left li, ol.link-list > li ol .float-left li {
+  margin-right: 10px;
+}
+ul.link-list > li ul.float-right li, ol.link-list > li ul.float-right li, ul.link-list > li ol.float-right li, ol.link-list > li ol.float-right li {
+  margin-left: 10px;
+}
+ul.ui-custom-list, ol.ui-custom-list {
+  margin: 0;
+}
+ul.ui-custom-list > li, ol.ui-custom-list > li {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+}
+ul.ui-custom-list > li:not(:hover) .on-hover, ol.ui-custom-list > li:not(:hover) .on-hover {
+  opacity: 0.2;
+}
+ul.ui-custom-list > li ul, ol.ui-custom-list > li ul, ul.ui-custom-list > li ol, ol.ui-custom-list > li ol {
+  list-style: none;
+  margin: 0;
+}
+ul.ui-custom-list > li ul li, ol.ui-custom-list > li ul li, ul.ui-custom-list > li ol li, ol.ui-custom-list > li ol li {
+  float: left;
+}
+ul.ui-custom-list > li ul.float-left li, ol.ui-custom-list > li ul.float-left li, ul.ui-custom-list > li ol.float-left li, ol.ui-custom-list > li ol.float-left li {
+  margin-right: 10px;
+}
+ul.ui-custom-list > li ul.float-right li, ol.ui-custom-list > li ul.float-right li, ul.ui-custom-list > li ol.float-right li, ol.ui-custom-list > li ol.float-right li {
+  margin-left: 10px;
+}
+ul.ui-custom-list .ui-button-set, ol.ui-custom-list .ui-button-set {
+  display: inline-block;
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+ul.ui-custom-list .ui-button-set li, ol.ui-custom-list .ui-button-set li {
+  margin-left: 1px !important;
+}
+ul.ui-custom-list .ui-button-set li a, ol.ui-custom-list .ui-button-set li a, ul.ui-custom-list .ui-button-set li a.ui-button, ol.ui-custom-list .ui-button-set li a.ui-button, ul.ui-custom-list .ui-button-set li input[type='submit'], ol.ui-custom-list .ui-button-set li input[type='submit'], ul.ui-custom-list .ui-button-set li input[type='reset'], ol.ui-custom-list .ui-button-set li input[type='reset'], ul.ui-custom-list .ui-button-set li input[type='button'], ol.ui-custom-list .ui-button-set li input[type='button'], ul.ui-custom-list .ui-button-set li button, ol.ui-custom-list .ui-button-set li button {
+  background-color: #191919;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  padding: 2px 10px;
+  font-size: 11px;
+  text-transform: none;
+}
+ul.ui-custom-list .ui-button-set li a:hover, ol.ui-custom-list .ui-button-set li a:hover, ul.ui-custom-list .ui-button-set li a.ui-button:hover, ol.ui-custom-list .ui-button-set li a.ui-button:hover, ul.ui-custom-list .ui-button-set li input[type='submit']:hover, ol.ui-custom-list .ui-button-set li input[type='submit']:hover, ul.ui-custom-list .ui-button-set li input[type='reset']:hover, ol.ui-custom-list .ui-button-set li input[type='reset']:hover, ul.ui-custom-list .ui-button-set li input[type='button']:hover, ol.ui-custom-list .ui-button-set li input[type='button']:hover, ul.ui-custom-list .ui-button-set li button:hover, ol.ui-custom-list .ui-button-set li button:hover {
+  background-color: #1c1c1c;
+}
+ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set li a.checked, ul.ui-custom-list .ui-button-set li a.checked.ui-button, ol.ui-custom-list .ui-button-set li a.checked.ui-button, ul.ui-custom-list .ui-button-set li input.checked[type='submit'], ol.ui-custom-list .ui-button-set li input.checked[type='submit'], ul.ui-custom-list .ui-button-set li input.checked[type='reset'], ol.ui-custom-list .ui-button-set li input.checked[type='reset'], ul.ui-custom-list .ui-button-set li input.checked[type='button'], ol.ui-custom-list .ui-button-set li input.checked[type='button'], ul.ui-custom-list .ui-button-set li button.checked, ol.ui-custom-list .ui-button-set li button.checked {
+  background-color: #404040;
+}
+
+.caption-empty {
+  margin: 50px 0;
+  text-align: center;
+}
+
+#gallery {
+  margin: 0;
+  list-style: none;
+}
+#gallery li {
+  float: left;
+  width: 239.667px;
+  height: 152px;
+  margin-bottom: 20px;
+}
+#gallery li:not(:nth-child(3n)) {
+  margin-right: 20px;
+}
+#gallery li img {
+  background-color: #313131;
+  border: 1px solid #383838;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  max-height: 100%;
+}
+#gallery li img:hover {
+  border-color: #525252;
+}
+
+#gallery-view {
+  text-align: center;
+}
+
+#gallery-image {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.ui-pagination > span:not(:last-child) {
+  margin-right: 1px;
+}
+.ui-pagination > span.current, .ui-pagination > span.ellipsis, .ui-pagination > span > a, .ui-pagination > span > a.ui-button, .ui-pagination > span > input[type='submit'], .ui-pagination > span > input[type='reset'], .ui-pagination > span > input[type='button'], .ui-pagination > span > button {
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  vertical-align: middle;
+  width: 26px;
+}
+.ui-pagination > span > a, .ui-pagination > span > a.ui-button, .ui-pagination > span > input[type='submit'], .ui-pagination > span > input[type='reset'], .ui-pagination > span > input[type='button'], .ui-pagination > span > button {
+  background-color: #191919;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.ui-pagination > span > a:hover, .ui-pagination > span > a.ui-button:hover, .ui-pagination > span > input[type='submit']:hover, .ui-pagination > span > input[type='reset']:hover, .ui-pagination > span > input[type='button']:hover, .ui-pagination > span > button:hover {
+  background-color: #1c1c1c;
+}
+
+#page-content-top {
+  overflow: hidden;
+  *zoom: 1;
+}
+#page-content-top .ui-pagination {
+  margin-top: 2px;
+}
+
+.inactive {
+  opacity: 0.5;
+}
+
+#homepage #page-content {
+  background: none;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.select {
+  overflow: hidden;
+  *zoom: 1;
+}
+.select .checkbox {
+  overflow: hidden;
+  *zoom: 1;
+  border-bottom: 1px solid #333333;
+  padding: 10px;
+}
+.select input[type='checkbox'] {
+  float: right;
+}
+.select label {
+  float: left;
+}
+
+input[type='text'], textarea, select, input[type='password'], input[type='email'] {
+  font: inherit;
+  background-color: white;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 5px;
+  resize: none;
+  width: 100%;
+}
+input[type='text']:last-child, textarea:last-child, select:last-child, input[type='password']:last-child, input[type='email']:last-child {
+  margin-bottom: 0;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+.input.date select, .input.time select {
+  display: inline-block;
+  width: auto;
+}
+.input.date select:nth-of-type(1) {
+  margin-right: 10px;
+  width: 60px;
+}
+.input.date select:nth-of-type(2) {
+  margin-right: 10px;
+  width: 200px;
+}
+.input.date select:nth-of-type(3) {
+  width: 80px;
+}
+.input.time select:nth-of-type(1) {
+  margin-right: 3px;
+  width: 60px;
+}
+.input.time select:nth-of-type(2) {
+  margin-left: 4px;
+  width: 60px;
+}
+
+.section-action, .submit {
+  margin-top: 10px;
+}
+.section-action a, .section-action a.ui-button, .section-action input[type='submit'], .section-action input[type='reset'], .section-action input[type='button'], .section-action button, .submit a, .submit a.ui-button, .submit input[type='submit'], .submit input[type='reset'], .submit input[type='button'], .submit button {
+  margin-right: 10px;
+}
+
+textarea {
+  resize: vertical;
+}
+textarea.has-ui-toolbar {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+label {
+  display: block;
+}
+
+.form-action {
+  margin-top: 10px;
+}
+
+form.inline {
+  position: relative;
+}
+form.inline input[type='submit'], form.inline input[type='image'] {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+
+body {
+  color: #e6e6e6;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+
+h1, h2, h3 {
+  font-family: Oswald, sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 1;
+}
+
+a, a.ui-button, input[type='submit'], input[type='reset'], input[type='button'], button {
+  color: #96a3bb;
+  text-decoration: none;
+}
+a:hover, a.ui-button:hover, input[type='submit']:hover, input[type='reset']:hover, input[type='button']:hover, button:hover {
+  color: white !important;
+}
+
+small {
+  font-size: 11px;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+#menu {
+  font-family: Oswald, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+#menu a, #menu a.ui-button, #menu input[type='submit'], #menu input[type='reset'], #menu input[type='button'], #menu button {
+  color: #e6e6e6;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.color-c1, .roster-class.class-1 a, .forum-list li.class-1 a, .roster-class.class-1 a.ui-button, .forum-list li.class-1 a.ui-button, .roster-class.class-1 input[type='submit'], .forum-list li.class-1 input[type='submit'], .roster-class.class-1 input[type='reset'], .forum-list li.class-1 input[type='reset'], .roster-class.class-1 input[type='button'], .forum-list li.class-1 input[type='button'], .roster-class.class-1 button, .forum-list li.class-1 button {
+  color: #c69b6d;
+}
+
+.color-c2, .roster-class.class-2 a, .forum-list li.class-2 a, .roster-class.class-2 a.ui-button, .forum-list li.class-2 a.ui-button, .roster-class.class-2 input[type='submit'], .forum-list li.class-2 input[type='submit'], .roster-class.class-2 input[type='reset'], .forum-list li.class-2 input[type='reset'], .roster-class.class-2 input[type='button'], .forum-list li.class-2 input[type='button'], .roster-class.class-2 button, .forum-list li.class-2 button {
+  color: #f48cba;
+}
+
+.color-c3, .roster-class.class-3 a, .forum-list li.class-3 a, .roster-class.class-3 a.ui-button, .forum-list li.class-3 a.ui-button, .roster-class.class-3 input[type='submit'], .forum-list li.class-3 input[type='submit'], .roster-class.class-3 input[type='reset'], .forum-list li.class-3 input[type='reset'], .roster-class.class-3 input[type='button'], .forum-list li.class-3 input[type='button'], .roster-class.class-3 button, .forum-list li.class-3 button {
+  color: #aad372;
+}
+
+.color-c4, .roster-class.class-4 a, .forum-list li.class-4 a, .roster-class.class-4 a.ui-button, .forum-list li.class-4 a.ui-button, .roster-class.class-4 input[type='submit'], .forum-list li.class-4 input[type='submit'], .roster-class.class-4 input[type='reset'], .forum-list li.class-4 input[type='reset'], .roster-class.class-4 input[type='button'], .forum-list li.class-4 input[type='button'], .roster-class.class-4 button, .forum-list li.class-4 button {
+  color: #fff468;
+}
+
+.color-c5, .roster-class.class-5 a, .forum-list li.class-5 a, .roster-class.class-5 a.ui-button, .forum-list li.class-5 a.ui-button, .roster-class.class-5 input[type='submit'], .forum-list li.class-5 input[type='submit'], .roster-class.class-5 input[type='reset'], .forum-list li.class-5 input[type='reset'], .roster-class.class-5 input[type='button'], .forum-list li.class-5 input[type='button'], .roster-class.class-5 button, .forum-list li.class-5 button {
+  color: #f0ebe0;
+}
+
+.color-c6, .roster-class.class-6 a, .forum-list li.class-6 a, .roster-class.class-6 a.ui-button, .forum-list li.class-6 a.ui-button, .roster-class.class-6 input[type='submit'], .forum-list li.class-6 input[type='submit'], .roster-class.class-6 input[type='reset'], .forum-list li.class-6 input[type='reset'], .roster-class.class-6 input[type='button'], .forum-list li.class-6 input[type='button'], .roster-class.class-6 button, .forum-list li.class-6 button {
+  color: #c41e3b;
+}
+
+.color-c7, .roster-class.class-7 a, .forum-list li.class-7 a, .roster-class.class-7 a.ui-button, .forum-list li.class-7 a.ui-button, .roster-class.class-7 input[type='submit'], .forum-list li.class-7 input[type='submit'], .roster-class.class-7 input[type='reset'], .forum-list li.class-7 input[type='reset'], .roster-class.class-7 input[type='button'], .forum-list li.class-7 input[type='button'], .roster-class.class-7 button, .forum-list li.class-7 button {
+  color: #2359ff;
+}
+
+.color-c8, .roster-class.class-8 a, .forum-list li.class-8 a, .roster-class.class-8 a.ui-button, .forum-list li.class-8 a.ui-button, .roster-class.class-8 input[type='submit'], .forum-list li.class-8 input[type='submit'], .roster-class.class-8 input[type='reset'], .forum-list li.class-8 input[type='reset'], .roster-class.class-8 input[type='button'], .forum-list li.class-8 input[type='button'], .roster-class.class-8 button, .forum-list li.class-8 button {
+  color: #68ccef;
+}
+
+.color-c9, .roster-class.class-9 a, .forum-list li.class-9 a, .roster-class.class-9 a.ui-button, .forum-list li.class-9 a.ui-button, .roster-class.class-9 input[type='submit'], .forum-list li.class-9 input[type='submit'], .roster-class.class-9 input[type='reset'], .forum-list li.class-9 input[type='reset'], .roster-class.class-9 input[type='button'], .forum-list li.class-9 input[type='button'], .roster-class.class-9 button, .forum-list li.class-9 button {
+  color: #9382c9;
+}
+
+.color-c11, .roster-class.class-11 a, .forum-list li.class-11 a, .roster-class.class-11 a.ui-button, .forum-list li.class-11 a.ui-button, .roster-class.class-11 input[type='submit'], .forum-list li.class-11 input[type='submit'], .roster-class.class-11 input[type='reset'], .forum-list li.class-11 input[type='reset'], .roster-class.class-11 input[type='button'], .forum-list li.class-11 input[type='button'], .roster-class.class-11 button, .forum-list li.class-11 button {
+  color: #ff7c0a;
+}
+
+.flash-error {
+  color: #ee0022;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.sidebar-module:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.sidebar-module-content {
+  overflow: hidden;
+  *zoom: 1;
+  border-top: 1px solid #333333;
+  padding: 10px 10px 0 0;
+}
+
+.recruitment-class {
+  float: left;
+  margin-bottom: 6px;
+  width: 50%;
+}
+.recruitment-class.last {
+  margin-bottom: 0;
+}
+
+.guild-feed, .popular-thread {
+  margin-bottom: 6px;
+}
+.guild-feed small, .popular-thread small {
+  color: #676767;
+  display: block;
+}
+.guild-feed:last-child, .popular-thread:last-child {
+  margin-bottom: 0;
+}
+
+.encounter-zone {
+  padding-bottom: 6px;
+}
+
+.zone-progress {
+  background-color: #191919;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 10px;
+  position: relative;
+}
+.zone-progress .complete-0 {
+  width: 0%;
+}
+.zone-progress .complete-25 {
+  width: 25%;
+}
+.zone-progress .complete-50 {
+  width: 50%;
+}
+.zone-progress .complete-75 {
+  width: 75%;
+}
+.zone-progress .complete-100 {
+  width: 100%;
+}
+.zone-progress .normal-mode, .zone-progress .heroic-mode {
+  background-color: #525966;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.zone-progress .heroic-mode {
+  background-color: #96a3bb;
+}
+
+.boss-status {
+  color: #ffd4d4;
+}
+.boss-status.normal {
+  color: #d4ffaa;
+}
+.boss-status.heroic {
+  font-weight: bold;
+}
+
+.popular-thread small a, .popular-thread small a.ui-button, .popular-thread small input[type='submit'], .popular-thread small input[type='reset'], .popular-thread small input[type='button'], .popular-thread small button {
+  color: #7788a7;
+}
+
+.blog-article {
+  overflow: hidden;
+  *zoom: 1;
+  background: url('../img/page-content.jpg') no-repeat top left;
+  padding: 20px;
+}
+.blog-article h1 a, .blog-article h1 a.ui-button, .blog-article h1 input[type='submit'], .blog-article h1 input[type='reset'], .blog-article h1 input[type='button'], .blog-article h1 button {
+  -webkit-transition: opacity 0.25s;
+  -moz-transition: opacity 0.25s;
+  -ms-transition: opacity 0.25s;
+  -o-transition: opacity 0.25s;
+  transition: opacity 0.25s false;
+}
+.blog-article h1 a:hover, .blog-article h1 a.ui-button:hover, .blog-article h1 input[type='submit']:hover, .blog-article h1 input[type='reset']:hover, .blog-article h1 input[type='button']:hover, .blog-article h1 button:hover {
+  opacity: 0.75;
+}
+
+.article-content p:last-child {
+  margin: 0;
+}
+
+.article-action {
+  margin-top: 10px;
+  text-align: right;
+}
+.article-action .view-comments .icon {
+  background-position: 0 -572px;
+  display: inline-block;
+  height: 9px;
+  margin-left: 5px;
+  width: 5px;
+}
+.article-action .view-comments:hover .icon {
+  background-position: 0 -630px;
+}
+
+.comment {
+  background-color: #191919;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.comment:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.comment-author {
+  float: left;
+}
+.comment-author .avatar {
+  -webkit-box-shadow: 0 0 10px black;
+  -moz-box-shadow: 0 0 10px black;
+  box-shadow: 0 0 10px black;
+  height: 64px;
+  margin-right: 10px;
+  width: 64px;
+}
+
+.comment-meta {
+  color: #676767;
+  font-size: 11px;
+  line-height: 1;
+  margin-bottom: 0.4em;
+}
+
+.comment-content {
+  float: left;
+  width: 356px;
+}
+
+#new-comment h2 {
+  margin-bottom: 10px;
+}
+#new-comment .error-message {
+  width: 230px;
+}
+
+#new-comment-inner {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.blog-article h1 a, .blog-article h1 a.ui-button, .blog-article h1 input[type='submit'], .blog-article h1 input[type='reset'], .blog-article h1 input[type='button'], .blog-article h1 button {
+  color: inherit;
+}
+
+.roster-class, .forum-list li {
+  float: left;
+  margin-bottom: 20px;
+  position: relative;
+  width: 235px;
+}
+.roster-class:nth-child(2n), .forum-list li:nth-child(2n) {
+  margin-left: 20px;
+}
+.roster-class.last, .forum-list li.last {
+  margin-bottom: 0;
+}
+.roster-class h2, .forum-list li h2 {
+  margin-bottom: 3px;
+}
+
+.category {
+  margin-bottom: 20px;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+#topics, #posts {
+  margin-top: 2px;
+}
+
+.topic {
+  background: url('../img/separator.gif') repeat-x center bottom;
+  border: none;
+}
+.topic:hover {
+  background-color: #292929 !important;
+}
+.topic td {
+  padding: 10px 0;
+}
+.topic td:nth-child(1) {
+  padding-left: 20px;
+}
+.topic td:nth-child(2) {
+  padding-right: 20px;
+  text-align: right;
+  width: 128px;
+}
+.topic td:nth-child(3) {
+  padding-right: 20px;
+  width: 160px;
+}
+
+.topic-meta, .link-desc, .link-rem, .topic td:nth-child(2), .topic td:nth-child(3), .topic td:nth-child(4) {
+  color: #676767;
+  font-size: 11px;
+}
+
+.post {
+  background: url('../img/separator.gif') repeat-x center bottom;
+  border: none;
+}
+.post td {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.post td:last-child {
+  padding-right: 20px;
+  position: relative;
+}
+
+.post-author {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 190px;
+}
+
+.post-date {
+  margin-bottom: 6px;
+}
+
+.post-action {
+  overflow: hidden;
+  *zoom: 1;
+  list-style: none;
+  margin: 20px 0 0;
+}
+.post-action li {
+  float: left;
+  margin-right: 20px;
+}
+
+.post-edited {
+  margin-top: 6px;
+}
+
+.post-author {
+  vertical-align: top;
+}
+.post-author .name {
+  font-size: 16px;
+}
+.post-author .group {
+  font-size: 11px;
+}
+
+.post.deleted .post-body {
+  opacity: 0.5;
+}
+
+.post-date {
+  color: #7788a7;
+  font-size: 11px;
+}
+
+body#user #left {
+  padding: 10px 0 0 20px;
+  width: 210px;
+}
+body#user #right {
+  width: 580px;
+}
+
+.menu-section:not(:last-child) {
+  margin-bottom: 15px;
+}
+.menu-section h2 {
+  margin-bottom: 10px;
+}
+.menu-section ul, .menu-section ol {
+  list-style: none;
+  margin: 0;
+}
+.menu-section ul li, .menu-section ol li {
+  border-bottom: 1px solid #262626;
+}
+.menu-section ul li:first-child, .menu-section ol li:first-child {
+  border-top: 1px solid #262626;
+}
+.menu-section ul li:hover, .menu-section ol li:hover {
+  background-color: #1e1e1e;
+}
+.menu-section ul li a, .menu-section ol li a, .menu-section ul li a.ui-button, .menu-section ol li a.ui-button, .menu-section ul li input[type='submit'], .menu-section ol li input[type='submit'], .menu-section ul li input[type='reset'], .menu-section ol li input[type='reset'], .menu-section ul li input[type='button'], .menu-section ol li input[type='button'], .menu-section ul li button, .menu-section ol li button {
+  display: block;
+  padding: 7px 10px;
+}
+
+#error #content h3 {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+#error #content .cake-stack-trace {
+  margin: 0 50px;
+}

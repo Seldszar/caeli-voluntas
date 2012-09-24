@@ -1,0 +1,8 @@
+.sass-cache
+/webroot/watch.bat
+/tmp/**/*
+!/tmp/**/empty
+/webroot/mg/gallery/*
+!/webroot/mg/gallery/empty
+/Config/email.php
+/Config/database.php

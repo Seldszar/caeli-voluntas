@@ -1,0 +1,1 @@
+<div class="ui-pagination<?php echo isset($class) ? ' ' . $class : null ?>"><?php echo $this->Paginator->numbers(array('separator' => false, 'first' => 1, 'last' => 1, 'modulus' => 6, 'ellipsis' => '<span class="ellipsis">&hellip;</span>')) ?></div>

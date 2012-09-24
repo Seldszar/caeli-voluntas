@@ -1,0 +1,694 @@
+::selection, ::-moz-selection, ::-webkit-selection
+	background: $link-color-normal
+	color: #FFFFFF
+
+*
+	outline: none
+
+div
+	+box-sizing(border-box)
+
+html
+	height: 100%
+
+body
+	background: #1A1A1A image-url('background.jpg') no-repeat fixed $page-width 0%
+	height: 100%
+
+table
+	width: 100%
+
+	tr
+		border-bottom: 1px solid #333333
+
+	thead
+		color: adjust-lightness($body-font-color, -50%)
+		font-size: 11px
+
+		td
+			padding-bottom: 10px
+			vertical-align: bottom
+
+	tbody
+
+		td
+			padding: 10px 0
+
+caption, th, td
+	vertical-align: top
+
+h1, h2, h3
+	margin-bottom: 10px
+
+em
+	color: adjust-lightness($body-font-color, -25%)
+
+h1
+
+	em
+		font-size: 24px
+
+h2
+
+	em
+		font-size: 18px
+   
+h3
+
+	em
+		font-size: 14px
+
+p
+	&:not(:last-child)
+		margin-bottom: 10px
+
+img
+	max-width: 100%
+
+a
+	cursor: pointer
+
+	&.ui-button
+		@extend a
+		background-color: adjust-lightness(#262626, 8%)
+		border: 1px solid transparent
+		+border-radius(3px)
+		cursor: pointer
+		display: inline-block
+		font-size: 11px
+		padding: 5px 18px
+		text-transform: uppercase
+
+		&.inactive
+			opacity: 0.5
+
+		&:hover, &.checked
+			+background-image(linear-gradient(adjust-lightness(#262626, 15%), adjust-lightness(#262626, 10%)))
+			border: 1px solid adjust-lightness(#262626, 14%)
+
+ul
+	list-style-type: square
+	margin: 0 0 10px 24px
+
+ol
+	@extend ul
+	list-style-type: decimal-leading-zero
+
+	ol
+		list-style-type: lower-alpha
+		margin-left: 17px
+
+blockquote
+	background-color: rgba(0,0,0,0.25)
+	+border-radius(6px)
+	margin: 10px 0
+	padding: 12px 20px
+
+	blockquote
+		margin-top: 0
+
+.span-2
+	float: left
+	width: ((490px + 20px) / 2 - 20px)
+
+	&:not(:nth-child(2n))
+		margin-right: 20px
+
+.span-3
+	float: left
+	width: ((490px + 20px) / 3 - 20px)
+
+	&:not(:nth-child(3n))
+		margin-right: 20px
+
+.float-left
+	float: left
+
+.float-right
+	float: right
+
+.display-none
+	display: none
+
+.center
+	text-align: center
+
+.no-margin
+	margin: 0 !important
+
+.no-padding
+	padding: 0 !important
+
+#topbar
+	+clearfix
+	color: adjust-lightness($body-font-color, -50%)
+	padding: 10px 20px
+
+	ul
+		list-style: none
+		margin: 0
+
+		li
+			display: inline-block
+
+	.float-left
+
+		li
+			margin-right: 20px
+
+	.float-right
+
+		li
+			margin-left: 20px
+
+#footer
+	@extend #topbar
+	font-size: 11px
+	padding: 6px 20px
+
+#page
+	background-color: #212121
+	width: $page-width
+	min-height: 100%
+
+#header
+	background: image-url('header.jpg') repeat-x top left
+	height: $header-height + 2px
+	position: relative
+	padding-bottom: 2px
+
+#logo
+	+single-transition(opacity, 0.25s)
+	background-image: image-url('logo.png')
+	height: image-height('logo.png')
+	left: +center($logo-width, image-width('logo.png'))
+	position: absolute
+	top: +center($header-height, image-height('logo.png'))
+	width: image-width('logo.png')
+
+	&:hover
+		opacity: 0.75
+
+#menu
+	float: right
+
+	a
+		+single-transition(color, 0.25s)
+		display: block
+		float: left
+		height: $header-height
+		width: (($page-width - $logo-width) / $menu-num-elements)
+
+		span
+			display: block
+			padding-top: +center($header-height, $menu-font-size)
+
+		&:hover
+			color: #96A3BB !important
+
+#content
+	+clearfix
+
+.section
+	margin-bottom: 20px
+
+	&:last-child, &:only-child
+		margin-bottom: 0
+
+.section-empty
+	+clearfix
+	background: transparent image-url('error.jpg') no-repeat center center !important
+	height: image-height('error.jpg')
+	position: relative
+
+	h1
+		margin: 200px 0 10px
+		text-align: center
+
+	p
+		text-align: center
+
+#left
+	float: left
+	width: ($page-width - $sidebar-width - 10px)
+
+#right
+	float: left
+	margin-left: 10px
+	width: $sidebar-width
+
+#tooltip
+	background-color: rgba(33,33,33,1)
+	border: 1px solid #333333
+	+border-radius(2px)
+	+box-shadow(0 0 15px #000000)
+	display: none
+	padding: 10px
+	position: absolute
+
+	&.loading
+		background-image: image-url('loader.gif')
+		background-repeat: no-repeat
+		background-position: center
+		width: 64px
+		height: 64px
+
+	ul
+		list-style: none
+		margin: 0
+
+		li
+			margin: 0
+
+.ui-toolbar
+	background-color: #FFFFFF
+	+border-radius(5px 5px 0 0)
+	padding: 3px
+
+	a
+		display: block
+		float: left
+		height: 20px
+		padding: 0 !important
+		width: 24px
+
+		&.bold
+			+icons-sprite(bold)
+
+			&:hover
+				+icons-sprite(bold-hover)
+
+		&.italic
+			+icons-sprite(italic)
+
+			&:hover
+				+icons-sprite(italic-hover)
+
+		&.underline
+			+icons-sprite(underline)
+
+			&:hover
+				+icons-sprite(underline-hover)
+
+		&.list
+			+icons-sprite(list)
+
+			&:hover
+				+icons-sprite(list-hover)
+
+		&.list-item
+			+icons-sprite(list-item)
+
+			&:hover
+				+icons-sprite(list-item-hover)
+
+		&.quote
+			+icons-sprite(quote)
+
+			&:hover
+				+icons-sprite(quote-hover)
+
+ul
+	+clearfix
+
+	&.link-list
+		margin: 0
+
+		li
+			+clearfix
+			background-color: adjust-lightness(#262626, -5%)
+			+border-radius(5px)
+			display: block
+			margin-bottom: 10px
+			padding: 6px 10px
+			position: relative
+
+			&:hover
+				background-color: adjust-lightness(#262626, -4%) !important
+
+			&:last-child
+				margin-bottom: 0
+
+.link-inner
+	+clearfix
+
+.link-desc
+	@extend .topic-meta
+
+.link-rem
+	@extend .link-desc
+	font-style: italic
+
+.link-action
+	float: right
+
+	a
+		background-color: #212121
+		float: left
+		margin-left: 1px
+		padding: 4px 14px
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+
+		&.recruitment-spec
+			width: 116px
+
+		&:hover
+			background-color: adjust-lightness(#212121, 4%)
+
+		&:not(.checked)
+			opacity: 0.5
+
+		&:first-child
+			+border-radius(5px 0 0 5px)
+
+		&:last-child
+			+border-radius(0 5px 5px 0)
+
+.message, .error-message, .success-message
+	+background-image(linear-gradient(adjust-lightness(#404040, -6%), #404040))
+	+border-radius(4px)
+	margin: 10px 0
+	padding: 7px 14px
+	
+.error-message
+	+background-image(linear-gradient(adjust-lightness(#870A0A, -6%), #870A0A))
+	
+.success-message
+	+background-image(linear-gradient(adjust-lightness(#30870A, -6%), #30870A))
+
+#breadcrumb
+	+clearfix
+
+	ul
+		list-style: none
+		margin: 0
+
+	li
+		float: left
+		margin-right: image-width('arrow.png') + 6 !important
+		padding-right: image-width('arrow.png') * 2 + 6
+
+		&:not(:last-child)
+			background: image-url('arrow.png') no-repeat center right 
+
+		&.last
+			color: $body-font-color
+
+.clearfix
+	+clearfix
+
+.ui-sortable-helper
+	opacity: 0.5
+
+.by-line
+	color: adjust-lightness($body-font-color, -15%)
+	font-size: 11px
+	margin-bottom: 10px
+
+#page-header
+	background-position: bottom left
+	background-repeat: no-repeat
+	//min-height: 102px
+	padding: 30px 20px
+	position: relative
+
+#page-content
+	+clearfix
+	background-position: left top
+	min-height: image-height('page-content.jpg')
+	padding: 20px
+	position: relative
+
+body
+
+	&.one_column
+
+		#page-content
+			background-repeat: repeat-x
+			background-image: image-url('full-page-content.jpg')
+
+	&.two_column
+
+		#page-content
+			background-repeat: no-repeat
+			background-image: image-url('page-content.jpg')
+
+	&#user
+
+		#page-content
+			background-repeat: no-repeat
+			background-image: image-url('user-page-content.jpg')
+			background-position: top right
+
+#event-header
+	background-position: bottom right
+	background-repeat: no-repeat
+	min-height: 198px
+	padding: 60px 20px 30px
+
+#event-type
+	color: adjust-lightness($body-font-color, -25%)
+	font-size: 16px
+
+#event-description
+	color: adjust-lightness($body-font-color, -10%)
+	font-style: italic
+	margin-top: 30px
+	padding: 0 40px
+
+#event-action
+	margin-top: 30px
+	text-align: center
+
+.event-participants
+	float: left
+	width: 260px
+
+	&:not(:last-child)
+		margin-right: 20px
+
+.avatar
+	border: 5px solid #212121
+	+border-radius(5px)
+
+.max-150px
+	max-height: 150px
+	max-width: 150px
+
+.ui-button-set
+	+clearfix
+	display: inline-block
+
+	li
+		margin-left: 1px !important
+
+		a
+			//@extend .ui-button
+			+border-radius(0)
+			float: left
+
+		&:first-child
+
+			a
+				+border-radius(3px 0 0 3px)
+
+		&:last-child
+
+			a
+				+border-radius(0 3px 3px 0)
+ 
+#login
+	margin: 50px auto
+	width: 340px
+
+ul
+
+	&.ui-sortable
+
+		> li
+			cursor: move
+
+	&.link-list
+
+		> li
+			+clearfix
+
+			//.on-hover
+				+single-transition(opacity, .1s)
+
+			&:not(:hover)
+
+				.on-hover
+					opacity: 0.2
+
+			ul
+				list-style: none
+				margin: 0
+
+				li
+					float: left
+
+				.float-left
+
+					li
+						margin-right: 10px
+
+				&.float-right
+
+					li
+						margin-left: 10px
+
+	&.ui-custom-list
+		margin: 0
+
+		> li
+			+clearfix
+			padding: 10px
+			//background: image-url('table-separator.png') no-repeat bottom center
+			border-bottom: 1px solid #333333
+
+			//.on-hover
+				+single-transition(opacity, .1s)
+
+			&:not(:hover)
+
+				.on-hover
+					opacity: 0.2
+
+			ul
+				list-style: none
+				margin: 0
+
+				li
+					float: left
+
+				&.float-left
+
+					li
+						margin-right: 10px
+
+				&.float-right
+
+					li
+						margin-left: 10px
+
+		.ui-button-set
+			display: inline-block
+			margin-top: -2px
+			margin-bottom: -2px
+
+			li
+				margin-left: 1px !important
+
+				a
+					background-color: adjust-lightness(#262626, -5%)
+					+border-radius(0)
+					padding: 2px 10px
+					font-size: 11px
+					text-transform: none
+
+					&:hover, 
+						background-color: adjust-lightness(#262626, -4%)
+
+					&.checked
+						background-color: adjust-lightness(#262626, 10%)
+
+				//&:first-child
+
+					//a
+						+border-radius(3px 0 0 3px)
+
+				//&:last-child
+
+					//a
+						+border-radius(0 3px 3px 0)
+
+.caption-empty
+	margin: 50px 0
+	text-align: center
+
+#gallery
+	margin: 0
+	list-style: none
+
+	li
+		float: left
+		width: ($page-width / 3 - 20 * 2 + 13)
+		height: 152px
+		margin-bottom: 20px
+
+		&:not(:nth-child(3n))
+			margin-right: 20px
+
+		img
+			background-color: #313131
+			border: 1px solid #383838
+			+border-radius(2px)
+			max-height: 100%
+
+			&:hover
+				border-color: adjust-lightness(#383838, 10%)
+
+#gallery-view
+	text-align: center
+
+#gallery-image
+	margin-bottom: 6px
+	text-align: center
+
+.ui-pagination
+	
+	> span
+		
+		&:not(:last-child)
+			margin-right: 1px
+		
+		&.current, &.ellipsis, > a
+			display: inline-block
+			height: 26px
+			line-height: 26px
+			text-align: center
+			vertical-align: middle
+			width: 26px
+		
+		> a
+			background-color: #191919
+			+border-radius(5px)
+			
+			&:hover
+				background-color: #1C1C1C
+
+#page-content-top
+	+clearfix
+	//background: #262626 image-url('separator.gif') repeat-x top
+	//background-color: #262626
+	//padding: 12px 20px 10px
+	
+	.ui-pagination
+		margin-top: 2px
+
+.inactive
+	opacity: 0.5
+
+#homepage
+	#page-content
+		background: none
+		padding-top: 0
+		padding-left: 0
+		padding-right: 0
+
+.select
+	+clearfix
+	
+	.checkbox
+		+clearfix
+		border-bottom: 1px solid #333333
+		padding: 10px
+	
+	input[type='checkbox']
+		float: right
+	
+	label
+		float: left

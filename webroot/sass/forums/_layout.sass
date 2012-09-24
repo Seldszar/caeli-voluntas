@@ -1,0 +1,72 @@
+.forum-list
+
+	li
+		@extend .roster-class
+
+.category
+	margin-bottom: 20px
+	+clearfix
+
+#topics
+	margin-top: 2px
+
+.topic
+	background: image-url('separator.gif') repeat-x center bottom
+	border: none
+
+	&:hover
+		background-color: adjust-lightness(#262626, 1%) !important
+
+	td
+		padding: 10px 0
+
+		&:nth-child(1)
+			padding-left: 20px
+
+		&:nth-child(2)
+			padding-right: 20px
+			text-align: right
+			width: $topic-num-replies-width + $topic-num-views-width
+
+		&:nth-child(3)
+			padding-right: 20px
+			width: $topic-last-post-width
+
+.topic-meta
+	color: adjust-lightness($body-font-color, -50%)
+	font-size: 11px
+
+#posts
+	@extend #topics
+
+.post
+	background: image-url('separator.gif') repeat-x center bottom
+	border: none
+
+	td
+		padding-bottom: 20px
+		padding-top: 20px
+
+		&:last-child
+			padding-right: 20px
+			position: relative
+
+.post-author
+	padding-left: 20px
+	padding-right: 20px
+	width: 190px
+
+.post-date
+	margin-bottom: 6px
+
+.post-action
+	+clearfix
+	list-style: none
+	margin: 20px 0 0
+
+	li
+		float: left
+		margin-right: 20px
+
+.post-edited
+	margin-top: 6px

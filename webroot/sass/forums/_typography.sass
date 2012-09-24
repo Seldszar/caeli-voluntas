@@ -1,0 +1,29 @@
+.topic
+
+	td
+
+		&:nth-child(2), &:nth-child(3), &:nth-child(4)
+			@extend .topic-meta
+
+.post-author
+	vertical-align: top
+
+	.name
+		font-size: 16px
+
+	.group
+		font-size: 11px
+
+.post
+
+	&.deleted
+
+		.post-body
+			opacity: 0.5
+
+.post-date
+	color: adjust-lightness($link-color-normal, -10%)
+	font-size: 11px
+
+.post-edited
+	@extend .forum-desc
