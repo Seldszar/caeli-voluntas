@@ -38,6 +38,10 @@
 	Router::connect('/account', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/account/*', array('controller' => 'users', 'action' => 'view'));
 	Router::connect('/gallery', array('controller' => 'gallery', 'action' => 'index'));
+	Router::connect('/events', array('controller' => 'events', 'action' => 'index'));
+	Router::connect('/events/answer/*', array('controller' => 'eventParticipants', 'action' => 'answer'));
+	Router::connect('/events/confirm/*', array('controller' => 'eventParticipants', 'action' => 'confirm'));
+	Router::connect('/events/*', array('controller' => 'events', 'action' => 'view'));
 	Router::connect('/gallery/*', array('controller' => 'gallery', 'action' => 'view'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
