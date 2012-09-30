@@ -44,6 +44,9 @@
 <?php if (AclComponent::hasRole('manage_groups')): ?>
 <li><?php echo $this->Html->link("Groupes d'utilisateurs", array('controller' => 'groups', 'action' => 'index', 'admin' => true)) ?></li>
 <?php endif ?>
+<?php if (AclComponent::hasRole('moderate_users')): ?>
+<li><?php echo $this->Html->link("Utilisateurs", array('controller' => 'users', 'action' => 'index', 'admin' => true)) ?></li>
+<?php endif ?>
 </ul>
 </div>
 <?php endif ?>

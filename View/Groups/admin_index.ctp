@@ -19,9 +19,9 @@
 </li>
 <?php endforeach ?>
 </ul>
-<div class="section-action">
-<?php echo $this->Html->link("Ajouter un groupe d'utilisateur", array('action' => 'create'), array('class' => 'ui-button')) ?>
-</div>
 <?php else : ?>
 <p>Il n'y a actuellement aucun groupe d'utilisateur</p>
 <?php endif ?>
+<div class="section-action">
+<?php echo $this->Html->link("Ajouter un groupe d'utilisateur", array('action' => 'create'), array('class' => 'ui-button')) ?>
+</div>

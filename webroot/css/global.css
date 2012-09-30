@@ -1036,6 +1036,10 @@ strong, b {
   color: #9382c9;
 }
 
+.color-c10 {
+  color: #00ffba;
+}
+
 .color-c11, .roster-class.class-11 a, .forum-list li.class-11 a, .roster-class.class-11 a.ui-button, .forum-list li.class-11 a.ui-button, .roster-class.class-11 input[type='submit'], .forum-list li.class-11 input[type='submit'], .roster-class.class-11 input[type='reset'], .forum-list li.class-11 input[type='reset'], .roster-class.class-11 input[type='button'], .forum-list li.class-11 input[type='button'], .roster-class.class-11 button, .forum-list li.class-11 button {
   color: #ff7c0a;
 }

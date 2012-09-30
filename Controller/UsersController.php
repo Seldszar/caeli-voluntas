@@ -241,6 +241,14 @@ class UsersController extends AppController {
 		));
 	}
 
+	public function admin_index() {
+		$this->set('users', $this->User->find('all', array(
+			'order' => array(
+				'username' => 'ASC'
+			)
+		)));
+	}
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->deny(array('email', 'password', 'index', 'edit'));
