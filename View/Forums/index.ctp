@@ -8,9 +8,9 @@
 <?php if (!empty($category['Forum'])): ?>
 <div class="section">
 <h3><?php echo $category['ForumCategory']['name'] ?></h3>
-<ul class="link-list">
+<ul class="ui-custom-list">
 <?php foreach ($category['Forum'] as $forum) : ?>
-<li class="span-2">
+<li>
 <a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?>"><?php echo $forum['name'] ?></a>
 <div class="link-desc"><?php echo $forum['description'] ?></div>
 </li>
