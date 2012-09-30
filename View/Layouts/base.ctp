@@ -41,7 +41,7 @@
 </div>
 <div id="footer">
 <div class="float-left">&copy; Caeli Voluntas 2012 - Tous droits réservés</div>
-<div class="float-right">Créé par Alexandre B. (<?php echo $this->Html->link('Kaorel', 'http://eu.battle.net/wow/fr/character/la-croisade-ecarlate/Kaorel/') ?>) avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
+<div class="float-right">Créé par Alexandre.B avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
 </div>
 </div>
 <?php echo $this->Html->script(array('jquery', 'common', 'tooltip', 'toolbar')); ?>
