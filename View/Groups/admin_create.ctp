@@ -14,7 +14,7 @@
 <?php if (!empty($roles)) : ?>
 <div class="section">
 <h3>Permissions du groupe d'utilisateur</h3>
-<?php echo $this->Form->input('Role', array('multiple' => 'checkbox')) ?>
+<?php echo $this->Form->input('Role', array('label' => false, 'multiple' => 'checkbox')) ?>
 </div>
 <?php endif ?>
 <?php echo $this->Form->end('Ajouter') ?>

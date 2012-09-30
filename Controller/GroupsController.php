@@ -23,13 +23,7 @@ class GroupsController extends AppController {
 			}
 		}
 
-		$roles = array();
-
-		if (!in_array($id, array(1, 2))) {
-			$roles = $this->Role->find('list');
-		}
-
-		$this->set('roles', $roles);
+		$this->set('roles', $this->Role->find('list'));
 	}
 
 	public function admin_edit($id) {
