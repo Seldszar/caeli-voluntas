@@ -14,9 +14,9 @@
 <?php if (!empty($user['Character'])): ?>
 <div class="section">
 <h3>Ses personnages</h3>
-<ul class="link-list">
+<ul class="ui-custom-list">
 <?php foreach($user['Character'] as $character): ?>
-<li class="span-3">
+<li class="span-2">
 <?php echo $this->Html->link($character['name'], sprintf('http://eu.battle.net/wow/fr/character/%s/%s/', $character['Realm']['slug'], $character['name']), array('class' => "color-c{$character['class']}")) ?>
 </li>
 <?php endforeach ?>
