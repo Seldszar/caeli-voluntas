@@ -8,6 +8,16 @@
 <?php echo $this->Html->css(array('https://fonts.googleapis.com/css?family=Oswald:300|Open+Sans|Open+Sans:400italic|Open+Sans:600|Open+Sans:600italic', 'global')); ?>
 <?php echo $this->Html->script('modernizr') ?>
 <script type="text/javascript">Modernizr.load({ test: Modernizr.fontface, nope: 'js/cufon.js' });</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35239300-1']);
+_gaq.push(['_setDomainName', 'caeli-voluntas.fr']);
+_gaq.push(['_trackPageview']);
+(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 </head>
 <body id="<?php echo $this->fetch('body.id') ?>" class="<?php echo $this->fetch('body.class') ?>">
 <div id="page">
