@@ -44,7 +44,7 @@
 <div class="float-right">Créé par Alexandre.B avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
 </div>
 </div>
-<?php echo $this->Html->script(array('jquery', 'common', 'tooltip', 'toolbar')); ?>
+<?php echo $this->Html->script(array('jquery', 'jquery-ui', 'common', 'tooltip', 'toolbar')); ?>
 <?php if ($this->fetch('scripts')) : ?>
 <script type="text/javascript">
 <?php echo $this->fetch('scripts') ?>
