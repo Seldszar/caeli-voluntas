@@ -43,6 +43,7 @@
 	Router::connect('/events/confirm/*', array('controller' => 'eventParticipants', 'action' => 'confirm'));
 	Router::connect('/events/create', array('controller' => 'events', 'action' => 'create'));
 	Router::connect('/events/edit/*', array('controller' => 'events', 'action' => 'edit'));
+	Router::connect('/events/delete/*', array('controller' => 'events', 'action' => 'delete'));
 	Router::connect('/events/*', array('controller' => 'events', 'action' => 'view'));
 	Router::connect('/gallery/*', array('controller' => 'gallery', 'action' => 'view'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));

@@ -18,7 +18,7 @@
 <?php $this->end() ?>
 
 <?php foreach ($statuses as $status) : ?>
-<div class="section clearfix">
+<div class="section">
 <h3><?php echo $status['EventStatus']['name'] ?><em> (<?php echo count($status['EventParticipant']) ?>)</em></h3>
 <?php if (!empty($status['EventParticipant'])) : ?>
 <ul class="ui-custom-list">
@@ -48,3 +48,9 @@
 <?php endif ?>
 </div>
 <?php endforeach ?>
+<?php if ($event['Event']['created_by'] == AuthComponent::user('id') || AclComponent::hasRole('moderate_event')): ?>
+<div class="section-action">
+<?php echo $this->Html->link("Editer", array('controller' => 'events', 'action' => 'edit', $event['Event']['id']), array('class' => 'ui-button')) ?>
+<?php echo $this->Html->link("Supprimer", array('controller' => 'events', 'action' => 'delete', $event['Event']['id']), null, "Voulez-vous vraiment supprimer cet évènement ?") ?>
+</div>
+<?php endif ?>

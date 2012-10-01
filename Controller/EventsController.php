@@ -85,12 +85,12 @@ class EventsController extends AppController {
 		$this->Event->id = $id;
 
 		if (!$this->Event->exists()) {
-			throw new NotFoundException("Le type d'événement n'existe pas");
+			throw new NotFoundException("L'événement n'existe pas");
 		}
 
 		$event = $this->Event->read();
 
-		if ($this->Auth->user('group') != $event['Event']['created_by'] && !$this->Acl->hasRole('moderate_event')) {
+		if ($this->Auth->user('id') != $event['Event']['created_by'] && !$this->Acl->hasRole('moderate_event')) {
 			throw new NotFoundException("Vous n'êtes pas autorisé à accéder à cette page");
 		}
 
@@ -109,6 +109,22 @@ class EventsController extends AppController {
 		}
 
 		$this->set('types', $this->EventType->find('list'));
+	}
+
+	public function delete($id) {
+		$this->Event->id = $id;
+
+		if (!$this->Event->exists()) {
+			throw new NotFoundException("L'événement n'existe pas");
+		}
+
+		if ($this->Auth->user('id') != $event['Event']['created_by'] && !$this->Acl->hasRole('moderate_event')) {
+			throw new NotFoundException("Vous n'êtes pas autorisé à accéder à cette page");
+		}
+
+		if ($this->Event->delete()) {
+			$this->redirect(array('action' => 'index'));
+		}
 	}
 
 	public function beforeFilter() {
