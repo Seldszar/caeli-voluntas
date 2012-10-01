@@ -68,7 +68,7 @@ class UsersController extends AppController {
 				$email = new CakeEmail('default');
 				$email->to($data['User']['email'])
 					->template('confirmRegistration')
-					->emailFormat('both')
+					->emailFormat('text')
 					->subject("Confirmation d'inscription")
 					->viewVars(array('salt' => $salt))
 					->send();
@@ -134,7 +134,7 @@ class UsersController extends AppController {
 				$email = new CakeEmail('default');
 				$email->to($data['User']['email'])
 					->template('retrievePassword')
-					->emailFormat('both')
+					->emailFormat('text')
 					->subject("Récupération de votre mot de passe")
 					->viewVars(array('salt' => $salt))
 					->send();
