@@ -123,9 +123,9 @@ class ForumsController extends AppController {
 			throw new MethodNotAllowedException();
 		}
 
-		$this->Forum->id = $id;
+		$this->ForumCategory->id = $id;
 
-		if (!$this->Forum->exists()) {
+		if (!$this->ForumCategory->exists()) {
 			throw new NotFoundException("le forum demandé est introuvable");
 		}
 
