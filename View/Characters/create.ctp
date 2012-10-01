@@ -1,3 +1,4 @@
+<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Personnages', array('action' => 'index')) ?>
 <?php $this->Html->addCrumb('Ajouter un personnage') ?>
 
