@@ -234,7 +234,11 @@ class UsersController extends AppController {
 		}
 
 		$this->set('user', $user);
-		$this->set('groups', $this->Group->find('list'));
+		$this->set('groups', $this->Group->find('list', array(
+			'conditions' => array(
+				'visible' => true
+			)
+		)));
 	}
 
 	public function avatar($id) {
