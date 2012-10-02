@@ -24,6 +24,27 @@
 </div>
 <?php endif ?>
 <?php if (AclComponent::hasRole('moderate_users')): ?>
+<div class="section">
+<h3>Informations complémentaires <em>(visibles uniquement par les modérateurs)</em></h3>
+<ul class="ui-custom-list">
+<li>
+<ul class="float-left">
+<li>Dernière connexion :</li>
+</ul>
+<ul class="float-right">
+<li><?php echo !empty($user['User']['last_login']) ? $this->Time->timeAgoInWords($user['User']['last_login']) : "Indisponible" ?></li>
+</ul>
+</li>
+<li>
+<ul class="float-left">
+<li>Dernière IP connue :</li>
+</ul>
+<ul class="float-right">
+<li><?php echo !empty($user['User']['last_ip']) ? $user['User']['last_ip'] : "Indisponible" ?></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section-action">
 <?php echo $this->Html->link('Editer', array('action' => 'edit', $user['User']['id']), array('class' => 'ui-button')) ?>
 </div>

@@ -2,6 +2,7 @@
 
 App::uses('AppController', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
+App::uses('CakeTime', 'Utility');
 App::uses('Security', 'Utility');
 
 class UsersController extends AppController {
@@ -101,6 +102,15 @@ class UsersController extends AppController {
 	public function login() {
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
+				$this->User->id = $this->Auth->user('id');
+				
+				$this->User->set(array(
+					'last_login' => CakeTime::toServer(time()),
+					'last_ip' => $this->request->clientIp()
+				));
+				
+				$this->User->save();
+				
 				$this->redirect($this->Auth->redirect());
 			} else {
 				$this->Session->setFlash("Informations de connexion invalides, veuillez vérifier vos identifiants", "error_message");
