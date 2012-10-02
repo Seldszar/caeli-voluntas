@@ -29,6 +29,22 @@
 <ul class="ui-custom-list">
 <li>
 <ul class="float-left">
+<li>Adresse e-mail actuelle :</li>
+</ul>
+<ul class="float-right">
+<li><?php echo $user['User']['email'] ?></li>
+</ul>
+</li>
+<li>
+<ul class="float-left">
+<li>Etat du compte :</li>
+</ul>
+<ul class="float-right">
+<li><?php echo $user['User']['active'] ? "Confirmé" : "Non confirmé" ?></li>
+</ul>
+</li>
+<li>
+<ul class="float-left">
 <li>Dernière connexion :</li>
 </ul>
 <ul class="float-right">
