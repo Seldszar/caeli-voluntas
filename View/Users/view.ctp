@@ -29,6 +29,14 @@
 <ul class="ui-custom-list">
 <li>
 <ul class="float-left">
+<li>Date d'inscription :</li>
+</ul>
+<ul class="float-right">
+<li><?php echo $this->Time->timeAgoInWords($user['User']['created']) ?></li>
+</ul>
+</li>
+<li>
+<ul class="float-left">
 <li>Adresse e-mail actuelle :</li>
 </ul>
 <ul class="float-right">
