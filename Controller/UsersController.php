@@ -168,7 +168,7 @@ class UsersController extends AppController {
 
 			$this->User->set('salt', null);
 
-			if ($this->User->save($data, true, array('password', 'password_confirm'))) {
+			if ($this->User->save($data)) {
 				$this->Session->setFlash("Votre mot de passe a été réinitialisé avec succès, vous pouvez désormais vous connecter", "success_message");
 				$this->redirect(array('action' => 'login'));
 			}
