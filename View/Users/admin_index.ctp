@@ -9,7 +9,7 @@
 <?php foreach ($users as $user): ?>
 <li>
 <ul class="float-left">
-<li><?php echo $this->Html->link($user['User']['username'], array('action' => 'view', $user['User']['id'], 'admin' => false)) ?></li>
+<li class="<?php echo $user['User']['active'] ? null : 'inactive' ?>"><?php echo $this->Html->link($user['User']['username'], array('action' => 'view', $user['User']['id'], 'admin' => false)) ?></li>
 </ul>
 <ul class="float-right">
 <li class="link-desc"><?php echo $user['Group']['name'] ?></li>
