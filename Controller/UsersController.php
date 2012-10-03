@@ -61,11 +61,15 @@ class UsersController extends AppController {
 			$salt = Security::generateAuthKey();
 
 			$this->User->create();
+			$this->User->set(
+				array(
+					'last_ip' => $this->request->clientIp(),
+					'salt' => $salt,
+					'group' => 3
+				)
+			);
 
-			$data['User']['salt'] = $salt;
-			$data['User']['group'] = 3;
-
-			if ($this->User->save($data, true, array('username', 'email', 'password', 'password_confirm', 'salt', 'group'))) {
+			if ($this->User->save($data)) {
 				$email = new CakeEmail('default');
 				$email->to($data['User']['email'])
 					->template('confirmRegistration')
