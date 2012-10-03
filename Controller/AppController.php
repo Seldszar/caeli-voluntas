@@ -1,6 +1,7 @@
 <?php
 
 App::uses('Controller', 'Controller');
+App::uses('CakeTime', 'Utility');
 
 class AppController extends Controller {
 
@@ -39,6 +40,17 @@ class AppController extends Controller {
 		if ($this->params['prefix'] == 'admin') {
 			$this->Auth->deny();
 		}
+
+		$this->loadModel('User');
+
+		$date = new DateTime();
+		$date->sub(new DateInterval('P2D'));
+
+		$this->User->deleteAll(array(
+			'active' => 0,
+			'last_login' => null,
+			'created <=' => CakeTime::toServer($date)
+		));
 	}
 
 	public function beforeRender() {
