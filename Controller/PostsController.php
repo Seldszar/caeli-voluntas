@@ -28,6 +28,12 @@ class PostsController extends AppController {
 			$this->ForumPost->set('topic', $id);
 
 			if ($this->ForumPost->save($data)) {
+				
+				$this->ForumTopic->set(array(
+					'num_replies' => $this->ForumPost->find('count', array('conditions' => array('topic' => $id))) - 1,
+					'last_post' => $this->ForumPost->getInsertID()
+				));
+				
 				$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
 			}
 		}
