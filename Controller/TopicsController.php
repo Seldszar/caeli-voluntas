@@ -66,7 +66,7 @@ class TopicsController extends AppController {
 
 				$this->ForumPost->set(array(
 					'topic' => $topicId,
-					'content' => $data['ForumPost']['content']
+					'content' => $data['ForumPost'][0]['content']
 				));
 
 				if ($this->ForumPost->save()) {
