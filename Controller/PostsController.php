@@ -27,7 +27,7 @@ class PostsController extends AppController {
 
 			$this->ForumPost->set('topic', $id);
 
-			if ($this->ForumPost->save($data, true, array('content'))) {
+			if ($this->ForumPost->save($data)) {
 				$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
 			}
 		}
