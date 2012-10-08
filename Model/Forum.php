@@ -40,7 +40,7 @@ class Forum extends AppModel {
 
 	public function afterFind($results, $primary = false) {
 		foreach ($results as $k => $result) {
-			if (isset($result['ForumAccess'])) {
+			if (is_array($result) && array_key_exists('ForumAccess', $result)) {
 				$accesses = $result['ForumAccess'];
 				$results[$k]['ForumAccess'] = array();
 
