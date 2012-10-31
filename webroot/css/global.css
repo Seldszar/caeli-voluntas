@@ -1311,6 +1311,12 @@ strong, b {
   padding-right: 20px;
   width: 190px;
 }
+.post-author .avatar {
+  float: left;
+  height: 80px;
+  margin-right: 10px;
+  width: 80px;
+}
 
 .post-date {
   margin-bottom: 6px;

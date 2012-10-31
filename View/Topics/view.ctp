@@ -17,6 +17,9 @@
 <?php foreach ($posts as $post) : ?>
 <tr class="post">
 <td class="post-author">
+<div class="avatar">
+<img src="<?php echo $post['CreatedBy']['avatar_url'] ?>" alt="Avatar de <?php echo $post['CreatedBy']['username'] ?>" />
+</div>
 <?php echo $this->Html->link($post['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $post['CreatedBy']['id']), array('class' => 'name', 'style' => (!empty($post['CreatedBy']['Group']['color']) ? "color: #{$post['CreatedBy']['Group']['color']}" : null))) ?>
 <div class="group"><?php echo $post['CreatedBy']['Group']['name'] ?></div>
 </td>
@@ -27,9 +30,6 @@
 </div>
 <?php if (AuthComponent::user()) : ?>
 <ul class="post-action">
-<?php if (AclComponent::hasForumRole($topic['Forum']['id'], 'reply')): ?>
-<li><?php echo $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $post['ForumPost']['topic'])) ?></li>
-<?php endif ?>
 <?php if (($post['CreatedBy']['id'] == AuthComponent::user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
