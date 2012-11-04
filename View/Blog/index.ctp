@@ -7,10 +7,7 @@
 <div class="blog-article">
 <h1><?php echo $this->Html->link($article['BlogArticle']['title'], array('action' => 'view', $article['BlogArticle']['id'])) ?></h1>
 <div class="by-line"><?php echo $this->Time->timeAgoInWords($article['BlogArticle']['created']) ?> par <?php echo $this->Html->link($article['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $article['CreatedBy']['id'])) ?></div>
-<?php echo $this->BBCode->parse($this->Text->truncate($article['BlogArticle']['content'], 1200, array('exact' => false, 'html' => true))) ?>
-<div class="section-action">
-<?php echo $this->Html->link("Lire la suite", array('action' => 'view', $article['BlogArticle']['id']), array('class' => 'ui-button')) ?>
-</div>
+<?php echo $this->BBCode->parse($article['BlogArticle']['content']) ?>
 </div>
 <?php endforeach ?>
 <?php echo $this->element('paginator', array('class' => 'center')) ?>
