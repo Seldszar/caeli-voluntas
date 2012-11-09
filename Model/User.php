@@ -24,7 +24,7 @@ class User extends AppModel {
 	public function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
 		
-		$this->virtualFields['avatar_url'] = sprintf("CONCAT('http://www.gravatar.com/avatar/', %s.gravatar_hash, '?d=identicon')", $this->alias);
+		$this->virtualFields['avatar_url'] = sprintf("CONCAT('http://www.gravatar.com/avatar/', COALESCE(%s.gravatar_hash, MD5(%s.email)), '?d=identicon')", $this->alias, $this->alias);
 	}
 
 	public $validate = array(
