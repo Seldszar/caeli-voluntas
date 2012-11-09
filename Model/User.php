@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppModel', 'Model');
+App::uses('AuthComponent', 'Controller/Component');
 
 class User extends AppModel {
 
@@ -11,10 +12,6 @@ class User extends AppModel {
 	);
 
 	public $hasMany = array(
-		'UserBan' => array(
-			'foreignKey' => 'user',
-			'dependent' => true
-		),
 		'Character' => array(
 			'foreignKey' => 'user',
 			'dependent' => true
