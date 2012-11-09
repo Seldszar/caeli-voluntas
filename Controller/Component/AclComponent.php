@@ -42,20 +42,26 @@ class AclComponent extends Component {
 
 			$group = $controller->Group->read();
 
-			foreach ($group['Role'] as $role) {
-				self::$roles['global'][$role['key']] = $role['level'];
+			if (isset($group['Role'])) {
+				foreach ($group['Role'] as $role) {
+					self::$roles['global'][$role['key']] = $role['level'];
+				}
 			}
 
-			foreach ($group['ForumAccess'] as $forumAccess) {
-				self::$roles['forums'][$forumAccess['forum']] = array(
-					'view' => $forumAccess['view'],
-					'reply' => $forumAccess['reply'],
-					'create' => $forumAccess['create'],
-					'moderate' => $forumAccess['moderate']
-				);
+			if (isset($group['ForumAccess'])) {
+				foreach ($group['ForumAccess'] as $forumAccess) {
+					self::$roles['forums'][$forumAccess['forum']] = array(
+						'view' => $forumAccess['view'],
+						'reply' => $forumAccess['reply'],
+						'create' => $forumAccess['create'],
+						'moderate' => $forumAccess['moderate']
+					);
+				}
 			}
 
-			self::$level = $group['Group']['level'];
+			if (isset($group['Group']['level'])) {
+				self::$level = $group['Group']['level'];
+			}
 		}
 	}
 
