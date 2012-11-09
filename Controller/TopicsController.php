@@ -43,6 +43,16 @@ class TopicsController extends AppController {
 
 		$this->set('topic', $topic);
 		$this->set('posts', $this->paginate('ForumPost'));
+
+		$track = $this->Cookie->read('forums_track');
+
+		if (!is_array($track)) {
+			$track = array();
+		}
+
+		$track[] = $topic['ForumTopic']['last_post'];
+
+		$this->Cookie->write('forums_track', array_unique($track));
 	}
 
 	public function create($id) {

@@ -54,9 +54,25 @@ class ForumsController extends AppController {
 				)
 			)
 		);
+		
+		$_ = $this;
+		
+		$topics = array_map(
+			function($v) use($_) {
+				$track = $_->Cookie->read("forums_track");
+				
+				if (!is_array($track)) {
+					$track = array();
+				}
+				
+				$v['ForumTopic']['tracked'] = in_array($v['ForumTopic']['last_post'], $track);
+				return $v;
+			}, 
+			$this->paginate('ForumTopic')
+		);
 
 		$this->set('forum', $this->Forum->read());
-		$this->set('topics', $this->paginate('ForumTopic'));
+		$this->set('topics', $topics);
 	}
 
 	public function admin_create($id) {

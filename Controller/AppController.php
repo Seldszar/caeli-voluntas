@@ -20,7 +20,11 @@ class AppController extends Controller {
 				)
 			)
 		),
-	    'Acl'
+	    'Acl',
+		'Cookie' => array(
+			'name' => 'CaeliVoluntas',
+			'time' => '1 Year'
+		)
 	);
 
 	public $helpers = array(
