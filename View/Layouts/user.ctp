@@ -13,7 +13,7 @@
 <li><?php echo $this->Html->link("Changer le mot de passe", array('controller' => 'users', 'action' => 'password', 'admin' => false)) ?></li>
 </ul>
 </div>
-<?php if (AclComponent::hasRoleLevel(1)): ?>
+<?php if (AclComponent::hasAnyRole(array('manage_blog', 'manage_forums', 'manage_roster', 'manage_gallery', 'edit_rules', 'manage_recruitment', 'manage_encounters', 'manage_groups', 'moderate_users'))): ?>
 <div class="menu-section">
 <h2>Administration</h2>
 <ul>

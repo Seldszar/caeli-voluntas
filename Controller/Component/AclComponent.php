@@ -4,10 +4,7 @@ class AclComponent extends Component {
 
 	public $components = array('Auth');
 
-	private static $level = 0;
-
 	private static $isAdmin = false;
-
 	private static $roles = null;
 
 	public function initialize($controller) {
@@ -44,7 +41,7 @@ class AclComponent extends Component {
 
 			if (isset($group['Role'])) {
 				foreach ($group['Role'] as $role) {
-					self::$roles['global'][$role['key']] = $role['level'];
+					self::$roles['global'][] = $role['key'];
 				}
 			}
 
@@ -58,31 +55,33 @@ class AclComponent extends Component {
 					);
 				}
 			}
-
-			if (isset($group['Group']['level'])) {
-				self::$level = $group['Group']['level'];
-			}
 		}
 	}
 
 	/**
 	 * Vérifie si l'utilisateur à l'accès nécessaire
 	 *
-	 * @param role Identifiant du rôle
+	 * @param name Identifiant du rôle
 	 * @return true si l'utilisateur a l'accès requis
 	 */
 	public static function hasRole($name) {
-		return array_key_exists($name, self::$roles['global']) || self::$isAdmin;
+		return in_array($name, self::$roles['global']) || self::$isAdmin;
 	}
 
 	/**
-	 * Vérifie si l'utilisateur à l'accès nécessaire pour pouvoir accéder à l'administration
+	 * Vérifie si l'utilisateur à un des accès nécessaires
 	 *
-	 * @param level Niveau de privilèges
-	 * @return true si l'utilisateur a l'accès requis
+	 * @param roles Liste de rôles
+	 * @return True si l'utilisateur a l'accès requis ; sinon false
 	 */
-	public static function hasRoleLevel($level) {
-		return (self::$level >= $level) || self::$isAdmin;
+	public static function hasAnyRole($roles) {
+		foreach ($roles as $role) {
+			if (self::hasRole($role)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
