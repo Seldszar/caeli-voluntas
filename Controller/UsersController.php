@@ -260,9 +260,11 @@ class UsersController extends AppController {
 	}
 
 	public function admin_index() {
-		$this->set('users', $this->User->find('all', array(
-			'order' => array(
-				'username' => 'ASC'
+		$this->set('groups', $this->Group->find('all', array(
+			'contain' => array(
+				'User' => array(
+					'order' => 'username ASC'
+				)
 			)
 		)));
 	}
