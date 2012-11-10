@@ -163,13 +163,18 @@ blockquote
 
 #footer
 	@extend #topbar
+
+	bottom: 0
 	font-size: 11px
 	padding: 6px 20px
+	position: absolute
+	width: 100%
 
 #page
 	background-color: #212121
 	width: $page-width
 	min-height: 100%
+	position: relative
 
 #header
 	background: image-url('header.jpg') repeat-x top left
@@ -208,6 +213,8 @@ blockquote
 
 #content
 	+clearfix
+
+	padding-bottom: 32px
 
 .section
 	margin-bottom: 20px
@@ -418,7 +425,7 @@ ul
 	+clearfix
 	background-position: left top
 	min-height: image-height('page-content.jpg')
-	padding: 20px
+	padding: 20px 20px 0 20px
 	position: relative
 
 body
