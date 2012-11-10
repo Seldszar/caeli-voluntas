@@ -8,9 +8,6 @@
 <ul>
 <li><?php echo $this->Html->link("Mon compte", array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link("Mes personnages", array('controller' => 'characters', 'action' => 'index', 'admin' => false)) ?></li>
-<?php if (false) : ?>
-<li><?php echo $this->Html->link("Mes discussions privées", array('controller' => 'privateMessages', 'action' => 'index', 'admin' => false)) ?></li>
-<?php endif ?>
 <li><?php echo $this->Html->link("Évènements", array('controller' => 'events', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link("Changer d'adresse e-mail", array('controller' => 'users', 'action' => 'email', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link("Changer le mot de passe", array('controller' => 'users', 'action' => 'password', 'admin' => false)) ?></li>
