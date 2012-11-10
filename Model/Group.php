@@ -21,10 +21,6 @@ class Group extends AppModel {
 		)
 	);
 
-	public $findMethods = array(
-		'rolesAvailable' => true
-	);
-
 	public $validate = array(
 		'name' => array(
 			'notEmpty' => array(
@@ -34,16 +30,11 @@ class Group extends AppModel {
 		)
 	);
 
-	protected function _findRolesAvailable($state, $query, $results = array()) {
-		/*$_results = array();
+	public function __construct($id = false, $table = null, $ds = null) {
+		parent::__construct($id, $table, $ds);
 
-		if ($state == 'after') {
-			foreach ($results['Role'] as $k => $v) {
-				$_results[] = $v['key'];
-			}
-		}*/
-
-		return $results;
+		$this->virtualFields['allow_delete'] = sprintf("%s.id NOT IN (1, 2, 3)", $this->alias);
+		$this->virtualFields['visible'] = sprintf("%s.id NOT IN (1, 2)", $this->alias);
 	}
 
 }
