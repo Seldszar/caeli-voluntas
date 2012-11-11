@@ -11,7 +11,7 @@
 <ul class="float-left">
 <li><a href="#" class="color-c<?php echo $character['Character']['class'] ?>"><?php echo $character['Character']['name'] ?></a></li>
 </ul>
-<ul class="float-right on-hover">
+<ul class="float-right ui-button-set on-hover">
 <li><?php echo $this->Html->link('Supprimer', array('action' => 'delete', $character['Character']['id']), null, "Voulez-vous vraiment supprimer de ce personnage du roster de la guilde ?") ?></li>
 </ul>
 </li>

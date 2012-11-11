@@ -15,10 +15,12 @@
 <?php foreach ($category['Forum'] as $forum) : ?>
 <li id="forum-<?php echo $forum['id'] ?>">
 <ul class="float-left">
-<li><?php echo $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'edit', $forum['id'])) ?></li>
-<li><div class="link-desc"><?php echo $forum['description'] ?></div></li>
+<li>
+<?php echo $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'edit', $forum['id'])) ?>
+<div class="link-desc"><?php echo $forum['description'] ?></div>
+</li>
 </ul>
-<ul class="float-right on-hover">
+<ul class="float-right ui-button-set on-hover">
 <li><?php echo $this->Html->link('Supprimer', array('controller' => 'forums', 'action' => 'delete', $forum['id']), null, 'Voulez-vous vraiment supprimer ce forum ?') ?></li>
 </ul>
 </li>

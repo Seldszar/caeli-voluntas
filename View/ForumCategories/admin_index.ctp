@@ -11,7 +11,7 @@
 <ul class="float-left">
 <li><?php echo $this->Html->link($category['ForumCategory']['name'], array('action' => 'view', $category['ForumCategory']['id'])) ?></li>
 </ul>
-<ul class="float-right on-hover">
+<ul class="float-right ui-button-set on-hover">
 <li><?php echo $this->Html->link('Supprimer', array('action' => 'delete', $category['ForumCategory']['id']), null, 'Voulez-vous vraiment supprimer cette catégorie ?') ?></li>
 </ul>
 </li>
