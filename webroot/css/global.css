@@ -83,7 +83,7 @@ html {
 }
 
 body {
-  background: #1a1a1a url('../img/background.jpg') no-repeat fixed 800px 0%;
+  background-color: #1a1a1a;
   height: 100%;
 }
 
@@ -863,6 +863,16 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 }
 .select label {
   float: left;
+}
+
+#background {
+  background: #1a1a1a url('../img/background.jpg') no-repeat fixed 800px 0%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
 }
 
 input[type='text'], textarea, select, input[type='password'], input[type='email'] {

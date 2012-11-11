@@ -9,4 +9,4 @@ String.prototype.format = function() {
 	return t;
 };
 
-$(function(){var h=function(){$('body').css({backgroundPositionY:Math.floor(-$(document).scrollTop()/30)+'px'});};$(document).scroll(h);h();});
+$(function(){var h=function(){$('#background').css({backgroundPositionY:Math.floor(-$(document).scrollTop()/30)+'px'});};$(document).scroll(h);h();});
