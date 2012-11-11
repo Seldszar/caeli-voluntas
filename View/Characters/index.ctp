@@ -4,20 +4,26 @@
 <?php $this->assign('header.image', 'user') ?>
 <?php $this->assign('header.title', 'Mes personnages') ?>
 
-<?php if (!empty($characters)) : ?>
+<?php if (!empty($realms)) : ?>
+<?php foreach ($realms as $realm) : ?>
+<?php if (!empty($realm['Character'])) : ?>
+<div class="section">
+<h3><?php echo $realm['Realm']['name'] ?></h3>
 <ul class="ui-custom-list">
-<?php foreach ($characters as $character) : ?>
+<?php foreach ($realm['Character'] as $character) : ?>
 <li>
 <ul class="float-left">
-<li class="color-c<?php echo $character['Character']['class'] ?>"><?php echo $character['Character']['name'] ?></li>
-<li><div class="link-desc"><?php echo $character['Realm']['name'] ?></div></li>
+<li class="color-c<?php echo $character['class'] ?>"><?php echo $character['name'] ?></li>
 </ul>
-<ul class="float-right on-hover">
-<li><?php echo $this->Html->link("Supprimer", array('action' => 'delete', $character['Character']['id']), null, "Voulez-vous vraiment supprimer {$character['Character']['name']} ?") ?></li>
+<ul class="float-right ui-button-set on-hover">
+<li><?php echo $this->Html->link("Supprimer", array('action' => 'delete', $character['id']), null, "Voulez-vous vraiment supprimer {$character['name']} ?") ?></li>
 </ul>
 </li>
 <?php endforeach ?>
 </ul>
+</div>
+<?php endif ?>
+<?php endforeach ?>
 <?php else : ?>
 <h2 class="caption-empty">Vous n'avez actuellement aucun personnage</h2>
 <?php endif ?>

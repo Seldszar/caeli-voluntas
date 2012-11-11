@@ -9,7 +9,15 @@ class CharactersController extends AppController {
 	public $layout = 'user';
 
 	public function index() {
-		$this->set('characters', $this->Character->findAllByUser($this->Auth->user('id')));
+		$this->set('realms', $this->Character->Realm->find('all', array(
+			'contain' => array(
+				'Character' => array(
+					'conditions' => array(
+						'user' => $this->Auth->user('id')
+					)
+				)
+			)
+		)));
 	}
 
 	public function create() {
