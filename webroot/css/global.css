@@ -196,7 +196,7 @@ blockquote blockquote {
 
 .span-2 {
   float: left;
-  width: 215px;
+  width: 235px;
 }
 .span-2:not(:nth-child(2n)) {
   margin-right: 20px;
@@ -204,7 +204,7 @@ blockquote blockquote {
 
 .span-3 {
   float: left;
-  width: 133.333px;
+  width: 149.333px;
 }
 .span-3:not(:nth-child(3n)) {
   margin-right: 20px;

@@ -5,11 +5,11 @@
 
 <?php foreach ($roster as $class): ?>
 <?php if (!empty($class['Character'])): ?>
-<div class="section">
+<div class="section span-2">
 <h3><?php echo $class['CharacterClass']['name'] ?></h3>
-<ul class="link-list">
+<ul class="ui-custom-list">
 <?php foreach ($class['Character'] as $character) : ?>
-<li class="span-3 color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $character['name'] ?></li>
+<li class="color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $character['name'] ?></li>
 <?php endforeach ?>
 </ul>
 </div>
