@@ -1,6 +1,5 @@
 <?php $this->assign('body.id', 'homepage') ?>
-<?php $this->assign('header.image', 'blog') ?>
-<?php $this->assign('header.title', 'Dernières nouvelles') ?>
+<?php $this->set('no-header', true) ?>
 
 <?php if ($articles) : ?>
 <?php foreach ($articles as $article) : ?>

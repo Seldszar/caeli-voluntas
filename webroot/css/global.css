@@ -1162,14 +1162,15 @@ strong, b {
   padding: 20px;
 }
 .blog-article h1 a, .blog-article h1 a.ui-button, .blog-article h1 input[type='submit'], .blog-article h1 input[type='reset'], .blog-article h1 input[type='button'], .blog-article h1 button {
-  -webkit-transition: opacity 0.25s;
-  -moz-transition: opacity 0.25s;
-  -ms-transition: opacity 0.25s;
-  -o-transition: opacity 0.25s;
-  transition: opacity 0.25s false;
+  -webkit-transition: color 0.25s;
+  -moz-transition: color 0.25s;
+  -ms-transition: color 0.25s;
+  -o-transition: color 0.25s;
+  transition: color 0.25s false;
+  color: inherit;
 }
 .blog-article h1 a:hover, .blog-article h1 a.ui-button:hover, .blog-article h1 input[type='submit']:hover, .blog-article h1 input[type='reset']:hover, .blog-article h1 input[type='button']:hover, .blog-article h1 button:hover {
-  opacity: 0.75;
+  color: #96a3bb !important;
 }
 
 .article-content p:last-child {
@@ -1238,10 +1239,6 @@ strong, b {
 #new-comment-inner {
   margin-bottom: 10px;
   padding: 10px;
-}
-
-.blog-article h1 a, .blog-article h1 a.ui-button, .blog-article h1 input[type='submit'], .blog-article h1 input[type='reset'], .blog-article h1 input[type='button'], .blog-article h1 button {
-  color: inherit;
 }
 
 .roster-class, .forum-list li {

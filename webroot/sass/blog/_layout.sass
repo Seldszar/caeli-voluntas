@@ -1,15 +1,18 @@
 .blog-article
-	+clearfix
+	+clearfix()
+
 	background: image-url('page-content.jpg') no-repeat top left
 	padding: 20px
 
 	h1
 
 		a
-			+single-transition(opacity, 0.25s)
+			+single-transition(color, .25s)
+
+			color: inherit
 
 			&:hover
-				opacity: 0.75
+				color: $link-color-normal !important
 
 .article-content
 	@extend .widget-inner
