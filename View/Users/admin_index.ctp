@@ -14,8 +14,11 @@
 <ul class="float-left">
 <li><?php echo $this->Html->link($user['username'], array('action' => 'view', $user['id'], 'admin' => false)) ?></li>
 </ul>
-<ul class="float-right">
-<li class="link-desc">Inscrit le <?php echo $this->Time->format($user['created']) ?></li>
+<ul class="float-right link-desc">
+<?php if (!$user['active']): ?>
+<li>En attente de confirmation</li>
+<?php endif ?>
+<li>Inscrit le <?php echo $this->Time->format($user['created']) ?></li>
 </ul>
 </li>
 <?php endforeach ?>
