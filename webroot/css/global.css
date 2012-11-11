@@ -354,7 +354,11 @@ blockquote blockquote {
   width: 260px;
 }
 
-#tooltip {
+.ui-tooltip {
+  position: absolute;
+}
+
+.ui-tooltip-content {
   background-color: #212121;
   border: 1px solid #333333;
   -webkit-border-radius: 2px;
@@ -365,22 +369,13 @@ blockquote blockquote {
   -webkit-box-shadow: 0 0 15px black;
   -moz-box-shadow: 0 0 15px black;
   box-shadow: 0 0 15px black;
-  display: none;
   padding: 10px;
-  position: absolute;
 }
-#tooltip.loading {
-  background-image: url('../img/loader.gif');
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 64px;
-  height: 64px;
-}
-#tooltip ul, #tooltip ol {
+.ui-tooltip-content ul, .ui-tooltip-content ol {
   list-style: none;
   margin: 0;
 }
-#tooltip ul li, #tooltip ol li {
+.ui-tooltip-content ul li, .ui-tooltip-content ol li {
   margin: 0;
 }
 

@@ -18,12 +18,12 @@ class EncounterZonesController extends AppController {
 		));
 	}
 
-	public function tooltip() {
-		$this->EncounterZone->id = $this->data['id'];
+	public function tooltip($id) {
+		$this->EncounterZone->id = $id;
 
-		if (!$this->request->is('ajax')) {
+		/*if (!$this->request->is('ajax')) {
 			throw new MethodNotAllowedException();
-		}
+		}*/
 
 		if (!$this->EncounterZone->exists()) {
 			throw new NotFoundException("La zone de rencontre demandée est introuvable");

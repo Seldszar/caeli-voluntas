@@ -244,16 +244,17 @@ blockquote
 	margin-left: 10px
 	width: $sidebar-width
 
-#tooltip
+.ui-tooltip
+	position: absolute
+
+.ui-tooltip-content
 	background-color: rgba(33,33,33,1)
 	border: 1px solid #333333
 	+border-radius(2px)
 	+box-shadow(0 0 15px #000000)
-	display: none
 	padding: 10px
-	position: absolute
 
-	&.loading
+	//&.loading
 		background-image: image-url('loader.gif')
 		background-repeat: no-repeat
 		background-position: center
