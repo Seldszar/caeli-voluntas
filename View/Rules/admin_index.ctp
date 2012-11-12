@@ -5,4 +5,6 @@
 <?php $this->assign('header.title', 'Charte de bonne conduite') ?>
 
 <?php echo $this->BBCode->parse($page['Page']['content']) ?>
+<div class="section-action">
 <?php echo $this->Html->link('Editer la charte de bonne de conduite', array('action' => 'edit'), array('class' => 'ui-button')) ?>
+</div>

@@ -29,6 +29,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <a href="<?php echo $this->Html->url(array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?>"><span>Roster</span></a>
 <a href="<?php echo $this->Html->url(array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?>"><span>Galerie</span></a>
 <a href="<?php echo $this->Html->url(array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?>"><span>Charte</span></a>
+<a href="<?php echo $this->Html->url('http://events.caeli-voluntas.fr') ?>"><span>Evènements</span></a>
 </div>
 </div>
 <div id="topbar">

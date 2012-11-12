@@ -109,14 +109,14 @@ blockquote
 
 .span-2
 	float: left
-	width: (490px / 2 - 10px)
+	width: (620px / 2 - 10px)
 
 	&:not(:nth-child(2n))
 		margin-right: 20px
 
 .span-3
 	float: left
-	width: (490px / 3 - 14px)
+	width: (620px / 3 - 14px)
 
 	&:not(:nth-child(3n))
 		margin-right: 20px
@@ -172,9 +172,10 @@ blockquote
 
 #page
 	background-color: #212121
-	width: $page-width
+	margin: 0 auto
 	min-height: 100%
 	position: relative
+	width: $page-width
 
 #header
 	background: image-url('header.jpg') repeat-x top left
@@ -421,6 +422,11 @@ ul
 	//min-height: 102px
 	padding: 30px 20px
 	position: relative
+
+#right
+
+	#page-header
+		background-position: bottom right
 
 #page-content
 	+clearfix
@@ -702,7 +708,7 @@ ul
 		float: left
 
 #background
-	background: #1A1A1A image-url('background.jpg') no-repeat fixed $page-width 0%
+	background: #1A1A1A image-url('background.jpg') no-repeat fixed center top
 	bottom: 0
 	left: 0
 	position: fixed

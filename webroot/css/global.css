@@ -196,7 +196,7 @@ blockquote blockquote {
 
 .span-2 {
   float: left;
-  width: 235px;
+  width: 300px;
 }
 .span-2:not(:nth-child(2n)) {
   margin-right: 20px;
@@ -204,7 +204,7 @@ blockquote blockquote {
 
 .span-3 {
   float: left;
-  width: 149.333px;
+  width: 192.667px;
 }
 .span-3:not(:nth-child(3n)) {
   margin-right: 20px;
@@ -264,9 +264,10 @@ blockquote blockquote {
 
 #page {
   background-color: #212121;
-  width: 800px;
+  margin: 0 auto;
   min-height: 100%;
   position: relative;
+  width: 930px;
 }
 
 #header {
@@ -305,7 +306,7 @@ blockquote blockquote {
   display: block;
   float: left;
   height: 60px;
-  width: 145px;
+  width: 142px;
 }
 #menu a span, #menu a.ui-button span, #menu input[type='submit'] span, #menu input[type='reset'] span, #menu input[type='button'] span, #menu button span {
   display: block;
@@ -345,7 +346,7 @@ blockquote blockquote {
 
 #left {
   float: left;
-  width: 530px;
+  width: 660px;
 }
 
 #right {
@@ -581,11 +582,15 @@ ul.link-list li:last-child, ol.link-list li:last-child {
   position: relative;
 }
 
+#right #page-header {
+  background-position: bottom right;
+}
+
 #page-content {
   overflow: hidden;
   *zoom: 1;
   background-position: left top;
-  min-height: 87px;
+  min-height: 108px;
   padding: 20px 20px 0 20px;
   position: relative;
 }
@@ -771,7 +776,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 }
 #gallery li {
   float: left;
-  width: 239.667px;
+  width: 283px;
   height: 152px;
   margin-bottom: 20px;
 }
@@ -861,7 +866,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 }
 
 #background {
-  background: #1a1a1a url('../img/background.jpg') no-repeat fixed 800px 0%;
+  background: #1a1a1a url('../img/background.jpg') no-repeat fixed center top;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -1369,7 +1374,7 @@ body#user #left {
   width: 210px;
 }
 body#user #right {
-  width: 580px;
+  width: 710px;
 }
 
 .menu-section:not(:last-child) {

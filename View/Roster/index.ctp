@@ -5,7 +5,7 @@
 
 <?php foreach ($roster as $class): ?>
 <?php if (!empty($class['Character'])): ?>
-<div class="section span-2">
+<div class="section span-3">
 <h3><?php echo $class['CharacterClass']['name'] ?></h3>
 <ul class="ui-custom-list">
 <?php foreach ($class['Character'] as $character) : ?>
