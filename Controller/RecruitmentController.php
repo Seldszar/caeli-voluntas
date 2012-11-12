@@ -22,12 +22,8 @@ class RecruitmentController extends AppController {
 		return $this->CharacterClass->find('all');
 	}
 
-	public function tooltip() {
-		if (!$this->request->is('ajax')) {
-			throw new MethodNotAllowedException();
-		}
-
-		$this->CharacterClass->id = $this->data['id'];
+	public function tooltip($id) {
+		$this->CharacterClass->id = $id;
 
 		if (!$this->CharacterClass->exists()) {
 			throw new NotFoundException();

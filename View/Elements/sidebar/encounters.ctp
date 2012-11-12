@@ -13,20 +13,3 @@
 <?php endforeach ?>
 </div>
 </div>
-
-<?php $this->start('scripts') ?>
-$(document).tooltip({
-	items:'.zone-progress',
-	position: {
-		my: 'left+5 top+5',
-		at: 'right bottom',
-		collision: 'flip'
-	},
-	show: {
-		effect: 'none'
-	},
-	hide: {
-		effect: 'none'
-	}
-});
-<?php $this->end() ?>

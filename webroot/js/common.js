@@ -9,4 +9,27 @@ String.prototype.format = function() {
 	return t;
 };
 
-$(function(){var h=function(){$('#background').css({backgroundPositionY:Math.floor(-$(document).scrollTop()/30)+'px'});};$(document).scroll(h);h();});
+$(function() {
+	var h = function() {
+		$('#background').css({backgroundPositionY: Math.floor(-$(document).scrollTop() / 30) + 'px'});
+	};
+	
+	$(document)
+		.scroll(h)
+		.tooltip({
+			items: '[title]',
+			position: {
+				my: 'left+5 top+5',
+				at: 'right bottom',
+				collision: 'flip'
+			},
+			show: {
+				effect: 'none'
+			},
+			hide: {
+				effect: 'none'
+			}
+		})
+	;
+	h();
+});
