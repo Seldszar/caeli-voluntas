@@ -13,7 +13,7 @@ class BlogController extends AppController {
 	public function index() {
 		$this->paginate = array(
 			'BlogArticle' => array(
-				'limit' => 4,
+				'limit' => 10,
 				'order' => array(
 					'BlogArticle.created' => 'DESC'
 				),
