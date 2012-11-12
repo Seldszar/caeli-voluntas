@@ -265,6 +265,9 @@ class UsersController extends AppController {
 				'User' => array(
 					'order' => 'username ASC'
 				)
+			),
+			'conditions' => array(
+				'visible' => true
 			)
 		)));
 	}
