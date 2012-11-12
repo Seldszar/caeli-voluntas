@@ -34,7 +34,9 @@ class PostsController extends AppController {
 					'last_post' => $this->ForumPost->getInsertID()
 				));
 				
-				$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+				if ($this->ForumTopic->save()) {
+					$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+				}
 			}
 		}
 
