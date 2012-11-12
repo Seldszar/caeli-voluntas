@@ -1,6 +1,5 @@
 <?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
-<?php $this->Html->addCrumb('Forums', array('action' => 'index')) ?>
-<?php $this->Html->addCrumb($category['ForumCategory']['name'], array('controller' => 'forumCategories', 'action' => 'view', $category['ForumCategory']['id'])) ?>
+<?php $this->Html->addCrumb('Forums', array('controller' => 'forumCategories', 'action' => 'index')) ?>
 <?php $this->Html->addCrumb('Ajouter un forum') ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -10,6 +9,7 @@
 <?php echo $this->Form->create() ?>
 <?php echo $this->Form->input('name', array('label' => 'Nom')) ?>
 <?php echo $this->Form->input('description', array('label' => 'Description')) ?>
+<?php echo $this->Form->input('category', array('label' => 'Catégorie', 'options' => $categories)) ?>
 <div class="section">
 <h3>Modifier les permissions des groupes pour ce forum</h3>
 <table>

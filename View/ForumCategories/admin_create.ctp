@@ -3,7 +3,7 @@
 <?php $this->Html->addCrumb('Ajouter une catégorie') ?>
 
 <?php $this->assign('header.image', 'administration') ?>
-<?php $this->assign('header.title', 'Ajouter une catégories') ?>
+<?php $this->assign('header.title', 'Ajouter une catégorie') ?>
 
 <?php echo $this->Form->create() ?>
 <?php echo $this->Form->input('name', array('label' => 'Nom')) ?>

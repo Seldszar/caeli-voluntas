@@ -75,24 +75,17 @@ class ForumsController extends AppController {
 		$this->set('topics', $topics);
 	}
 
-	public function admin_create($id) {
-		$this->ForumCategory->id = $id;
-
-		if (!$this->ForumCategory->exists()) {
-			throw new NotFoundException("La catégorie demandée est introuvable");
-		}
-
+	public function admin_create() {
 		if ($this->request->is('post')) {
 			$data = $this->data;
-			$data['Forum']['category'] = $id;
 
 			if ($this->Forum->saveAssociated($data)) {
-				$this->redirect(array('controller' => 'forumCategories', 'action' => 'view', $id));
+				$this->redirect(array('controller' => 'forumCategories', 'action' => 'index'));
 			}
 		}
 
+		$this->set('categories', $this->ForumCategory->find('list'));
 		$this->set('groups', $this->Group->find('list', array('conditions' => array('id <>' => 2))));
-		$this->set('category', $this->ForumCategory->read());
 	}
 
 	public function admin_edit($id) {
@@ -109,7 +102,7 @@ class ForumsController extends AppController {
 			$data['Forum']['id'] = $id;
 
 			if ($this->Forum->saveAssociated($data)) {
-				$this->redirect(array('controller' => 'forumCategories', 'action' => 'view', $forum['Forum']['category']));
+				$this->redirect(array('controller' => 'forumCategories', 'action' => 'index'));
 			}
 		} else {
 			$this->data = $forum;
@@ -127,10 +120,8 @@ class ForumsController extends AppController {
 			throw new NotFoundException("Le forum demandé est introuvable");
 		}
 
-		$category = $this->Forum->field('category');
-
 		if ($this->Forum->delete()) {
-			$this->redirect(array('controller' => 'forumCategories', 'action' => 'view', $category));
+			$this->redirect(array('controller' => 'forumCategories', 'action' => 'index'));
 		}
 	}
 
@@ -151,7 +142,11 @@ class ForumsController extends AppController {
 			$this->Forum->id = $_id;
 
 			if ($this->Forum->exists()) {
-				$this->Forum->saveField('position', $position++);
+				$this->Forum->set(array(
+					'category' => $id,
+					'position' => $position++
+				));
+				$this->Forum->save();
 			}
 		}
 

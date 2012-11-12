@@ -39,6 +39,14 @@ caption, th, td
 
 h1, h2, h3
 	margin-bottom: 10px
+	
+	> a
+		+single-transition(color, .25s)
+
+		color: $body-font-color
+
+		&:hover
+			color: $link-color-normal !important
 
 em
 	color: adjust-lightness($body-font-color, -25%)
@@ -52,7 +60,7 @@ h2
 
 	em
 		font-size: 18px
-   
+
 h3
 
 	em
@@ -406,6 +414,13 @@ ul
 
 .clearfix
 	+clearfix
+
+.ui-sortable-placeholder
+	+border-radius(4px)
+
+	background-color: #1A1A1A
+	border: none !important
+	visibility: visible !important
 
 .ui-sortable-helper
 	opacity: 0.5

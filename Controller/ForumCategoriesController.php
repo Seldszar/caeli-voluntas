@@ -13,6 +13,9 @@ class ForumCategoriesController extends AppController {
 			'order' => array(
 				'position' => 'ASC',
 				'id' => 'ASC'
+			),
+			'contain' => array(
+				'Forum'
 			)
 		)));
 	}
