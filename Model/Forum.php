@@ -63,8 +63,6 @@ class Forum extends AppModel {
 	 */
 	private function buildAccessList($result) {
 		$accesses = (isset($result['ForumAccess']) && is_array($result['ForumAccess']) ? $result['ForumAccess'] : array());
-		
-		
 
 		foreach ($accesses as $access) {
 			$results[$k]['ForumAccess'][$access['group']] = array(
