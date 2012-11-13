@@ -12,7 +12,7 @@ class BBCodeHelper extends AppHelper {
 				"#\[i\](.*)\[/i\]#Usi",
 				"#\[s\](.*)\[/s\]#Usi",
 				"#\[list\](.*)\[/list\]#Usi",
-				"#\[*\](.*)\[/*\]#Usi",
+				"#\[\*\](.*)\[/\*\]#Usi",
 				"#\[quote\](.*)\[/quote\]#Usi",
 				"#\[quote=(.*)\](.*)\[/quote\]#Usi",
 				"#\[a\](.*)\[/a\]#Usi",
