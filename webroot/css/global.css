@@ -166,6 +166,9 @@ a.ui-button:hover, input[type='submit']:hover, input[type='reset']:hover, input[
   background-image: linear-gradient(#4c4c4c, #404040);
   border: 1px solid #4a4a4a;
 }
+a.current, a.current.ui-button, input.current[type='submit'], input.current[type='reset'], input.current[type='button'], button.current {
+  color: white;
+}
 
 ul, ol {
   list-style-type: square;

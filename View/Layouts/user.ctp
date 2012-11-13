@@ -6,12 +6,12 @@
 <div class="menu-section">
 <h2>Menu principal</h2>
 <ul>
-<li><?php echo $this->Html->link("Mon compte", array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link("Mon compte", array('controller' => 'users', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Mon avatar", 'http://fr.gravatar.com/') ?></li>
-<li><?php echo $this->Html->link("Mes personnages", array('controller' => 'characters', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link("Évènements", array('controller' => 'events', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link("Changer d'adresse e-mail", array('controller' => 'users', 'action' => 'email', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link("Changer le mot de passe", array('controller' => 'users', 'action' => 'password', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link("Mes personnages", array('controller' => 'characters', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
+<li><?php echo $this->Html->link("Évènements", array('controller' => 'events', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
+<li><?php echo $this->Html->link("Changer d'adresse e-mail", array('controller' => 'users', 'action' => 'email', 'admin' => false), array('current' => true)) ?></li>
+<li><?php echo $this->Html->link("Changer le mot de passe", array('controller' => 'users', 'action' => 'password', 'admin' => false), array('current' => true)) ?></li>
 </ul>
 </div>
 <?php if (AclComponent::hasAnyRole(array('manage_blog', 'manage_forums', 'manage_roster', 'manage_gallery', 'edit_rules', 'manage_recruitment', 'manage_encounters', 'manage_groups', 'moderate_users'))): ?>
