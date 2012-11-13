@@ -128,6 +128,9 @@ blockquote
 	&:not(:nth-child(3n))
 		margin-right: 20px
 
+.fs11
+	font-size: 11px
+
 .float-left
 	float: left
 
@@ -185,42 +188,85 @@ blockquote
 	width: $page-width
 
 #header
-	background: image-url('header.jpg') repeat-x top left
-	height: $header-height + 2px
-	position: relative
-	padding-bottom: 2px
+	+clearfix()
+
+	padding: 20px
 
 #logo
-	+single-transition(opacity, 0.25s)
 	background-image: image-url('logo.png')
+	display: block
+	float: left
 	height: image-height('logo.png')
-	left: +center($logo-width, image-width('logo.png'))
-	position: absolute
-	top: +center($header-height, image-height('logo.png'))
 	width: image-width('logo.png')
 
-	&:hover
-		opacity: 0.75
+#user-actions
+	+clearfix()
+
+	float: right
+	margin-top: 9px
+
+	> a
+		float: left
+		margin-left: 20px
+
+#profile
+	float: right
+	list-style: none
+	margin: 0
+	
+	//li
+		float: left
+		margin-left: 20px
+
+#profile-avatar
+	float: left
+	height: 36px
+	margin-right: 10px
+	width: 36px
+
+#profile-meta
+	float: left
+	
+	> a
+		display: block
 
 #menu
-	float: right
-
-	a
-		+single-transition(color, 0.25s)
-		display: block
+	+clearfix()
+	
+	background: image-url('header.jpg') repeat-x
+	height: image-height('header.jpg')
+	
+	ul
+		@extend h3
+		
 		float: left
-		height: $header-height
-		width: (($page-width - $logo-width) / $menu-num-elements)
-
-		span
+		line-height: 1
+		list-style: none
+	
+	li
+		float: left
+		
+		&:first-child
+		
+			a
+				border-left: none
+		
+		a
+			+transition(background-color .2s, color .2s)
+			
+			background: image-url('separator-v.gif') repeat-y right
+			color: #E6E6E6
 			display: block
-			padding-top: +center($header-height, $menu-font-size)
-
-		&:hover
-			color: #96A3BB !important
+			padding: 21px 42px 21px 40px
+			
+			&:hover, &.selected
+				background-color: #303030
+				color: #96A3BB
 
 #content
-	+clearfix
+	+clearfix()
+	
+	padding-bottom: 32px
 
 	padding-bottom: 32px
 
@@ -439,7 +485,7 @@ ul
 	+clearfix
 	background-position: left top
 	min-height: image-height('page-content.jpg')
-	padding: 20px 20px 0 20px
+	padding: 20px 20px 0
 	position: relative
 
 body

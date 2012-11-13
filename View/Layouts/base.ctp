@@ -8,44 +8,43 @@
 <?php echo $this->Html->css(array('https://fonts.googleapis.com/css?family=Oswald:300|Open+Sans|Open+Sans:400italic|Open+Sans:600|Open+Sans:600italic', 'global')); ?>
 <?php echo $this->Html->script('modernizr') ?>
 <script type="text/javascript">Modernizr.load({ test: Modernizr.fontface, nope: 'js/cufon.js' });</script>
-<script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-35239300-1']);
-_gaq.push(['_setDomainName', 'caeli-voluntas.fr']);
-_gaq.push(['_trackPageview']);
-(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
 </head>
 <body id="<?php echo $this->fetch('body.id') ?>" class="<?php echo $this->fetch('body.class') ?>">
 <div id="background"></div>
 <div id="page">
 <div id="header">
 <a id="logo" href="<?php echo $this->Html->url(array('controller' => 'blog', 'action' => 'index', 'admin' => false)) ?>"></a>
-<div id="menu">
-<a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'index', 'admin' => false)) ?>"><span>Forums</span></a>
-<a href="<?php echo $this->Html->url(array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?>"><span>Roster</span></a>
-<a href="<?php echo $this->Html->url(array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?>"><span>Galerie</span></a>
-<a href="<?php echo $this->Html->url(array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?>"><span>Charte</span></a>
-<a href="<?php echo $this->Html->url('http://events.caeli-voluntas.fr') ?>"><span>Evènements</span></a>
+<?php if (AuthComponent::user()) : ?>
+<div id="profile">
+<div id="profile-avatar">
+<?php echo $this->Html->image(AuthComponent::user('avatar_url')) ?>
 </div>
+<div id="profile-meta">
+<?php echo $this->Html->link("Mon profil", array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?>
+<?php echo $this->Html->link("Se déconnecter", array('controller' => 'users', 'action' => 'logout', 'admin' => false), array('class' => 'fs11')) ?>
+</div>
+</div>
+<?php else : ?>
+<div id="user-actions">
+<?php echo $this->Html->link("Se connecter", array('controller' => 'users', 'action' => 'login', 'admin' => false), array('id' => 'login-action')) ?>
+<?php echo $this->Html->link("S'inscrire", array('controller' => 'users', 'action' => 'register', 'admin' => false)) ?>
+</div>
+<?php endif ?>
+</div>
+<div id="menu">
+<ul>
+<li><?php echo $this->Html->link('Forums', array('controller' => 'forums', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link('Roster', array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link('Galerie', array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link('Charte', array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?php echo $this->Html->link('Evènements', 'http://events.caeli-voluntas.fr/', array('target' => '_blank')) ?></li>
+</ul>
 </div>
 <div id="topbar">
 <ul class="float-left">
 <div id="breadcrumb">
 <?php echo $this->Html->getCrumbList(null, "Caeli Voluntas") ?>
 </div>
-</ul>
-<ul class="float-right">
-<?php if (AuthComponent::user()) : ?>
-<li><?php echo $this->Html->link(AuthComponent::user('username'), array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link("Se déconnecter", array('controller' => 'users', 'action' => 'logout', 'admin' => false)) ?></li>
-<?php else : ?>
-<li><a id="login-action" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login', 'admin' => false)) ?>">Se connecter</a></li>
-<li><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'register', 'admin' => false)) ?>">S'inscrire</a></li>
-<?php endif ?>
 </ul>
 </div>
 <div id="content">
@@ -60,6 +59,11 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <?php if ($this->fetch('scripts')) : ?>
 <script type="text/javascript">
 <?php echo $this->fetch('scripts') ?>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35239300-1']);
+_gaq.push(['_setDomainName', 'caeli-voluntas.fr']);
+_gaq.push(['_trackPageview']);
+(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();
 </script>
 <?php endif ?>
 </body>

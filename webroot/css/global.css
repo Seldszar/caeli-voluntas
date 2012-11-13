@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, #menu ul, #menu ol, h4, h5, h6, p, blockquote, pre,
 a,
 a.ui-button,
 input[type='submit'],
@@ -109,7 +109,7 @@ caption, th, td {
   vertical-align: top;
 }
 
-h1, h2, h3 {
+h1, h2, h3, #menu ul, #menu ol {
   margin-bottom: 10px;
 }
 
@@ -125,7 +125,7 @@ h2 em {
   font-size: 18px;
 }
 
-h3 em {
+h3 em, #menu ul em, #menu ol em {
   font-size: 14px;
 }
 
@@ -219,6 +219,10 @@ blockquote blockquote {
   margin-right: 20px;
 }
 
+.fs11 {
+  font-size: 11px;
+}
+
 .float-left {
   float: left;
 }
@@ -280,54 +284,87 @@ blockquote blockquote {
 }
 
 #header {
-  background: url('../img/header.jpg') repeat-x top left;
-  height: 62px;
-  position: relative;
-  padding-bottom: 2px;
+  overflow: hidden;
+  *zoom: 1;
+  padding: 20px;
 }
 
 #logo {
-  -webkit-transition: opacity 0.25s;
-  -moz-transition: opacity 0.25s;
-  -ms-transition: opacity 0.25s;
-  -o-transition: opacity 0.25s;
-  transition: opacity 0.25s false;
   background-image: url('../img/logo.png');
+  display: block;
+  float: left;
   height: 37px;
-  left: 19px;
-  position: absolute;
-  top: 11.5px;
   width: 182px;
 }
-#logo:hover {
-  opacity: 0.75;
+
+#user-actions {
+  overflow: hidden;
+  *zoom: 1;
+  float: right;
+  margin-top: 9px;
+}
+#user-actions > a, #user-actions > a.ui-button, #user-actions > input[type='submit'], #user-actions > input[type='reset'], #user-actions > input[type='button'], #user-actions > button {
+  float: left;
+  margin-left: 20px;
+}
+
+#profile {
+  float: right;
+  list-style: none;
+  margin: 0;
+}
+
+#profile-avatar {
+  float: left;
+  height: 36px;
+  margin-right: 10px;
+  width: 36px;
+}
+
+#profile-meta {
+  float: left;
+}
+#profile-meta > a, #profile-meta > a.ui-button, #profile-meta > input[type='submit'], #profile-meta > input[type='reset'], #profile-meta > input[type='button'], #profile-meta > button {
+  display: block;
 }
 
 #menu {
-  float: right;
+  overflow: hidden;
+  *zoom: 1;
+  background: url('../img/header.jpg') repeat-x;
+  height: 62px;
 }
-#menu a, #menu a.ui-button, #menu input[type='submit'], #menu input[type='reset'], #menu input[type='button'], #menu button {
-  -webkit-transition: color 0.25s;
-  -moz-transition: color 0.25s;
-  -ms-transition: color 0.25s;
-  -o-transition: color 0.25s;
-  transition: color 0.25s false;
-  display: block;
+#menu ul, #menu ol {
   float: left;
-  height: 60px;
-  width: 142px;
+  line-height: 1;
+  list-style: none;
 }
-#menu a span, #menu a.ui-button span, #menu input[type='submit'] span, #menu input[type='reset'] span, #menu input[type='button'] span, #menu button span {
+#menu li {
+  float: left;
+}
+#menu li:first-child a, #menu li:first-child a.ui-button, #menu li:first-child input[type='submit'], #menu li:first-child input[type='reset'], #menu li:first-child input[type='button'], #menu li:first-child button {
+  border-left: none;
+}
+#menu li a, #menu li a.ui-button, #menu li input[type='submit'], #menu li input[type='reset'], #menu li input[type='button'], #menu li button {
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  -moz-transition: background-color 0.2s, color 0.2s;
+  -ms-transition: background-color 0.2s, color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  background: url('../img/separator-v.gif') repeat-y right;
+  color: #e6e6e6;
   display: block;
-  padding-top: 21px;
+  padding: 21px 42px 21px 40px;
 }
-#menu a:hover, #menu a.ui-button:hover, #menu input[type='submit']:hover, #menu input[type='reset']:hover, #menu input[type='button']:hover, #menu button:hover {
-  color: #96a3bb !important;
+#menu li a:hover, #menu li a.ui-button:hover, #menu li input[type='submit']:hover, #menu li input[type='reset']:hover, #menu li input[type='button']:hover, #menu li button:hover, #menu li a.selected, #menu li a.selected.ui-button, #menu li input.selected[type='submit'], #menu li input.selected[type='reset'], #menu li input.selected[type='button'], #menu li button.selected {
+  background-color: #303030;
+  color: #96a3bb;
 }
 
 #content {
   overflow: hidden;
   *zoom: 1;
+  padding-bottom: 32px;
   padding-bottom: 32px;
 }
 
@@ -600,7 +637,7 @@ ul.link-list li:last-child, ol.link-list li:last-child {
   *zoom: 1;
   background-position: left top;
   min-height: 108px;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0;
   position: relative;
 }
 
@@ -976,7 +1013,7 @@ body {
   line-height: 1.4em;
 }
 
-h1, h2, h3 {
+h1, h2, h3, #menu ul, #menu ol {
   font-family: Oswald, sans-serif;
   font-weight: 300;
 }
@@ -991,7 +1028,7 @@ h2 {
   line-height: 1;
 }
 
-h3 {
+h3, #menu ul, #menu ol {
   font-size: 18px;
   line-height: 1;
 }
@@ -1410,7 +1447,7 @@ body#user #right {
   padding: 7px 10px;
 }
 
-#error #content h3 {
+#error #content h3, #error #content #menu ul, #menu #error #content ul, #error #content #menu ol, #menu #error #content ol {
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 50px;
