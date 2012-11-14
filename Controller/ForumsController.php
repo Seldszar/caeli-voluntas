@@ -51,6 +51,9 @@ class ForumsController extends AppController {
 				'contain' => array(
 					'FirstPost' => 'CreatedBy',
 					'LastPost' => 'CreatedBy'
+				),
+				'order' => array(
+					'last_post' => 'DESC'
 				)
 			)
 		);
