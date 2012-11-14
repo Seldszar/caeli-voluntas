@@ -271,6 +271,16 @@ class UsersController extends AppController {
 			)
 		)));
 	}
+	
+	public function admin_tooltip($id) {
+		$this->User->id = $id;
+
+		if (!$this->User->exists()) {
+			throw new NotFoundException("L'utilisateur demandé est introuvable");
+		}
+
+		$this->set('user', $this->User->read());
+	}
 
 	public function beforeFilter() {
 		parent::beforeFilter();
