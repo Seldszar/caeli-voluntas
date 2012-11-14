@@ -17,6 +17,10 @@ class BBCodeHelper extends AppHelper {
 				"#\[quote=(.*)\](.*)\[/quote\]#Usi",
 				"#\[a\](.*)\[/a\]#Usi",
 				"#\[a=(.*)\](.*)\[/a\]#Usi",
+				"#\[url\](.*)\[/url\]#Usi",
+				"#\[url=(.*)\](.*)\[/url\]#Usi",
+				"#\[img\](.*)\[/img\]#Usi",
+				"#\[img=(.*)\](.*)\[/img\]#Usi",
 			), array(
 				//PHP_EOL,
 				"<b>$1</b>",
@@ -29,6 +33,10 @@ class BBCodeHelper extends AppHelper {
 				"<blockquote><div class=\"by-line\">$1</div>$2</blockquote>",
 				"<a href=\"$1\">$1</a>",
 				"<a href=\"$1\">$2</a>",
+				"<a href=\"$1\">$1</a>",
+				"<a href=\"$1\">$2</a>",
+				"<img src=\"$1\" />",
+				"<img title=\"$1\" src=\"$2\" />",
 			),
 			$str
 		);
