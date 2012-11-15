@@ -11,16 +11,6 @@
 
 <?php $this->start('scripts') ?>
 $(function() {
-	$('#PageContent').toolbar({
-	tags: {
-		'bold': '[b]{0}[/b]',
-		'italic': '[i]{0}[/i]',
-		'underline': '[u]{0}[/u]',
-		'list': '[list]{0}[/list]',
-		'list-item': '[*]{0}[/*]',
-		'quote': '[quote]{0}[/quote]'
-	},
-	class: 'clearfix'
-	});
+	$('#PageContent').markItUp(mySettings);
 });
 <?php $this->end() ?>
