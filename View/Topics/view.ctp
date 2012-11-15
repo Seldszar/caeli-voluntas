@@ -26,7 +26,7 @@
 <td>
 <div class="post-date"><?php echo $this->Time->timeAgoInWords($post['ForumPost']['created']) ?> <?php if ($post['ForumPost']['edited']) : ?>(édité par <?php echo $post['EditedBy']['username'] ?>, <?php echo $this->Time->timeAgoInWords($post['ForumPost']['edited']) ?>)<?php endif ?></div>
 <div class="post-body">
-<?php echo $this->BBCode->parse($post['ForumPost']['content']) ?>
+<?php echo $this->Markitup->parse($post['ForumPost']['content']) ?>
 </div>
 <?php if (AuthComponent::user()) : ?>
 <ul class="post-action">

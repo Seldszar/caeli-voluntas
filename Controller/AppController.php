@@ -31,7 +31,7 @@ class AppController extends Controller {
 		'Html' => array(
 			'className' => 'SzHtml'
 		),
-		'BBCode',
+		'Markitup',
 		'Session' => array(
 			//'className' => 'CaSession'
 		)
