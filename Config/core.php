@@ -276,3 +276,8 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+/**
+ * Période de validité de la clé de confirmation
+ */
+Configure::write('Confirmation.expires', '1 week');

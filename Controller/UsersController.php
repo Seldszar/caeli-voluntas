@@ -84,10 +84,14 @@ class UsersController extends AppController {
 	}
 
 	public function registerConfirm($salt) {
-		$user = $this->User->findBySalt($salt, 'id');
+		$user = $this->User->findBySalt($salt, array('id', 'created'));
 
 		if (!$user) {
 			throw new NotFoundException("La clé de confirmation est introuvable");
+		}
+
+		if (!CakeTime::wasWithinLast(Configure::read('Confirmation.expires'), $user['User']['created'])) {
+			throw new UnauthorizedException("La clé de confirmation a expirée");
 		}
 
 		$this->User->id = $user['User']['id'];
