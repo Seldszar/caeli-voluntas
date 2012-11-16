@@ -87,10 +87,11 @@ class ForumsController extends AppController {
 
 		if ($this->request->is('post')) {
 			$data = $this->data;
-			$data['Forum']['category'] = $id;
 
-			if ($this->Forum->saveAssociated($data)) {
-				$this->redirect(array('controller' => 'forumCategories', 'action' => 'view', $id));
+			$this->Forum->set('category', $id);
+
+			if ($this->Forum->save($data)) {
+				$this->redirect(array('controller' => 'forums', 'action' => 'edit', $this->Forum->getInsertID()));
 			}
 		}
 
