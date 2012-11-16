@@ -38,42 +38,8 @@ class Forum extends AppModel {
 		)
 	);
 
-	public function afterFind($results, $primary = false) {
-		if ($primary) {
-			$results = $this->buildAccessList($results);
-		} else {
-			foreach ($results as $k => $result) {
-				$results[$k] = $this->buildAccessList($result);
-			}
-		}
-
-		return $results;
-	}
-
 	public function beforeSave($options = array()) {
 		return $this->ForumAccess->deleteAll(array('forum' => $this->data['Forum']['id']));
-	}
-
-	/**
-	 * Génère la liste des droits concernant un forum
-	 *
-	 * @param result Résultat d'une requête représentant un forum
-	 * @result array Ligne passée en paramètre modifiée
-	 * @access private
-	 */
-	private function buildAccessList($result) {
-		$accesses = (isset($result['ForumAccess']) && is_array($result['ForumAccess']) ? $result['ForumAccess'] : array());
-
-		foreach ($accesses as $access) {
-			$results[$k]['ForumAccess'][$access['group']] = array(
-				'view' => $access['view'],
-				'reply' => $access['reply'],
-				'create' => $access['create'],
-				'moderate' => $access['moderate']
-			);
-		}
-
-		return $result;
 	}
 
 }

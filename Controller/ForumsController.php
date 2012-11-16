@@ -94,7 +94,7 @@ class ForumsController extends AppController {
 			}
 		}
 
-		$this->set('groups', $this->Group->find('list', array('conditions' => array('id <>' => 2))));
+		$this->set('groups', $this->Group->find('all', array('conditions' => array('id <>' => 2))));
 		$this->set('category', $this->ForumCategory->read());
 	}
 
@@ -120,7 +120,7 @@ class ForumsController extends AppController {
 
 		$this->set('forum', $forum);
 		$this->set('categories', $this->ForumCategory->find('list'));
-		$this->set('groups', $this->Group->find('list', array('conditions' => array('id <>' => 2))));
+		$this->set('groups', $this->Group->find('all', array('conditions' => array('id <>' => 2))));
 	}
 
 	public function admin_delete($id) {

@@ -26,13 +26,13 @@
 </tr>
 </thead>
 <tbody>
-<?php foreach ($groups as $id => $name): ?>
+<?php foreach ($groups as $k => $group): ?>
 <tr>
-<td><?php echo $this->Form->hidden("ForumAccess.{$id}.group", array('value' => $id)) ?><?php echo $name ?></td>
-<td class="center"><?php echo $this->Form->checkbox("ForumAccess.{$id}.view") ?></td>
-<td class="center"><?php echo ($id != 1 ? $this->Form->checkbox("ForumAccess.{$id}.reply") : null) ?></td>
-<td class="center"><?php echo ($id != 1 ? $this->Form->checkbox("ForumAccess.{$id}.create") : null) ?></td>
-<td class="center"><?php echo ($id != 1 ? $this->Form->checkbox("ForumAccess.{$id}.moderate") : null) ?></td>
+<td><?php echo $this->Form->hidden("ForumAccess.{$k}.group", array('value' => $group['Group']['id'])) ?><?php echo $group['Group']['name'] ?></td>
+<td class="center"><?php echo $this->Form->checkbox("ForumAccess.{$k}.view") ?></td>
+<td class="center"><?php echo ($group['Group']['id'] != 1 ? $this->Form->checkbox("ForumAccess.{$k}.reply") : null) ?></td>
+<td class="center"><?php echo ($group['Group']['id'] != 1 ? $this->Form->checkbox("ForumAccess.{$k}.create") : null) ?></td>
+<td class="center"><?php echo ($group['Group']['id'] != 1 ? $this->Form->checkbox("ForumAccess.{$k}.moderate") : null) ?></td>
 </tr>
 <?php endforeach ?>
 </tbody>

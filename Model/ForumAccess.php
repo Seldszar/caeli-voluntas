@@ -4,7 +4,13 @@ App::uses('AppModel', 'Model');
 
 class ForumAccess extends AppModel {
 
-	public function beforeSave($options = array()) {
-	}
+	public $belongsTo = array(
+		'Forum' => array(
+			'foreignKey' => 'forum'
+		),
+		'Group' => array(
+			'foreignKey' => 'group'
+		)
+	);
 
 }
