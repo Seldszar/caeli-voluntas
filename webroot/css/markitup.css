@@ -23,24 +23,27 @@
   background-image: url('../img/markitup/fonts.png');
 }
 .markItUp .markItUpButton6 a {
-  background-image: url('../img/markitup/picture.png');
+  background-image: url('../img/markitup/colors.png');
 }
 .markItUp .markItUpButton7 a {
-  background-image: url('../img/markitup/link.png');
+  background-image: url('../img/markitup/picture.png');
 }
 .markItUp .markItUpButton8 a {
-  background-image: url('../img/markitup/list-bullet.png');
+  background-image: url('../img/markitup/link.png');
 }
 .markItUp .markItUpButton9 a {
-  background-image: url('../img/markitup/list-numeric.png');
+  background-image: url('../img/markitup/list-bullet.png');
 }
 .markItUp .markItUpButton10 a {
-  background-image: url('../img/markitup/list-item.png');
+  background-image: url('../img/markitup/list-numeric.png');
 }
 .markItUp .markItUpButton11 a {
-  background-image: url('../img/markitup/quotes.png');
+  background-image: url('../img/markitup/list-item.png');
 }
 .markItUp .markItUpButton12 a {
+  background-image: url('../img/markitup/quotes.png');
+}
+.markItUp .markItUpButton13 a {
   background-image: url('../img/markitup/code.png');
 }
 .markItUp .preview a {
