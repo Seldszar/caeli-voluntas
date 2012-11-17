@@ -86,8 +86,8 @@ function BBCode2Html($text) {
 	);
 
 	$out = array(
-		'<strong>\1</strong>',
-		'<em>\1</em>',
+		'<b>\1</b>',
+		'<i>\1</i>',
 		'<u>\1</u>',
 		'<img src="\1" alt="\1" />',
 		'<a href="mailto:\1">\1</a>',
