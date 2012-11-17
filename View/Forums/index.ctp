@@ -6,16 +6,21 @@
 <?php if (!empty($categories)): ?>
 <?php foreach ($categories as $category): ?>
 <?php if (!empty($category['Forum'])): ?>
-<div class="section">
-<h3><?php echo $category['ForumCategory']['name'] ?></h3>
-<ul class="ui-custom-list">
+<div class="category-item">
+<h2><?php echo $category['ForumCategory']['name'] ?></h2>
+<table>
 <?php foreach ($category['Forum'] as $forum) : ?>
-<li>
+<tr class="forum-item">
+<td class="forum-item-icon">
+<?php echo $this->Html->link(null, array('controller' => 'forums', 'action' => 'view', $forum['id'], '?' => array('unread' => true)), array('class' => array('forum-icon', ($forum['new_messages'] ? 'new-messages' : null)), 'title' => 'Voir les messages non-lus')) ?>
+</td>
+<td class="forum-item-desc">
 <a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?>"><?php echo $forum['name'] ?></a> <span class="link-desc">(<?php echo $forum['num_topics'] ?> sujets, <?php echo $forum['num_posts'] ?> messages)</span>
 <div class="link-desc"><?php echo $forum['description'] ?></div>
-</li>
+</td>
+</tr>
 <?php endforeach ?>
-</ul>
+</table>
 </div>
 <?php endif ?>
 <?php endforeach ?>

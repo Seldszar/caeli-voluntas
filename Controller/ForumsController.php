@@ -13,11 +13,27 @@ class ForumsController extends AppController {
 	public function index() {
 		$this->layout = 'two_column';
 
-		$categories = $this->ForumCategory->find('all');
+		$categories = $this->ForumCategory->find('all', array(
+			'contain' => array(
+				'Forum' => array(
+					'LastPost' => array(
+						'ForumTopic'
+					)
+				)
+			)
+		));
+
+		$threadsViewed = (array)$this->Cookie->read('threadsViewed');
 
 		foreach ($categories as $i => $category) {
 			foreach ($category['Forum'] as $j => $forum) {
-				if (!$this->Acl->hasForumRole($forum['id'], 'view')) {
+				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
+					$categories[$i]['Forum'][$j]['new_messages'] =
+						isset($forum['last_post'])
+						&& (!isset($threadsViewed[$forum['LastPost']['topic']])
+						|| $forum['LastPost']['created'] >= $threadsViewed[$forum['LastPost']['topic']])
+					;
+				} else {
 					unset($categories[$i]['Forum'][$j]);
 				}
 			}
@@ -41,7 +57,7 @@ class ForumsController extends AppController {
 			throw new NotFoundException("Le forum demandé est introuvable");
 		}
 
-		$this->paginate = array(
+		$paginate = array(
 			'ForumTopic' => array(
 				'limit' => 20,
 				'paramType' => 'querystring',
@@ -57,22 +73,28 @@ class ForumsController extends AppController {
 				)
 			)
 		);
-		
-		$_ = $this;
-		
-		$topics = array_map(
-			function($v) use($_) {
-				$track = $_->Cookie->read("forums_track");
-				
-				if (!is_array($track)) {
-					$track = array();
+
+		$threadsViewed = (array)$this->Cookie->read('threadsViewed');
+
+		$this->paginate = $paginate;
+
+		$topics = $this->paginate('ForumTopic');
+
+		foreach ($topics as $k => $v) {
+			$topics[$k]['ForumTopic']['new_messages'] = false;
+			$newMessages =
+				!isset($threadsViewed[$v['ForumTopic']['id']])
+				|| $v['LastPost']['created'] > $threadsViewed[$v['ForumTopic']['id']]
+			;
+
+			if (isset($this->request->query['unread'])) {
+				if (!$newMessages) {
+					unset($topics[$k]);
 				}
-				
-				$v['ForumTopic']['tracked'] = in_array($v['ForumTopic']['last_post'], $track);
-				return $v;
-			}, 
-			$this->paginate('ForumTopic')
-		);
+			} else {
+				$topics[$k]['ForumTopic']['new_messages'] = $newMessages;
+			}
+		}
 
 		$this->set('forum', $this->Forum->read());
 		$this->set('topics', $topics);

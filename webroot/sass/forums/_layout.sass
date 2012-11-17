@@ -16,6 +16,11 @@
 
 	&:hover
 		background-color: adjust-lightness(#262626, 1%) !important
+	
+	&.new-messages
+		
+		.topic-title
+			font-weight: bold
 
 	td
 		padding: 10px 0
@@ -76,3 +81,30 @@
 
 .post-edited
 	margin-top: 6px
+
+.category-item
+	@extend .section
+
+.forum-item
+	border: none
+	
+	td
+		padding: 8px 0
+
+.forum-item-icon
+	vertical-align: middle
+
+.forum-icon
+	+border-radius(3px)
+
+	background-color: #363636
+	display: block
+	height: 16px
+	margin: 0 16px 0 6px
+	width: 16px
+	
+	&.new-messages
+		background-color: $link-color-normal
+
+.forum-item-desc
+	width: 100%

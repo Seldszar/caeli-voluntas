@@ -368,10 +368,10 @@ blockquote blockquote {
   padding-bottom: 32px;
 }
 
-.section {
+.section, .category-item {
   margin-bottom: 20px;
 }
-.section:last-child, .section:only-child {
+.section:last-child, .category-item:last-child, .section:only-child, .category-item:only-child {
   margin-bottom: 0;
 }
 
@@ -1323,6 +1323,9 @@ strong, b {
 .topic:hover {
   background-color: #292929 !important;
 }
+.topic.new-messages .topic-title {
+  font-weight: bold;
+}
 .topic td {
   padding: 10px 0;
 }
@@ -1386,6 +1389,37 @@ strong, b {
 
 .post-edited {
   margin-top: 6px;
+}
+
+.forum-item {
+  border: none;
+}
+.forum-item td {
+  padding: 8px 0;
+}
+
+.forum-item-icon {
+  vertical-align: middle;
+}
+
+.forum-icon {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #363636;
+  display: block;
+  height: 16px;
+  margin: 0 16px 0 6px;
+  width: 16px;
+}
+.forum-icon.new-messages {
+  background-color: #96a3bb;
+}
+
+.forum-item-desc {
+  width: 100%;
 }
 
 .post-author {

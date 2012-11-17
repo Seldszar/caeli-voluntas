@@ -173,7 +173,9 @@
  *
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'php',
+		'cookie' => 'Session',
+		'autoRegenerate' => true
 	));
 
 /**
