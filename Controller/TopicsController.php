@@ -83,12 +83,16 @@ class TopicsController extends AppController {
 					$postId = $this->ForumPost->getInsertID();
 
 					$this->ForumTopic->id = $topicId;
-					$this->ForumTopic->save(array(
+					$this->ForumTopic->set(array(
 						'first_post' => $postId,
 						'last_post' => $postId
 					));
 
-					$this->redirect(array('action' => 'view', $topicId));
+					if ($this->ForumTopic->save()) {
+						if ($this->Forum->updateStatistics()) {
+							$this->redirect(array('action' => 'view', $topicId));
+						}
+					}
 				}
 			}
 		}
@@ -147,7 +151,11 @@ class TopicsController extends AppController {
 		}
 
 		if ($this->ForumTopic->delete()) {
-			$this->redirect(array('controller' => 'forums', 'action' => 'view', $topic['ForumTopic']['forum']));
+			$this->Forum->id = $topic['ForumTopic']['forum'];
+
+			if ($this->Forum->updateStatistics()) {
+				$this->redirect(array('controller' => 'forums', 'action' => 'view', $topic['ForumTopic']['forum']));
+			}
 		}
 	}
 

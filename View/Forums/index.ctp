@@ -11,7 +11,7 @@
 <ul class="ui-custom-list">
 <?php foreach ($category['Forum'] as $forum) : ?>
 <li>
-<a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?>"><?php echo $forum['name'] ?></a>
+<a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?>"><?php echo $forum['name'] ?></a> <span class="link-desc">(<?php echo $forum['num_topics'] ?> sujets, <?php echo $forum['num_posts'] ?> messages)</span>
 <div class="link-desc"><?php echo $forum['description'] ?></div>
 </li>
 <?php endforeach ?>

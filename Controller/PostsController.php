@@ -5,7 +5,7 @@ App::uses('CakeTime', 'Utility');
 
 class PostsController extends AppController {
 
-	public $uses = array('ForumPost', 'ForumTopic', 'ForumAccess');
+	public $uses = array('ForumPost', 'ForumTopic', 'Forum', 'ForumAccess');
 
 	public $helpers = array('Time');
 
@@ -28,14 +28,17 @@ class PostsController extends AppController {
 			$this->ForumPost->set('topic', $id);
 
 			if ($this->ForumPost->save($data)) {
-				
 				$this->ForumTopic->set(array(
 					'num_replies' => $this->ForumPost->find('count', array('conditions' => array('topic' => $id))) - 1,
 					'last_post' => $this->ForumPost->getInsertID()
 				));
-				
+
 				if ($this->ForumTopic->save()) {
-					$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+					$this->Forum->id = $topic['ForumTopic']['forum'];
+
+					if ($this->Forum->updateStatistics()) {
+						$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+					}
 				}
 			}
 		}
@@ -116,7 +119,11 @@ class PostsController extends AppController {
 			));
 
 			if ($this->ForumTopic->save()) {
-				$this->redirect(array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic']));
+				$this->Forum->id = $this->ForumTopic->field('forum');
+
+				if ($this->Forum->updateStatistics()) {
+					$this->redirect(array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic']));
+				}
 			}
 		}
 	}

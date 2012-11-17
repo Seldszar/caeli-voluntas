@@ -25,11 +25,4 @@ class ForumPost extends AppModel {
 		)
 	);
 
-	/*public function afterSave($created) {
-		if ($created) {
-			$this->ForumTopic->id = $this->field('topic');
-			$this->saveField('last_post', $this->getInsertID());
-		}
-	}*/
-
 }

@@ -9,6 +9,10 @@ class Forum extends AppModel {
 	public $belongsTo = array(
 		'ForumCategory' => array(
 			'foreignKey' => 'category'
+		),
+		'LastPost' => array(
+			'className' => 'ForumPost',
+			'foreignKey' => 'last_post'
 		)
 	);
 
@@ -18,10 +22,7 @@ class Forum extends AppModel {
 			'dependent' => true,
 			'order' => array(
 				'last_post' => 'DESC'
-			)/*,
-			'counterCache' => array(
-				'num_topics' => true
-			)*/
+			)
 		),
 		'ForumAccess' => array(
 			'foreignKey' => 'forum',
@@ -38,8 +39,37 @@ class Forum extends AppModel {
 		)
 	);
 
-	public function beforeSave($options = array()) {
-		return $this->ForumAccess->deleteAll(array('forum' => $this->data['Forum']['id']));
+	public function updateStatistics() {
+		$this->set('num_topics', $this->ForumTopic->find('count', array(
+			'conditions' => array(
+				'forum' => $this->id
+			)
+		)));
+
+		$this->set('num_posts', $this->ForumTopic->ForumPost->find('count', array(
+			'contain' => array(
+				'ForumTopic'
+			),
+			'conditions' => array(
+				'ForumTopic.forum' => $this->id
+			)
+		)));
+
+		$lastPost = $this->ForumTopic->ForumPost->find('first', array(
+			'contain' => array(
+				'ForumTopic'
+			),
+			'conditions' => array(
+				'ForumTopic.forum' => $this->id
+			),
+			'order' => array(
+				'ForumPost.id' => 'DESC'
+			)
+		));
+
+		$this->set('last_post', $lastPost ? $lastPost['ForumPost']['id'] : null);
+
+		return $this->save();
 	}
 
 }

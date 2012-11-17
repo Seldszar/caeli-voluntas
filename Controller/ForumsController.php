@@ -112,6 +112,8 @@ class ForumsController extends AppController {
 			$data = $this->data;
 			$data['Forum']['id'] = $id;
 
+			$this->ForumAccess->deleteAll(array('forum' => $id));
+
 			if ($this->Forum->saveAssociated($data)) {
 				$this->redirect(array('controller' => 'forumCategories', 'action' => 'view', $forum['Forum']['category']));
 			}
