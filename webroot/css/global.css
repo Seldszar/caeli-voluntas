@@ -687,15 +687,6 @@ body#user #page-content {
   margin-right: 20px;
 }
 
-.avatar {
-  border: 5px solid #212121;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-}
-
 .max-150px {
   max-height: 150px;
   max-width: 150px;
@@ -918,6 +909,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
   position: fixed;
   z-index: -1;
   top: 0;
+  right: 0;
   right: 0;
 }
 
