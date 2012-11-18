@@ -15,8 +15,11 @@
 <?php echo $this->Html->link(null, array('controller' => 'forums', 'action' => 'view', $forum['id'], '?' => array('unread' => true)), array('class' => array('forum-icon', ($forum['new_messages'] ? 'new-messages' : null)), 'title' => 'Voir les messages non-lus')) ?>
 </td>
 <td class="forum-item-desc">
-<a href="<?php echo $this->Html->url(array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?>"><?php echo $forum['name'] ?></a> <span class="link-desc">(<?php echo $forum['num_topics'] ?> sujets, <?php echo $forum['num_posts'] ?> messages)</span>
+<?php echo $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?> <span class="link-desc">(<?php echo $forum['num_topics'] ?> sujets, <?php echo $forum['num_posts'] ?> messages)</span>
 <div class="link-desc"><?php echo $forum['description'] ?></div>
+<?php if ($forum['last_post']) : ?>
+<div class="link-desc">Dernier message : <?php echo $this->Html->link($this->Time->timeAgoInWords($forum['LastPost']['created']), array('controller' => 'topics', 'action' => 'view', $forum['LastPost']['topic'], '#' => 'p' . $forum['LastPost']['id'])) ?> par <?php echo $this->Html->link($forum['LastPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $forum['LastPost']['CreatedBy']['id'])) ?></div>
+<?php endif ?>
 </td>
 </tr>
 <?php endforeach ?>

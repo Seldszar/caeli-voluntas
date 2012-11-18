@@ -17,7 +17,8 @@ class ForumsController extends AppController {
 			'contain' => array(
 				'Forum' => array(
 					'LastPost' => array(
-						'ForumTopic'
+						'ForumTopic',
+						'CreatedBy'
 					)
 				)
 			)

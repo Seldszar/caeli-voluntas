@@ -15,7 +15,7 @@
 
 <table id="posts">
 <?php foreach ($posts as $post) : ?>
-<tr class="post">
+<tr class="post" id="p<?php echo $post['ForumPost']['id'] ?>">
 <td class="post-author">
 <div class="avatar">
 <img src="<?php echo $post['CreatedBy']['avatar_url'] ?>" alt="Avatar de <?php echo $post['CreatedBy']['username'] ?>" />
