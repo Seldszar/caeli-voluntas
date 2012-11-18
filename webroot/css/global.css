@@ -1400,8 +1400,7 @@ strong, b {
 
 .category-item {
   background: url('../img/page-content.jpg') repeat-x top;
-  margin: 0;
-  padding: 20px;
+  padding: 20px 20px 0;
 }
 .category-item:first-child {
   background: none;
