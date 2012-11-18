@@ -1348,8 +1348,11 @@ strong, b {
 }
 
 .post {
-  background: url('../img/separator.gif') repeat-x center bottom;
+  background: url('../img/full-page-content.jpg') repeat-x top;
   border: none;
+}
+.post:first-child {
+  background: none;
 }
 .post td {
   padding-bottom: 20px;
@@ -1366,6 +1369,9 @@ strong, b {
   width: 190px;
 }
 .post-author .avatar {
+  -webkit-box-shadow: 0 0 15px black;
+  -moz-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
   float: left;
   height: 80px;
   margin-right: 10px;
@@ -1390,6 +1396,15 @@ strong, b {
 
 .post-edited {
   margin-top: 6px;
+}
+
+.category-item {
+  background: url('../img/page-content.jpg') repeat-x top;
+  margin: 0;
+  padding: 20px;
+}
+.category-item:first-child {
+  background: none;
 }
 
 .forum-item {

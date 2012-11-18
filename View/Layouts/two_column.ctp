@@ -9,7 +9,7 @@
 <?php endif ?>
 </div>
 <?php endif ?>
-<div id="page-content">
+<div id="page-content" class="<?php echo $this->fetch('content.class') ?>">
 <?php echo $this->fetch('content') ?>
 </div>
 <?php $this->end() ?>

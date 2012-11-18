@@ -2,6 +2,7 @@
 
 <?php $this->assign('header.image', 'forums') ?>
 <?php $this->assign('header.title', 'Forums') ?>
+<?php $this->assign('content.class', 'no-padding') ?>
 
 <?php if (!empty($categories)): ?>
 <?php foreach ($categories as $category): ?>

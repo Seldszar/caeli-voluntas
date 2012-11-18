@@ -45,8 +45,11 @@
 	@extend #topics
 
 .post
-	background: image-url('separator.gif') repeat-x center bottom
+	background: image-url('full-page-content.jpg') repeat-x top
 	border: none
+
+	&:first-child
+		background: none
 
 	td
 		padding-bottom: 20px
@@ -62,6 +65,8 @@
 	width: 190px
 
 	.avatar
+		+box-shadow(0 0 15px #000)
+
 		float: left
 		height: 80px
 		margin-right: 10px
@@ -86,6 +91,13 @@
 
 .category-item
 	@extend .section
+
+	background: image-url('page-content.jpg') repeat-x top
+	margin: 0
+	padding: 20px
+
+	&:first-child
+		background: none
 
 .forum-item
 	border: none
