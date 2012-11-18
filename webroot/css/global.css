@@ -512,6 +512,11 @@ ul.link-list li:last-child, ol.link-list li:last-child {
   *zoom: 1;
 }
 
+.link-desc a, .link-rem a, .link-desc a.ui-button, .link-rem a.ui-button, .link-desc input[type='submit'], .link-rem input[type='submit'], .link-desc input[type='reset'], .link-rem input[type='reset'], .link-desc input[type='button'], .link-rem input[type='button'], .link-desc button, .link-rem button {
+  border-bottom: 1px dashed #343434;
+  color: inherit;
+}
+
 .link-rem {
   font-style: italic;
 }
