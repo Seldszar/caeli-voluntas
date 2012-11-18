@@ -1379,6 +1379,7 @@ strong, b {
 .post-action {
   overflow: hidden;
   *zoom: 1;
+  font-size: 11px;
   list-style: none;
   margin: 20px 0 0;
 }
