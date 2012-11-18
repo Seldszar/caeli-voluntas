@@ -23,7 +23,7 @@ class ForumsController extends AppController {
 			)
 		));
 
-		$threadsViewed = (array)$this->Cookie->read('threadsViewed');
+		$threadsViewed = $this->Cookie->read('threadsViewed');
 
 		foreach ($categories as $i => $category) {
 			foreach ($category['Forum'] as $j => $forum) {

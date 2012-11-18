@@ -44,7 +44,9 @@ class TopicsController extends AppController {
 		$this->set('topic', $topic);
 		$this->set('posts', $this->paginate('ForumPost'));
 
-		$this->Cookie->write("threadsViewed.{$id}", CakeTime::toServer(time()));
+		$threadsViewed = $this->Cookie->read("threadsViewed");
+		$threadsViewed[$id] = time();
+		$this->Cookie->write("threadsViewed", $threadsViewed, false);
 	}
 
 	public function create($id) {
