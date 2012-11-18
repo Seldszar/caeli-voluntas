@@ -74,17 +74,16 @@ class ForumsController extends AppController {
 			)
 		);
 
-		$threadsViewed = (array)$this->Cookie->read('threadsViewed');
-
 		$this->paginate = $paginate;
 
 		$topics = $this->paginate('ForumTopic');
 
 		foreach ($topics as $k => $v) {
 			$topics[$k]['ForumTopic']['new_messages'] = false;
+			$threadViewed = $this->Cookie->read("threadsViewed.{$v['ForumTopic']['id']}");
 			$newMessages =
-				!isset($threadsViewed[$v['ForumTopic']['id']])
-				|| $v['LastPost']['created'] > $threadsViewed[$v['ForumTopic']['id']]
+				!isset($threadViewed)
+				|| $v['LastPost']['created'] > $threadViewed
 			;
 
 			if (isset($this->request->query['unread'])) {
