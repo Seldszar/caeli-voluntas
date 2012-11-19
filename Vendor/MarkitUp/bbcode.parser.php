@@ -80,6 +80,7 @@ function BBCode2Html($text) {
 		'/\[size\="?(.*?)"?\](.*?)\[\/size\]/ms',
 		'/\[color\="?(.*?)"?\](.*?)\[\/color\]/ms',
 		'/\[quote](.*?)\[\/quote\]/ms',
+		'/\[quote\="?(.*?)"?\](.*?)\[\/quote\]/ms',
 		'/\[list\=(.*?)\](.*?)\[\/list\]/ms',
 		'/\[list\](.*?)\[\/list\]/ms',
 		'/\[\*\]\s?(.*?)\n/ms'
@@ -95,6 +96,7 @@ function BBCode2Html($text) {
 		'<span style="font-size:\1">\2</span>',
 		'<span style="color:\1">\2</span>',
 		'<blockquote>\1</blockquote>',
+		'<blockquote><div class="by-line">\1 a &eacute;crit :</div>\2</blockquote>',
 		'<ol start="\1">\2</ol>',
 		'<ul>\1</ul>',
 		'<li>\1</li>'

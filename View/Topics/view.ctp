@@ -31,6 +31,7 @@
 <?php if (AuthComponent::user()) : ?>
 <ul class="post-action">
 <?php if (($post['CreatedBy']['id'] == AuthComponent::user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<li><?php echo $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
 <li><?php echo $this->Html->link("Supprimer", array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']), null, 'Voulez-vous vraiment supprimer ce fil de discussion ?') ?></li>

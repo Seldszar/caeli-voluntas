@@ -41,6 +41,14 @@ class PostsController extends AppController {
 					}
 				}
 			}
+		} else if (isset($this->request->query['quote'])) {
+			$this->ForumPost->id = $this->request->query['quote'];
+			
+			if ($this->ForumPost->exists()) {
+				$this->request->data['ForumPost']['content'] =
+					sprintf('[quote=%s]%s[/quote]', $this->ForumPost->CreatedBy->field('username'), $this->ForumPost->field('content'));
+				;
+			}
 		}
 
 		$this->set('topic', $topic);
