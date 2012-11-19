@@ -7,7 +7,7 @@
 <div class="section">
 <h3>Présentation</h3>
 <?php if (!empty($user['User']['presentation'])): ?>
-<?php echo $this->BBCode->parse($user['User']['presentation']) ?>
+<?php echo $this->MarkitUp->parse($user['User']['presentation']) ?>
 <?php else: ?>
 Vous n'avez pas saisi de présentation
 <?php endif ?>
