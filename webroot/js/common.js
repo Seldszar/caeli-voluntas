@@ -32,4 +32,6 @@ $(function() {
 		})
 	;
 	h();
+	
+	$('textarea').autosize();
 });

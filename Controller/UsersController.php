@@ -223,7 +223,8 @@ class UsersController extends AppController {
 		{
 			$data = $this->data;
 			$fields = array(
-				'presentation'
+				'presentation',
+				'signature'
 			);
 
 			if ($this->Acl->hasRole('moderate_user') && $user['User']['group'] != 2) {

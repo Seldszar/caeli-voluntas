@@ -42,6 +42,11 @@
 <?php endif ?>
 </ul>
 <?php endif ?>
+<?php if (!empty($post['CreatedBy']['signature'])) : ?>
+<div class="post-author-signature">
+<?php echo $this->MarkitUp->parse($post['CreatedBy']['signature']) ?>
+</div>
+<?php endif ?>
 </td>
 </tr>
 <?php endforeach ?>

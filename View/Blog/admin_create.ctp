@@ -7,7 +7,7 @@
 
 <?php echo $this->Form->create() ?>
 <?php echo $this->Form->input('title', array('label' => false, 'placeholder' => 'Saisissez le titre')) ?>
-<?php echo $this->Form->input('content', array('label' => false, 'placeholder' => 'Saisissez le contenu', 'rows' => 16)) ?>
+<?php echo $this->Form->input('content', array('label' => false, 'placeholder' => 'Saisissez le contenu')) ?>
 <?php echo $this->Form->end('Sauver') ?>
 
 <?php $this->start('scripts') ?>

@@ -3,22 +3,27 @@
 
 <?php $this->assign('header.image', 'user') ?>
 <?php $this->assign('header.title', 'Editer le compte') ?>
+<?php $this->assign('content.class', 'no-padding') ?>
 
 <?php echo $this->Form->create() ?>
-<div class="section">
-<h3>Modifier la présentation</h3>
-<?php echo $this->Form->input('presentation', array('label' => false, 'rows' => 10)) ?>
+<div class="profile-section">
+<h2>Présentation</h2>
+<?php echo $this->Form->input('presentation', array('label' => false, 'rows' => 4)) ?>
+</div>
+<div class="profile-section">
+<h2>Signature</h2>
+<?php echo $this->Form->input('signature', array('label' => false, 'rows' => 4)) ?>
 </div>
 <?php if (AclComponent::hasRole('moderate_users') && $this->data['User']['group'] != 2) : ?>
-<div class="section">
-<h3>Modifier le groupe d'utilisateur</h3>
+<div class="profile-section">
+<h2>Groupe d'utilisateur</h2>
 <?php echo $this->Form->input('group', array('label' => false, 'options' => $groups)) ?>
 </div>
 <?php endif ?>
-<?php echo $this->Form->end('Sauver') ?>
+<?php echo $this->Form->end(array('label' => 'Sauver les modifications', 'div' => array('class' => 'profile-bottom'))) ?>
 
 <?php $this->start('scripts') ?>
 $(function() {
-	$('#UserPresentation').markItUp(mySettings);
+	$('#UserPresentation, #UserSignature').markItUp(mySettings);
 });
 <?php $this->end() ?>
