@@ -7,7 +7,7 @@
 <?php echo $this->Form->create() ?>
 <div class="section">
 <h3>Modifier la présentation</h3>
-<?php echo $this->Form->input('presentation', array('label' => false)) ?>
+<?php echo $this->Form->input('presentation', array('label' => false, 'rows' => 10)) ?>
 </div>
 <?php if (AclComponent::hasRole('moderate_users') && $this->data['User']['group'] != 2) : ?>
 <div class="section">
@@ -16,3 +16,9 @@
 </div>
 <?php endif ?>
 <?php echo $this->Form->end('Sauver') ?>
+
+<?php $this->start('scripts') ?>
+$(function() {
+	$('#UserPresentation').markItUp(mySettings);
+});
+<?php $this->end() ?>
