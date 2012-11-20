@@ -54,12 +54,12 @@
 <div class="footer-group" id="footer-links">
 <h3><span class="icon-globe"></span>Liens externes</h3>
 <div class="footer-group-content">
-<?php echo $this->Html->link('Battle.net', 'http://eu.battle.net/') ?>
-<?php echo $this->Html->link('WowProgress', 'http://www.wowprogress.com/') ?>
-<?php echo $this->Html->link('World of Logs', 'http://www.worldoflogs.com/') ?>
-<?php echo $this->Html->link('Elitist Jerks', 'http://elitistjerks.com/') ?>
-<?php echo $this->Html->link('Curse', 'http://www.curse.com/') ?>
-<?php echo $this->Html->link('Ask Mr. Robot', 'http://www.askmrrobot.com/') ?>
+<?php echo $this->Html->link('Battle.net', 'http://eu.battle.net/', array('target' => '_blank')) ?>
+<?php echo $this->Html->link('WowProgress', 'http://www.wowprogress.com/', array('target' => '_blank')) ?>
+<?php echo $this->Html->link('World of Logs', 'http://www.worldoflogs.com/', array('target' => '_blank')) ?>
+<?php echo $this->Html->link('Elitist Jerks', 'http://elitistjerks.com/', array('target' => '_blank')) ?>
+<?php echo $this->Html->link('Curse', 'http://www.curse.com/', array('target' => '_blank')) ?>
+<?php echo $this->Html->link('Ask Mr. Robot', 'http://www.askmrrobot.com/', array('target' => '_blank')) ?>
 </div>
 </div>
 <div class="footer-group">
