@@ -100,6 +100,30 @@ class ForumsController extends AppController {
 		$this->set('topics', $topics);
 	}
 
+	public function markread() {
+		$categories = $this->ForumCategory->find('all', array(
+			'contain' => array(
+				'Forum' => array(
+					'LastPost'
+				)
+			)
+		));
+
+		$threadsViewed = $this->Cookie->read('threadsViewed');
+
+		foreach ($categories as $i => &$category) {
+			foreach ($category['Forum'] as $j => &$forum) {
+				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
+					$threadsViewed[$forum['LastPost']['topic']] = time();
+				}
+			}
+		}
+
+		$this->Cookie->write('threadsViewed', $threadsViewed);
+
+		$this->redirect(array('action' => 'index'));
+	}
+
 	public function admin_create($id) {
 		$this->ForumCategory->id = $id;
 

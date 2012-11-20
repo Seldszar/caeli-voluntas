@@ -26,6 +26,7 @@
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
 	Router::connect('/lost-password', array('controller' => 'users', 'action' => 'lostPassword'));
 	Router::connect('/forums', array('controller' => 'forums', 'action' => 'index'));
+	Router::connect('/forums/markread', array('controller' => 'forums', 'action' => 'markread'));
 	Router::connect('/forums/*', array('controller' => 'forums', 'action' => 'view'));
 	Router::connect('/topics/edit/*', array('controller' => 'topics', 'action' => 'edit'));
 	Router::connect('/topics/create/*', array('controller' => 'topics', 'action' => 'create'));

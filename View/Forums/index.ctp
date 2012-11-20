@@ -2,6 +2,7 @@
 
 <?php $this->assign('header.image', 'forums') ?>
 <?php $this->assign('header.title', 'Forums') ?>
+<?php $this->assign('header.description', $this->Html->link('Marquer toutes les discussions comme lues', array('action' => 'markread'), array('class' => 'ui-button'))) ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <?php if (!empty($categories)): ?>
