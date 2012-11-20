@@ -64,8 +64,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @font-face {
+  font-family: "Oswald";
+  src: url('../font/Oswald-Light.woff') format('woff');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url('../font/OpenSans.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url('../font/OpenSans-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url('../font/OpenSans-Semibold.woff') format('woff');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url('../font/OpenSans-SemiboldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
   font-family: "fontello";
-  src: url('../font/fontello.ttf') format('truetype'), url('../font/fontello.woff') format('woff'), url('../font/fontello.svg') format('svg'), url('../font/fontello.eot') format('embedded-opentype');
+  src: url('../font/fontello.woff') format('woff');
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
