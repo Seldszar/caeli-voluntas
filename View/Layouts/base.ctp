@@ -37,7 +37,7 @@
 <li><?php echo $this->Html->link('Roster', array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link('Galerie', array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link('Charte', array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Evènements', 'http://events.caeli-voluntas.fr/', array('target' => '_blank')) ?></li>
+<li><?php echo $this->Html->link('Evènements <sup class="icon-export"></sup>', 'http://events.caeli-voluntas.fr/', array('target' => '_blank', 'escape' => false)) ?></li>
 </ul>
 </div>
 <div id="topbar">

@@ -1,17 +1,16 @@
 +font-face('fontello', font-files('fontello.ttf', 'fontello.woff', 'fontello.svg', 'fontello.eot'))
 
 [class^="icon-"]:before, [class*=" icon-"]:before
+	display: inline-block
 	font-family: 'fontello'
 	font-style: normal
 	font-weight: normal
+	line-height: 1em
+	margin-right: .2em
 	speak: none
-	display: inline-block
+	text-align: center
 	text-decoration: inherit
 	width: 1em
-	margin-right: 0.2em
-	text-align: center
-	opacity: 0.8
-	line-height: 1em
 
 .icon-cog:before
 	content: '\2699'
@@ -21,6 +20,12 @@
 
 .icon-globe:before
 	content: '\1f30e'
+
+.icon-export:before
+	content: '\e715'
+
+.icon-down-dir:before
+	content: '\25be'
 
 ::selection, ::-moz-selection, ::-webkit-selection
 	background: $link-color-normal
@@ -34,6 +39,13 @@ div
 
 html
 	height: 100%
+
+sup
+	font-size: .8em
+	line-height: .8em
+	vertical-align: super
+	position: relative
+	text-decoration: none
 
 body
 	background-color: #1A1A1A

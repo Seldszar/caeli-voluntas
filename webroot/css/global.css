@@ -69,17 +69,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
+  display: inline-block;
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
+  line-height: 1em;
+  margin-right: 0.2em;
   speak: none;
-  display: inline-block;
+  text-align: center;
   text-decoration: inherit;
   width: 1em;
-  margin-right: 0.2em;
-  text-align: center;
-  opacity: 0.8;
-  line-height: 1em;
 }
 
 .icon-cog:before {
@@ -92,6 +91,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .icon-globe:before {
   content: "\1f30e";
+}
+
+.icon-export:before {
+  content: "\e715";
+}
+
+.icon-down-dir:before {
+  content: "\25be";
 }
 
 ::selection, ::-moz-selection, ::-webkit-selection {
@@ -111,6 +118,14 @@ div {
 
 html {
   height: 100%;
+}
+
+sup {
+  font-size: 0.8em;
+  line-height: 0.8em;
+  vertical-align: super;
+  position: relative;
+  text-decoration: none;
 }
 
 body {
