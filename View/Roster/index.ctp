@@ -2,16 +2,19 @@
 
 <?php $this->assign('header.image', 'roster') ?>
 <?php $this->assign('header.title', 'Roster de la guilde') ?>
+<?php $this->assign('content.class', 'no-padding') ?>
 
-<?php foreach ($roster as $class): ?>
+<div id="roster">
+<?php foreach ($roster as $k => $class): ?>
 <?php if (!empty($class['Character'])): ?>
-<div class="section span-3">
-<h3><?php echo $class['CharacterClass']['name'] ?></h3>
-<ul class="ui-custom-list">
-<?php foreach ($class['Character'] as $character) : ?>
-<li class="color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $character['name'] ?></li>
+<div class="roster-class">
+<h2 class="color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></h2>
+<div class="roster-characters">
+<?php foreach ($class['Character'] as $k => $character) : ?>
+<?php echo $this->Html->link($this->Html->image($character['User']['avatar_url'], array('title' => $character['name'])), array('controller' => 'users', 'action' => 'view', $character['user']), array('escape' => false, 'class' => array('roster-character', ($k < 2 ? 'first' : null)))) ?>
 <?php endforeach ?>
-</ul>
+</div>
 </div>
 <?php endif ?>
 <?php endforeach ?>
+</div>

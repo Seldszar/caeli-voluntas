@@ -8,6 +8,9 @@ class Character extends AppModel {
 		'CharacterClass' => array(
 			'foreignKey' => 'class'
 		),
+		'User' => array(
+			'foreignKey' => 'user'
+		),
 		'Realm' => array(
 			'foreignKey' => 'realm'
 		)

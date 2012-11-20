@@ -14,7 +14,8 @@ class RosterController extends AppController {
 				'Character' => array(
 					'conditions' => array(
 						'in_roster' => true
-					)
+					),
+					'User'
 				)
 			)
 		);

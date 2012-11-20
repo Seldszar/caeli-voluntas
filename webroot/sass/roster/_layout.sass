@@ -1,64 +1,42 @@
+#roster
+	+clearfix()
+
+	text-align: center
+
 .roster-class
-	float: left
-	margin-bottom: 20px
-	position: relative
-	width: 235px
+	display: inline-block
+	//float: left
+	margin-left: 20px - 2px
+	min-height: image-height('page-content.jpg')
+	padding-top: 20px
+	width: ((660px - 20px) / 3 - 20px)
 
-	&:nth-child(2n)
-		margin-left: 20px
-
-	&.last
-		margin-bottom: 0
-
+	&:nth-of-type(3n-2)
+		margin-left: 0
+	
 	h2
-		margin-bottom: 3px
+		border-bottom: 1px solid #333333
+		padding-bottom: 10px
+		text-align: center
 
-	&.class-1
+.roster-characters
+	+clearfix()
 
-		a
-			@extend .color-c1
+	text-align: center
 
-	&.class-2
+.roster-character
+	+box-shadow(0 0 15px #000)
 
-		a
-			@extend .color-c2
+	display: inline-block
+	//float: left
+	margin-right: 10px
+	width: ((193px + 10px) / 3 - 10px)
 
-	&.class-3
+	&:not(.first)
+		margin-top: 10px
 
-		a
-			@extend .color-c3
+	&:nth-of-type(3n), &:last-of-type
+		margin-right: 0
 
-	&.class-4
-
-		a
-			@extend .color-c4
-
-	&.class-5
-
-		a
-			@extend .color-c5
-
-	&.class-6
-
-		a
-			@extend .color-c6
-
-	&.class-7
-
-		a
-			@extend .color-c7
-
-	&.class-8
-
-		a
-			@extend .color-c8
-
-	&.class-9
-
-		a
-			@extend .color-c9
-
-	&.class-11
-
-		a
-			@extend .color-c11
+	img
+		display: block

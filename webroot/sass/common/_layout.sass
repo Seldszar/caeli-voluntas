@@ -577,7 +577,6 @@ body
 		margin-left: 1px !important
 
 		a
-			//@extend .ui-button
 			+border-radius(0)
 			float: left
 
@@ -607,9 +606,6 @@ ul
 		> li
 			+clearfix
 
-			//.on-hover
-				+single-transition(opacity, .1s)
-
 			&:not(:hover)
 
 				.on-hover
@@ -637,12 +633,9 @@ ul
 
 		> li
 			+clearfix
-			padding: 10px
-			//background: image-url('table-separator.png') no-repeat bottom center
-			border-bottom: 1px solid #333333
 
-			//.on-hover
-				+single-transition(opacity, .1s)
+			padding: 10px
+			border-bottom: 1px solid #333333
 
 			&:not(:hover)
 
@@ -687,16 +680,6 @@ ul
 					&.checked
 						background-color: adjust-lightness(#262626, 10%)
 
-				//&:first-child
-
-					//a
-						+border-radius(3px 0 0 3px)
-
-				//&:last-child
-
-					//a
-						+border-radius(0 3px 3px 0)
-
 .caption-empty
 	margin: 50px 0
 	text-align: center
@@ -731,12 +714,12 @@ ul
 	text-align: center
 
 .ui-pagination
-	
+
 	> span
-		
+
 		&:not(:last-child)
 			margin-right: 1px
-		
+
 		&.current, &.ellipsis, > a
 			display: inline-block
 			height: 26px
@@ -744,20 +727,17 @@ ul
 			text-align: center
 			vertical-align: middle
 			width: 26px
-		
+
 		> a
 			background-color: #191919
 			+border-radius(5px)
-			
+
 			&:hover
 				background-color: #1C1C1C
 
 #page-content-top
 	+clearfix
-	//background: #262626 image-url('separator.gif') repeat-x top
-	//background-color: #262626
-	//padding: 12px 20px 10px
-	
+
 	.ui-pagination
 		margin-top: 2px
 
