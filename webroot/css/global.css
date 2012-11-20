@@ -63,6 +63,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url('../img/icons-s67a4b152e9.png') no-repeat;
 }
 
+@font-face {
+  font-family: "fontello";
+  src: url('../font/fontello.ttf') format('truetype'), url('../font/fontello.woff') format('woff'), url('../font/fontello.svg') format('svg'), url('../font/fontello.eot') format('embedded-opentype');
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  opacity: 0.8;
+  line-height: 1em;
+}
+
+.icon-cog:before {
+  content: "\2699";
+}
+
+.icon-quote:before {
+  content: "\275e";
+}
+
+.icon-globe:before {
+  content: "\1f30e";
+}
+
 ::selection, ::-moz-selection, ::-webkit-selection {
   background: #96a3bb;
   color: white;
@@ -268,9 +299,12 @@ blockquote blockquote {
 }
 
 #footer {
+  overflow: hidden;
+  *zoom: 1;
+  background: url('../img/full-page-content.jpg') repeat-x top;
   bottom: 0;
   font-size: 11px;
-  padding: 6px 20px;
+  padding: 20px;
   position: absolute;
   width: 100%;
 }
@@ -364,8 +398,7 @@ blockquote blockquote {
 #content {
   overflow: hidden;
   *zoom: 1;
-  padding-bottom: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 153px;
 }
 
 .section, .profile-section, .category-item {
@@ -939,6 +972,30 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 
 .profile-bottom {
   padding: 0 20px;
+}
+
+.footer-group {
+  float: left;
+  margin-right: 20px;
+  width: 283.333px;
+}
+.footer-group:last-child {
+  margin-right: 0;
+}
+.footer-group h3, .footer-group #menu ul, #menu .footer-group ul, .footer-group #menu ol, #menu .footer-group ol {
+  border-bottom: 1px solid #333333;
+  color: #e6e6e6;
+  padding-bottom: 10px;
+}
+
+#footer-links {
+  overflow: hidden;
+  *zoom: 1;
+}
+#footer-links a, #footer-links a.ui-button, #footer-links input[type='submit'], #footer-links input[type='reset'], #footer-links input[type='button'], #footer-links button {
+  display: block;
+  float: left;
+  width: 50%;
 }
 
 input[type='text'], textarea, select, input[type='password'], input[type='email'] {

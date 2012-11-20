@@ -51,8 +51,30 @@
 <?php echo $this->fetch('_content') ?>
 </div>
 <div id="footer">
-<div class="float-left">&copy; Caeli Voluntas 2012 - Tous droits réservés</div>
-<div class="float-right">Créé par Alexandre.B avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
+<div class="footer-group" id="footer-links">
+<h3><span class="icon-globe"></span>Liens externes</h3>
+<div class="footer-group-content">
+<?php echo $this->Html->link('Battle.net', 'http://eu.battle.net/') ?>
+<?php echo $this->Html->link('WowProgress', 'http://www.wowprogress.com/') ?>
+<?php echo $this->Html->link('World of Logs', 'http://www.worldoflogs.com/') ?>
+<?php echo $this->Html->link('Elitist Jerks', 'http://elitistjerks.com/') ?>
+<?php echo $this->Html->link('Curse', 'http://www.curse.com/') ?>
+<?php echo $this->Html->link('Ask Mr. Robot', 'http://www.askmrrobot.com/') ?>
+</div>
+</div>
+<div class="footer-group">
+<h3><span class="icon-quote"></span>A propos</h3>
+<div class="footer-group-content">
+La guilde Caeli Voluntas est une guilde côté Alliance présente depuis plus de 7 ans. L'ambiance y est bonne enfant et c'est qui en fait tout son charme.
+</div>
+</div>
+<div class="footer-group">
+<h3><span class="icon-cog"></span>Informations complémentaires</h3>
+<div class="footer-group-content">
+<div id="copyright">&copy; Caeli Voluntas 2012 - Tous droits réservés</div>
+<div id="created-by">Développé par Alexandre B. (<?php echo $this->Html->link('Seldszar', array('controller' => 'users', 'action' => 'view', 2)) ?>) avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
+</div>
+</div>
 </div>
 </div>
 <?php echo $this->Html->script(array('jquery', 'jquery.markitup', 'jquery.markitup.set', 'jquery.autosize', 'jquery-ui', 'common', 'toolbar')); ?>
