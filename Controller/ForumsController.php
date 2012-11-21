@@ -119,7 +119,7 @@ class ForumsController extends AppController {
 			}
 		}
 
-		$this->Cookie->write('threadsViewed', $threadsViewed);
+		$this->Cookie->write('threadsViewed', $threadsViewed, false);
 
 		$this->redirect(array('action' => 'index'));
 	}
