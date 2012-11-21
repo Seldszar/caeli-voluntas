@@ -24,23 +24,25 @@ class ForumsController extends AppController {
 			)
 		));
 
-		$threadsViewed = $this->Cookie->read('threadsViewed');
+		foreach ($categories as &$category) {
+			$forums = &$category['Forum'];
 
-		foreach ($categories as $i => $category) {
-			foreach ($category['Forum'] as $j => $forum) {
+			foreach ($forums as $k => &$forum) {
 				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
-					$categories[$i]['Forum'][$j]['new_messages'] =
-						isset($forum['last_post'])
-						&& (!isset($threadsViewed[$forum['LastPost']['topic']])
-						|| $forum['LastPost']['created'] >= $threadsViewed[$forum['LastPost']['topic']])
-					;
+					$lastPost = $forum['LastPost'];
+					
+					if ($lastPost) {
+						$threadViewed = $this->Cookie->read("threadsViewed.{$lastPost['topic']}");
+					}
+					
+					$forum['new_messages'] = !$threadViewed || !empty($lastPost) && $threadViewed < $lastPost['created'];
 				} else {
-					unset($categories[$i]['Forum'][$j]);
+					unset($forums[$k]);
 				}
 			}
 
-			if (empty($categories[$i]['Forum'])) {
-				unset($categories[$i]);
+			if (empty($forums)) {
+				unset($category);
 			}
 		}
 
@@ -79,20 +81,17 @@ class ForumsController extends AppController {
 
 		$topics = $this->paginate('ForumTopic');
 
-		foreach ($topics as $k => $v) {
-			$topics[$k]['ForumTopic']['new_messages'] = false;
-			$threadViewed = $this->Cookie->read("threadsViewed.{$v['ForumTopic']['id']}");
-			$newMessages =
-				!isset($threadViewed)
-				|| $v['LastPost']['created'] > $threadViewed
-			;
+		foreach ($topics as $k => &$topic) {
+			$topic['ForumTopic']['new_messages'] = false;
+			$threadViewed = $this->Cookie->read("threadsViewed.{$topic['ForumTopic']['id']}");
+			$newMessages = !$threadViewed || !isset($threadViewed) && $threadViewed < $topic['LastPost']['created'];
 
 			if (isset($this->request->query['unread'])) {
 				if (!$newMessages) {
 					unset($topics[$k]);
 				}
 			} else {
-				$topics[$k]['ForumTopic']['new_messages'] = $newMessages;
+				$topic['ForumTopic']['new_messages'] = $newMessages;
 			}
 		}
 
@@ -104,23 +103,26 @@ class ForumsController extends AppController {
 		$categories = $this->ForumCategory->find('all', array(
 			'contain' => array(
 				'Forum' => array(
-					'LastPost'
+					'ForumTopic'
 				)
 			)
 		));
 
 		$threadsViewed = $this->Cookie->read('threadsViewed');
 
-		foreach ($categories as $i => &$category) {
-			foreach ($category['Forum'] as $j => &$forum) {
+		foreach ($categories as $category) {
+			foreach ($category['Forum'] as $forum) {
 				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
-					$threadsViewed[$forum['LastPost']['topic']] = time();
+					$topics = $forum['ForumTopic'];
+
+					foreach ($topics as $topic) {
+						$threadsViewed[$topic['id']] = time();
+					}
 				}
 			}
 		}
 
 		$this->Cookie->write('threadsViewed', $threadsViewed, false);
-
 		$this->redirect(array('action' => 'index'));
 	}
 
