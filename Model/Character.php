@@ -22,10 +22,6 @@ class Character extends AppModel {
 				'rule' => 'notEmpty',
 				'message' => 'Vous devez saisir le nom du personnage'
 			),
-			'lettersOnly' => array(
-				'rule' => '/^[a-z]+$/i',
-				'message' => 'Le nom du personnage ne doit contenir que des lettres'
-			),
 			'maxLength' => array(
 				'rule' => array('maxLength', 25),
 				'message' => 'Le nom du personnage ne doit pas dépasser 25 caractères'
@@ -49,15 +45,19 @@ class Character extends AppModel {
 		)
 	);
 
+	public $virtualFields = array(
+		//'avatar_url' => "CONCAT('http://eu.battle.net/static-render/eu/', avatar)"
+	);
+
 	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['user'] = AuthComponent::user('id');
-
 		return true;
 	}
 
-	/*public function __construct($id = false, $table = null, $ds = null) {
+	public function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
-		$this->virtualFields['url'] = sprintf("CONCAT('92/avatars/', %s., '.jpg')", $this->alias);
-	}*/
+		//$this->virtualFields['armory_url'] = "'http://eu.battle.net/wow/fr/character/la-croisade-ecarlate/Kaorel/simple'";
+		//$this->virtualFields['avatar_url'] = "CONCAT('http://eu.battle.net/static-render/eu/', avatar_url)";
+	}
 
 }
