@@ -69,6 +69,8 @@
 }
 
 .markItUpHeader {
+  overflow: hidden;
+  *zoom: 1;
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
   -ms-border-radius: 5px 5px 0 0;
@@ -78,7 +80,8 @@
   padding: 3px 6px;
 }
 .markItUpHeader ul {
-  margin-right: 0px;
+  margin-right: 0;
+  padding: 0;
 }
 .markItUpHeader ul:hover > ul {
   display: block;

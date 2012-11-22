@@ -16,12 +16,12 @@
 
 <?php $this->assign('content.class', 'no-padding') ?>
 
-<?php if (AuthComponent::user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && $topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
 <?php $this->start('top') ?>
+<?php if (AuthComponent::user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
 <?php echo $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id']), array('class' => 'ui-button float-left')) ?>
+<?php endif ?>
 <?php echo $this->element('paginator', array('class' => 'float-right')) ?>
 <?php $this->end() ?>
-<?php endif ?>
 
 <table id="posts">
 <?php foreach ($posts as $post) : ?>

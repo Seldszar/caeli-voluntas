@@ -40,12 +40,15 @@ $icons: bold, italic, underline, stroke, fonts, colors, picture, link, list-bull
 	margin: 5px 0
 
 .markItUpHeader
+	+clearfix()
+
 	+border-radius(5px 5px 0 0)
 	background-color: #FFF
 	padding: 3px 6px
 
 	ul
-		margin-right: 0px
+		margin-right: 0
+		padding: 0
 		
 		&:hover
 		
