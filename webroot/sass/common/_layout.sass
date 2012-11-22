@@ -138,7 +138,8 @@ a
 
 ul
 	list-style-type: square
-	margin: 0 0 10px 24px
+	margin-bottom: 10px
+	padding-left: 24px
 
 ol
 	@extend ul
@@ -200,28 +201,6 @@ blockquote
 
 .no-padding
 	padding: 0 !important
-
-#topbar
-	+clearfix
-	color: adjust-lightness($body-font-color, -50%)
-	padding: 10px 20px
-
-	ul
-		list-style: none
-		margin: 0
-
-		li
-			display: inline-block
-
-	.float-left
-
-		li
-			margin-right: 20px
-
-	.float-right
-
-		li
-			margin-left: 20px
 
 #footer
 	@extend #topbar
@@ -361,91 +340,12 @@ blockquote
 	+box-shadow(0 0 15px #000000)
 	padding: 10px
 
-	//&.loading
-		background-image: image-url('loader.gif')
-		background-repeat: no-repeat
-		background-position: center
-		width: 64px
-		height: 64px
-
 	ul
 		list-style: none
 		margin: 0
 
 		li
 			margin: 0
-
-.ui-toolbar
-	background-color: #FFFFFF
-	+border-radius(5px 5px 0 0)
-	padding: 3px
-
-	a
-		display: block
-		float: left
-		height: 20px
-		padding: 0 !important
-		width: 24px
-
-		&.bold
-			+icons-sprite(bold)
-
-			&:hover
-				+icons-sprite(bold-hover)
-
-		&.italic
-			+icons-sprite(italic)
-
-			&:hover
-				+icons-sprite(italic-hover)
-
-		&.underline
-			+icons-sprite(underline)
-
-			&:hover
-				+icons-sprite(underline-hover)
-
-		&.list
-			+icons-sprite(list)
-
-			&:hover
-				+icons-sprite(list-hover)
-
-		&.list-item
-			+icons-sprite(list-item)
-
-			&:hover
-				+icons-sprite(list-item-hover)
-
-		&.quote
-			+icons-sprite(quote)
-
-			&:hover
-				+icons-sprite(quote-hover)
-
-ul
-	+clearfix
-
-	&.link-list
-		margin: 0
-
-		li
-			+clearfix
-			background-color: adjust-lightness(#262626, -5%)
-			+border-radius(5px)
-			display: block
-			margin-bottom: 10px
-			padding: 6px 10px
-			position: relative
-
-			&:hover
-				background-color: adjust-lightness(#262626, -4%) !important
-
-			&:last-child
-				margin-bottom: 0
-
-.link-inner
-	+clearfix
 
 .link-desc
 	@extend .topic-meta
@@ -457,33 +357,6 @@ ul
 .link-rem
 	@extend .link-desc
 	font-style: italic
-
-.link-action
-	float: right
-
-	a
-		background-color: #212121
-		float: left
-		margin-left: 1px
-		padding: 4px 14px
-		overflow: hidden
-		text-overflow: ellipsis
-		white-space: nowrap
-
-		&.recruitment-spec
-			width: 116px
-
-		&:hover
-			background-color: adjust-lightness(#212121, 4%)
-
-		&:not(.checked)
-			opacity: 0.5
-
-		&:first-child
-			+border-radius(5px 0 0 5px)
-
-		&:last-child
-			+border-radius(0 5px 5px 0)
 
 .message, .error-message, .success-message
 	+background-image(linear-gradient(adjust-lightness(#404040, -6%), #404040))
@@ -498,10 +371,14 @@ ul
 	+background-image(linear-gradient(adjust-lightness(#30870A, -6%), #30870A))
 
 #breadcrumb
-	+clearfix
+	+clearfix()
+
+	color: adjust-lightness($body-font-color, -50%)
+	padding: 10px 20px
 
 	ul
 		list-style: none
+		padding: 0
 		margin: 0
 
 	li
@@ -516,7 +393,7 @@ ul
 			color: $body-font-color
 
 .clearfix
-	+clearfix
+	+clearfix()
 
 .ui-sortable-helper
 	opacity: 0.5
@@ -529,7 +406,6 @@ ul
 #page-header
 	background-position: bottom left
 	background-repeat: no-repeat
-	//min-height: 102px
 	padding: 30px 20px
 	position: relative
 
@@ -592,10 +468,6 @@ body
 
 	&:not(:last-child)
 		margin-right: 20px
-
-.max-150px
-	max-height: 150px
-	max-width: 150px
 
 .ui-button-set
 	+clearfix
