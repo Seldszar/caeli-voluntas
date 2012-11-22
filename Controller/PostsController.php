@@ -135,7 +135,7 @@ class PostsController extends AppController {
 
 		$post = $this->ForumPost->read();
 
-		if ($this->Auth->user('id') != $post['ForumPost']['created_by']) {
+		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->Auth->user('id') != $post['ForumPost']['created_by']) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce message");
 		}
 
