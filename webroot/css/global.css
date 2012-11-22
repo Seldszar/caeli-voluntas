@@ -257,6 +257,8 @@ a.current, a.current.ui-button, input.current[type='submit'], input.current[type
 }
 
 ul, ol {
+  overflow: hidden;
+  *zoom: 1;
   list-style-type: square;
   margin-bottom: 10px;
   padding-left: 24px;
@@ -708,6 +710,7 @@ ul.link-list > li ul.float-right li, ol.link-list > li ul.float-right li, ul.lin
 }
 ul.ui-custom-list, ol.ui-custom-list {
   margin: 0;
+  padding: 0;
 }
 ul.ui-custom-list > li, ol.ui-custom-list > li {
   overflow: hidden;
@@ -724,6 +727,7 @@ ul.ui-custom-list > li:not(:hover) .on-hover, ol.ui-custom-list > li:not(:hover)
 ul.ui-custom-list > li ul, ol.ui-custom-list > li ul, ul.ui-custom-list > li ol, ol.ui-custom-list > li ol {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 ul.ui-custom-list > li ul li, ol.ui-custom-list > li ul li, ul.ui-custom-list > li ol li, ol.ui-custom-list > li ol li {
   float: left;
@@ -880,14 +884,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 }
 
 .profile-section-content {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.25);
   margin: 10px 0;
-  padding: 12px 20px;
 }
 
 .profile-bottom {
@@ -1526,6 +1523,48 @@ body#user #right {
   width: 710px;
 }
 
+.user-section {
+  background: url('../img/page-content.jpg') no-repeat top right;
+  padding: 20px;
+}
+.user-section h2 {
+  margin-bottom: 0;
+}
+.user-section:last-of-type {
+  min-height: 108px;
+  padding-bottom: 0;
+}
+
+.user-section-content {
+  margin-top: 10px;
+}
+.user-section-content blockquote {
+  margin: 0;
+}
+
+#user-characters {
+  clear: both;
+  text-align: center;
+}
+
+.user-character {
+  -webkit-box-shadow: 0 0 15px black;
+  -moz-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
+  display: inline-block;
+  margin-right: 10px;
+  width: 80px;
+}
+.user-character:not(.first) {
+  margin-top: 10px;
+}
+.user-character:nth-of-type(7n), .user-character:last-of-type {
+  margin-right: 0;
+}
+.user-character img {
+  display: block;
+}
+
 .menu-section:not(:last-child) {
   margin-bottom: 15px;
 }
@@ -1535,6 +1574,7 @@ body#user #right {
 .menu-section ul, .menu-section ol {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 .menu-section ul li, .menu-section ol li {
   border-bottom: 1px solid #262626;
