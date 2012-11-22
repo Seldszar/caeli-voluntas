@@ -497,6 +497,7 @@ blockquote blockquote {
 .ui-tooltip-content ul, .ui-tooltip-content ol {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 .ui-tooltip-content ul li, .ui-tooltip-content ol li {
   margin: 0;
