@@ -16,6 +16,20 @@ class PostsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé est introuvable");
 		}
 
+		$this->ForumTopic->contain(array(
+			'Forum',
+			'ForumPost' => array(
+				'order' => array(
+					'id' => 'DESC'
+				),
+				'limit' => 5,
+				'CreatedBy' => array(
+					'Group'
+				),
+				'EditedBy'
+			)
+		));
+
 		$topic = $this->ForumTopic->read();
 
 		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'reply')) {
@@ -63,7 +77,17 @@ class PostsController extends AppController {
 
 		$this->ForumPost->contain(array(
 			'ForumTopic' => array(
-				'Forum' => array('id', 'name')
+				'Forum',
+				'ForumPost' => array(
+					'order' => array(
+						'id' => 'DESC'
+					),
+					'limit' => 5,
+					'CreatedBy' => array(
+						'Group'
+					),
+					'EditedBy'
+				)
 			)
 		));
 

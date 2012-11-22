@@ -1607,6 +1607,22 @@ strong, b {
   padding-top: 6px;
 }
 
+#forum-post-form {
+  padding: 20px 20px 0;
+}
+
+#latest-posts {
+  background: url('../img/full-page-content.jpg') repeat-x top;
+  margin-top: 20px;
+}
+#latest-posts h2 {
+  margin: 0;
+  padding: 10px 20px;
+}
+#latest-posts .post {
+  background: url('../img/full-page-content.jpg') repeat-x top !important;
+}
+
 .post-author {
   vertical-align: top;
 }

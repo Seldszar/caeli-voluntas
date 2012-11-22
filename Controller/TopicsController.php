@@ -103,7 +103,17 @@ class TopicsController extends AppController {
 
 		$this->ForumTopic->contain(array(
 			'Forum',
-			'FirstPost'
+			'FirstPost',
+			'ForumPost' => array(
+				'order' => array(
+					'id' => 'DESC'
+				),
+				'limit' => 5,
+				'CreatedBy' => array(
+					'Group'
+				),
+				'EditedBy'
+			)
 		));
 
 		$topic = $this->ForumTopic->read();

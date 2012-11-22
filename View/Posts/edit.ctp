@@ -5,11 +5,14 @@
 
 <?php $this->assign('header.image', 'forums') ?>
 <?php $this->assign('header.title', 'Editer un message') ?>
+<?php $this->assign('content.class', 'no-padding') ?>
 
 <?php echo $this->Session->flash() ?>
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('content', array('label' => false, 'placeholder' => 'Message', 'rows' => 12)) ?>
+<?php echo $this->Form->create(array('id' => 'forum-post-form')) ?>
+<?php echo $this->Form->input('content', array('label' => false, 'placeholder' => 'Message')) ?>
 <?php echo $this->Form->end('Envoyer') ?>
+
+<?php echo $this->element('latest_posts', array('posts' => $post['ForumTopic']['ForumPost'])) ?>
 
 <?php $this->start('scripts') ?>
 $(function() {
