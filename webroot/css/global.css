@@ -343,6 +343,7 @@ blockquote blockquote {
   *zoom: 1;
   background: url('../img/full-page-content.jpg') repeat-x top;
   bottom: 0;
+  color: #676767;
   font-size: 11px;
   padding: 20px;
   position: absolute;
@@ -1420,6 +1421,7 @@ strong, b {
   font-size: 11px;
   list-style: none;
   margin: 20px 0 0;
+  padding: 0;
 }
 .post-action li {
   float: left;
