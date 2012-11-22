@@ -29,6 +29,7 @@ class TopicsController extends AppController {
 		$this->paginate = array(
 			'ForumPost' => array(
 				'limit' => 10,
+				'paramType' => 'querystring',
 				'conditions' => array(
 					'topic' => $id
 				),
