@@ -133,22 +133,20 @@ class PostsController extends AppController {
 			throw new NotFoundException("Le message demandé n'existe pas");
 		}
 
-		$post = $this->ForumPost->read();
-
-		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->Auth->user('id') != $post['ForumPost']['created_by']) {
+		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->Auth->user('id') != $this->ForumPost->field('created_by')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce message");
 		}
 
-		if ($post['ForumPost']['id'] == $post['ForumTopic']['first_post']) {
-			$this->redirect(array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']));
+		if ($post['ForumPost']['id'] == $this->ForumPost->ForumTopic->field('first_post')) {
+			$this->redirect(array('controller' => 'topics', 'action' => 'delete', $this->ForumPost->field('topic')));
 		}
 
 		if ($this->ForumPost->delete()) {
-			$this->ForumTopic->id = $post['ForumPost']['topic'];
+			$this->ForumTopic->id = $this->ForumPost->field('topic');
 
 			$lastPost = $this->ForumPost->find('first', array(
 				'conditions' => array(
-					'topic' => $post['ForumPost']['topic']
+					'topic' => $this->ForumTopic->id
 				),
 				'order' => array(
 					'ForumPost.id' => 'DESC'

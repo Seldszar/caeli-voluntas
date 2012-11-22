@@ -40,12 +40,8 @@
 <li><?php echo $this->Html->link('Evènements <sup class="icon-export"></sup>', 'http://events.caeli-voluntas.fr/', array('target' => '_blank', 'escape' => false)) ?></li>
 </ul>
 </div>
-<div id="topbar">
-<ul class="float-left">
 <div id="breadcrumb">
 <?php echo $this->Html->getCrumbList(null, "Caeli Voluntas") ?>
-</div>
-</ul>
 </div>
 <div id="content">
 <?php echo $this->fetch('_content') ?>

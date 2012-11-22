@@ -59,7 +59,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-.icons-sprite, .ui-toolbar a.bold, .ui-toolbar a.bold.ui-button, .ui-toolbar input.bold[type='submit'], .ui-toolbar input.bold[type='reset'], .ui-toolbar input.bold[type='button'], .ui-toolbar button.bold, .ui-toolbar a.bold:hover, .ui-toolbar a.bold.ui-button:hover, .ui-toolbar input.bold[type='submit']:hover, .ui-toolbar input.bold[type='reset']:hover, .ui-toolbar input.bold[type='button']:hover, .ui-toolbar button.bold:hover, .ui-toolbar a.italic, .ui-toolbar a.italic.ui-button, .ui-toolbar input.italic[type='submit'], .ui-toolbar input.italic[type='reset'], .ui-toolbar input.italic[type='button'], .ui-toolbar button.italic, .ui-toolbar a.italic:hover, .ui-toolbar a.italic.ui-button:hover, .ui-toolbar input.italic[type='submit']:hover, .ui-toolbar input.italic[type='reset']:hover, .ui-toolbar input.italic[type='button']:hover, .ui-toolbar button.italic:hover, .ui-toolbar a.underline, .ui-toolbar a.underline.ui-button, .ui-toolbar input.underline[type='submit'], .ui-toolbar input.underline[type='reset'], .ui-toolbar input.underline[type='button'], .ui-toolbar button.underline, .ui-toolbar a.underline:hover, .ui-toolbar a.underline.ui-button:hover, .ui-toolbar input.underline[type='submit']:hover, .ui-toolbar input.underline[type='reset']:hover, .ui-toolbar input.underline[type='button']:hover, .ui-toolbar button.underline:hover, .ui-toolbar a.list, .ui-toolbar a.list.ui-button, .ui-toolbar input.list[type='submit'], .ui-toolbar input.list[type='reset'], .ui-toolbar input.list[type='button'], .ui-toolbar button.list, .ui-toolbar a.list:hover, .ui-toolbar a.list.ui-button:hover, .ui-toolbar input.list[type='submit']:hover, .ui-toolbar input.list[type='reset']:hover, .ui-toolbar input.list[type='button']:hover, .ui-toolbar button.list:hover, .ui-toolbar a.list-item, .ui-toolbar a.list-item.ui-button, .ui-toolbar input.list-item[type='submit'], .ui-toolbar input.list-item[type='reset'], .ui-toolbar input.list-item[type='button'], .ui-toolbar button.list-item, .ui-toolbar a.list-item:hover, .ui-toolbar a.list-item.ui-button:hover, .ui-toolbar input.list-item[type='submit']:hover, .ui-toolbar input.list-item[type='reset']:hover, .ui-toolbar input.list-item[type='button']:hover, .ui-toolbar button.list-item:hover, .ui-toolbar a.quote, .ui-toolbar a.quote.ui-button, .ui-toolbar input.quote[type='submit'], .ui-toolbar input.quote[type='reset'], .ui-toolbar input.quote[type='button'], .ui-toolbar button.quote, .ui-toolbar a.quote:hover, .ui-toolbar a.quote.ui-button:hover, .ui-toolbar input.quote[type='submit']:hover, .ui-toolbar input.quote[type='reset']:hover, .ui-toolbar input.quote[type='button']:hover, .ui-toolbar button.quote:hover, .article-action .view-comments .icon, .article-action .view-comments:hover .icon {
+.icons-sprite, .article-action .view-comments .icon, .article-action .view-comments:hover .icon {
   background: url('../img/icons-s67a4b152e9.png') no-repeat;
 }
 
@@ -258,7 +258,8 @@ a.current, a.current.ui-button, input.current[type='submit'], input.current[type
 
 ul, ol {
   list-style-type: square;
-  margin: 0 0 10px 24px;
+  margin-bottom: 10px;
+  padding-left: 24px;
 }
 
 ol {
@@ -335,26 +336,6 @@ blockquote blockquote {
 
 .no-padding {
   padding: 0 !important;
-}
-
-#topbar, #footer {
-  overflow: hidden;
-  *zoom: 1;
-  color: #676767;
-  padding: 10px 20px;
-}
-#topbar ul, #footer ul, #topbar ol, #footer ol {
-  list-style: none;
-  margin: 0;
-}
-#topbar ul li, #footer ul li, #topbar ol li, #footer ol li {
-  display: inline-block;
-}
-#topbar .float-left li, #footer .float-left li {
-  margin-right: 20px;
-}
-#topbar .float-right li, #footer .float-right li {
-  margin-left: 20px;
 }
 
 #footer {
@@ -518,92 +499,6 @@ blockquote blockquote {
   margin: 0;
 }
 
-.ui-toolbar {
-  background-color: white;
-  -webkit-border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
-  -ms-border-radius: 5px 5px 0 0;
-  -o-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-  padding: 3px;
-}
-.ui-toolbar a, .ui-toolbar a.ui-button, .ui-toolbar input[type='submit'], .ui-toolbar input[type='reset'], .ui-toolbar input[type='button'], .ui-toolbar button {
-  display: block;
-  float: left;
-  height: 20px;
-  padding: 0 !important;
-  width: 24px;
-}
-.ui-toolbar a.bold, .ui-toolbar a.bold.ui-button, .ui-toolbar input.bold[type='submit'], .ui-toolbar input.bold[type='reset'], .ui-toolbar input.bold[type='button'], .ui-toolbar button.bold {
-  background-position: 0 -92px;
-}
-.ui-toolbar a.bold:hover, .ui-toolbar a.bold.ui-button:hover, .ui-toolbar input.bold[type='submit']:hover, .ui-toolbar input.bold[type='reset']:hover, .ui-toolbar input.bold[type='button']:hover, .ui-toolbar button.bold:hover {
-  background-position: 0 -132px;
-}
-.ui-toolbar a.italic, .ui-toolbar a.italic.ui-button, .ui-toolbar input.italic[type='submit'], .ui-toolbar input.italic[type='reset'], .ui-toolbar input.italic[type='button'], .ui-toolbar button.italic {
-  background-position: 0 -372px;
-}
-.ui-toolbar a.italic:hover, .ui-toolbar a.italic.ui-button:hover, .ui-toolbar input.italic[type='submit']:hover, .ui-toolbar input.italic[type='reset']:hover, .ui-toolbar input.italic[type='button']:hover, .ui-toolbar button.italic:hover {
-  background-position: 0 -332px;
-}
-.ui-toolbar a.underline, .ui-toolbar a.underline.ui-button, .ui-toolbar input.underline[type='submit'], .ui-toolbar input.underline[type='reset'], .ui-toolbar input.underline[type='button'], .ui-toolbar button.underline {
-  background-position: 0 -252px;
-}
-.ui-toolbar a.underline:hover, .ui-toolbar a.underline.ui-button:hover, .ui-toolbar input.underline[type='submit']:hover, .ui-toolbar input.underline[type='reset']:hover, .ui-toolbar input.underline[type='button']:hover, .ui-toolbar button.underline:hover {
-  background-position: 0 -212px;
-}
-.ui-toolbar a.list, .ui-toolbar a.list.ui-button, .ui-toolbar input.list[type='submit'], .ui-toolbar input.list[type='reset'], .ui-toolbar input.list[type='button'], .ui-toolbar button.list {
-  background-position: 0 -412px;
-}
-.ui-toolbar a.list:hover, .ui-toolbar a.list.ui-button:hover, .ui-toolbar input.list[type='submit']:hover, .ui-toolbar input.list[type='reset']:hover, .ui-toolbar input.list[type='button']:hover, .ui-toolbar button.list:hover {
-  background-position: 0 -452px;
-}
-.ui-toolbar a.list-item, .ui-toolbar a.list-item.ui-button, .ui-toolbar input.list-item[type='submit'], .ui-toolbar input.list-item[type='reset'], .ui-toolbar input.list-item[type='button'], .ui-toolbar button.list-item {
-  background-position: 0 -492px;
-}
-.ui-toolbar a.list-item:hover, .ui-toolbar a.list-item.ui-button:hover, .ui-toolbar input.list-item[type='submit']:hover, .ui-toolbar input.list-item[type='reset']:hover, .ui-toolbar input.list-item[type='button']:hover, .ui-toolbar button.list-item:hover {
-  background-position: 0 -532px;
-}
-.ui-toolbar a.quote, .ui-toolbar a.quote.ui-button, .ui-toolbar input.quote[type='submit'], .ui-toolbar input.quote[type='reset'], .ui-toolbar input.quote[type='button'], .ui-toolbar button.quote {
-  background-position: 0 -172px;
-}
-.ui-toolbar a.quote:hover, .ui-toolbar a.quote.ui-button:hover, .ui-toolbar input.quote[type='submit']:hover, .ui-toolbar input.quote[type='reset']:hover, .ui-toolbar input.quote[type='button']:hover, .ui-toolbar button.quote:hover {
-  background-position: 0 -292px;
-}
-
-ul, ol {
-  overflow: hidden;
-  *zoom: 1;
-}
-ul.link-list, ol.link-list {
-  margin: 0;
-}
-ul.link-list li, ol.link-list li {
-  overflow: hidden;
-  *zoom: 1;
-  background-color: #191919;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  display: block;
-  margin-bottom: 10px;
-  padding: 6px 10px;
-  position: relative;
-}
-ul.link-list li:hover, ol.link-list li:hover {
-  background-color: #1c1c1c !important;
-}
-ul.link-list li:last-child, ol.link-list li:last-child {
-  margin-bottom: 0;
-}
-
-.link-inner {
-  overflow: hidden;
-  *zoom: 1;
-}
-
 .link-desc a, .link-rem a, .link-desc a.ui-button, .link-rem a.ui-button, .link-desc input[type='submit'], .link-rem input[type='submit'], .link-desc input[type='reset'], .link-rem input[type='reset'], .link-desc input[type='button'], .link-rem input[type='button'], .link-desc button, .link-rem button {
   border-bottom: 1px dashed #343434;
   color: inherit;
@@ -611,42 +506,6 @@ ul.link-list li:last-child, ol.link-list li:last-child {
 
 .link-rem {
   font-style: italic;
-}
-
-.link-action {
-  float: right;
-}
-.link-action a, .link-action a.ui-button, .link-action input[type='submit'], .link-action input[type='reset'], .link-action input[type='button'], .link-action button {
-  background-color: #212121;
-  float: left;
-  margin-left: 1px;
-  padding: 4px 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.link-action a.recruitment-spec, .link-action a.recruitment-spec.ui-button, .link-action input.recruitment-spec[type='submit'], .link-action input.recruitment-spec[type='reset'], .link-action input.recruitment-spec[type='button'], .link-action button.recruitment-spec {
-  width: 116px;
-}
-.link-action a:hover, .link-action a.ui-button:hover, .link-action input[type='submit']:hover, .link-action input[type='reset']:hover, .link-action input[type='button']:hover, .link-action button:hover {
-  background-color: #2b2b2b;
-}
-.link-action a:not(.checked), .link-action a.ui-button:not(.checked), .link-action input[type='submit']:not(.checked), .link-action input[type='reset']:not(.checked), .link-action input[type='button']:not(.checked), .link-action button:not(.checked) {
-  opacity: 0.5;
-}
-.link-action a:first-child, .link-action a.ui-button:first-child, .link-action input[type='submit']:first-child, .link-action input[type='reset']:first-child, .link-action input[type='button']:first-child, .link-action button:first-child {
-  -webkit-border-radius: 5px 0 0 5px;
-  -moz-border-radius: 5px 0 0 5px;
-  -ms-border-radius: 5px 0 0 5px;
-  -o-border-radius: 5px 0 0 5px;
-  border-radius: 5px 0 0 5px;
-}
-.link-action a:last-child, .link-action a.ui-button:last-child, .link-action input[type='submit']:last-child, .link-action input[type='reset']:last-child, .link-action input[type='button']:last-child, .link-action button:last-child {
-  -webkit-border-radius: 0 5px 5px 0;
-  -moz-border-radius: 0 5px 5px 0;
-  -ms-border-radius: 0 5px 5px 0;
-  -o-border-radius: 0 5px 5px 0;
-  border-radius: 0 5px 5px 0;
 }
 
 .message, .error-message, .success-message {
@@ -686,9 +545,12 @@ ul.link-list li:last-child, ol.link-list li:last-child {
 #breadcrumb {
   overflow: hidden;
   *zoom: 1;
+  color: #676767;
+  padding: 10px 20px;
 }
 #breadcrumb ul, #breadcrumb ol {
   list-style: none;
+  padding: 0;
   margin: 0;
 }
 #breadcrumb li {
@@ -782,11 +644,6 @@ body#user #page-content {
 }
 .event-participants:not(:last-child) {
   margin-right: 20px;
-}
-
-.max-150px {
-  max-height: 150px;
-  max-width: 150px;
 }
 
 .ui-button-set {
