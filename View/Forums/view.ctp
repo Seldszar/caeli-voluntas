@@ -18,6 +18,12 @@
 <?php foreach ($topics as $topic): ?>
 <tr class="topic<?php echo $topic['ForumTopic']['new_messages'] ? ' new-messages' : null ?>">
 <td>
+<?php if ($topic['ForumTopic']['sticky']) : ?>
+<span class="topic-sticky icon-attach" title="Epinglé"></span>
+<?php endif ?>
+<?php if ($topic['ForumTopic']['closed']) : ?>
+<span class="topic-closed icon-lock" title="Fermé"></span>
+<?php endif ?>
 <?php echo $this->Html->link($topic['ForumTopic']['title'], array('controller' => 'topics', 'action' => 'view', $topic['ForumTopic']['id']), array('class' => 'topic-title')) ?>
 <div class="topic-meta"><?php echo $this->Html->link($topic['FirstPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $topic['FirstPost']['CreatedBy']['id'])) ?>, <?php echo $this->Time->timeAgoInWords($topic['FirstPost']['created']) ?></div>
 </td>

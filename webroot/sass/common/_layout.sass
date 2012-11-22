@@ -32,6 +32,12 @@
 .icon-down-dir:before
 	content: '\25be'
 
+.icon-attach:before
+	content: '\1f4ce'
+
+.icon-lock:before
+	content: '\1f512'
+
 ::selection, ::-moz-selection, ::-webkit-selection
 	background: $link-color-normal
 	color: #FFFFFF
@@ -171,6 +177,11 @@ blockquote
 
 .fs11
 	font-size: 11px
+
+.input
+
+	&:last-child
+		margin-bottom: 0
 
 .float-left
 	float: left
@@ -653,6 +664,9 @@ ul
 
 			padding: 10px
 			border-bottom: 1px solid #333333
+
+			&:last-child
+				border-bottom: none
 
 			&:not(:hover)
 

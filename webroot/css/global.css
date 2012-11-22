@@ -133,6 +133,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   content: "\25be";
 }
 
+.icon-attach:before {
+  content: "\1f4ce";
+}
+
+.icon-lock:before {
+  content: "\1f512";
+}
+
 ::selection, ::-moz-selection, ::-webkit-selection {
   background: #96a3bb;
   color: white;
@@ -299,6 +307,10 @@ blockquote blockquote {
 
 .fs11 {
   font-size: 11px;
+}
+
+.input:last-child {
+  margin-bottom: 0;
 }
 
 .float-left {
@@ -844,6 +856,9 @@ ul.ui-custom-list > li, ol.ui-custom-list > li {
   *zoom: 1;
   padding: 10px;
   border-bottom: 1px solid #333333;
+}
+ul.ui-custom-list > li:last-child, ol.ui-custom-list > li:last-child {
+  border-bottom: none;
 }
 ul.ui-custom-list > li:not(:hover) .on-hover, ol.ui-custom-list > li:not(:hover) .on-hover {
   opacity: 0.2;
@@ -1431,7 +1446,6 @@ strong, b {
 .roster-class, .forum-list li {
   display: inline-block;
   margin-left: 18px;
-  min-height: 108px;
   padding-top: 20px;
   width: 193.333px;
 }
@@ -1445,8 +1459,7 @@ strong, b {
 }
 
 .roster-characters {
-  overflow: hidden;
-  *zoom: 1;
+  clear: both;
   text-align: center;
 }
 
@@ -1621,6 +1634,10 @@ strong, b {
 }
 #latest-posts .post {
   background: url('../img/full-page-content.jpg') repeat-x top !important;
+}
+
+.topic-sticky, .topic-closed {
+  color: silver;
 }
 
 .post-author {

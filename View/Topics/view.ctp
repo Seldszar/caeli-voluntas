@@ -3,7 +3,17 @@
 <?php $this->Html->addCrumb($topic['ForumTopic']['title']) ?>
 
 <?php $this->assign('header.image', 'forums') ?>
-<?php $this->assign('header.title', $topic['ForumTopic']['title']) ?>
+
+<?php $this->start('header.title') ?>
+<?php echo $topic['ForumTopic']['title'] ?> 
+<?php if ($topic['ForumTopic']['sticky']) : ?>
+<em class="topic-sticky icon-attach" title="Epinglé"></em>
+<?php endif ?>
+<?php if ($topic['ForumTopic']['closed']) : ?>
+<em class="topic-closed icon-lock" title="Fermé"></em>
+<?php endif ?>
+<?php $this->end() ?>
+
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <?php if (AuthComponent::user() && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) : ?>
@@ -35,6 +45,10 @@
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
 <li><?php echo $this->Html->link("Supprimer", array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']), null, 'Voulez-vous vraiment supprimer ce fil de discussion ?') ?></li>
+<?php if (AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<li><?php echo $this->Html->link(($topic['ForumTopic']['sticky'] ? 'Ne plus épingler' : 'Epingler'), array('controller' => 'topics', 'action' => 'sticky', $post['ForumPost']['topic'])) ?></li>
+<li><?php echo $this->Html->link(($topic['ForumTopic']['closed'] ? 'Rouvrir le sujet' : 'Fermer'), array('controller' => 'topics', 'action' => 'close', $post['ForumPost']['topic'])) ?></li>
+<?php endif ?>
 <?php else: ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'posts', 'action' => 'edit', $post['ForumPost']['id'])) ?></li>
 <li><?php echo $this->Html->link("Supprimer", array('controller' => 'posts', 'action' => 'delete', $post['ForumPost']['id']), null, 'Voulez-vous vraiment supprimer ce message ?') ?></li>

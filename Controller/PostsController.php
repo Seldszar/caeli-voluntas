@@ -16,6 +16,16 @@ class PostsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé est introuvable");
 		}
 
+		$forumId = $this->ForumTopic->field('forum');
+
+		if (!$this->Acl->hasForumRole(forumId, 'reply')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à répondre à ce sujet");
+		}
+
+		if (!$this->Acl->hasForumRole($forumId, 'moderate') && $this->ForumTopic->field('closed')) {
+			throw new UnauthorizedException("Le fil de discussion est fermé");
+		}
+
 		$this->ForumTopic->contain(array(
 			'Forum',
 			'ForumPost' => array(
@@ -31,10 +41,6 @@ class PostsController extends AppController {
 		));
 
 		$topic = $this->ForumTopic->read();
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'reply')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à répondre à ce sujet");
-		}
 
 		if ($this->request->is('post')) {
 			$data = $this->data;
@@ -75,6 +81,18 @@ class PostsController extends AppController {
 			throw new NotFoundException("Le message demandé n'existe pas");
 		}
 
+		if (!$this->Acl->hasForumRole($this->ForumTopic->field('forum'), 'moderate') && $this->ForumTopic->field('closed')) {
+			throw new UnauthorizedException("Le fil de discussion est fermé");
+		}
+
+		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->ForumPost->field('created_by') != $this->Auth->user('id')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer ce message");
+		}
+
+		if ($id == $this->ForumPost->ForumTopic->field('first_post')) {
+			$this->redirect(array('controller' => 'topics', 'action' => 'edit', $this->ForumPost->ForumTopic->field('id')));
+		}
+
 		$this->ForumPost->contain(array(
 			'ForumTopic' => array(
 				'Forum',
@@ -92,14 +110,6 @@ class PostsController extends AppController {
 		));
 
 		$post = $this->ForumPost->read();
-
-		if (!$this->Acl->hasForumRole($id, 'moderate') && $post['ForumPost']['created_by'] != $this->Auth->user('id')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer ce message");
-		}
-
-		if ($post['ForumPost']['id'] == $post['ForumTopic']['first_post']) {
-			$this->redirect(array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic']));
-		}
 
 		if ($this->request->is('put')) {
 			$data = $this->data;

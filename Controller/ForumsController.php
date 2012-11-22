@@ -72,6 +72,7 @@ class ForumsController extends AppController {
 					'LastPost' => 'CreatedBy'
 				),
 				'order' => array(
+					'sticky' => 'DESC',
 					'last_post' => 'DESC'
 				)
 			)

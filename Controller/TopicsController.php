@@ -163,4 +163,40 @@ class TopicsController extends AppController {
 		}
 	}
 
+	public function sticky($id) {
+		$this->ForumTopic->id = $id;
+
+		if (!$this->ForumTopic->exists()) {
+			throw new NotFoundException("Le fil de discussion demandé n'existe pas");
+		}
+
+		$topic = $this->ForumTopic->read();
+
+		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce sujet");
+		}
+
+		if ($this->ForumTopic->saveField('sticky', !(bool)$this->ForumTopic->field('sticky'))) {
+			$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+		}
+	}
+
+	public function close($id) {
+		$this->ForumTopic->id = $id;
+
+		if (!$this->ForumTopic->exists()) {
+			throw new NotFoundException("Le fil de discussion demandé n'existe pas");
+		}
+
+		$topic = $this->ForumTopic->read();
+
+		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce sujet");
+		}
+
+		if ($this->ForumTopic->saveField('closed', !(bool)$this->ForumTopic->field('closed'))) {
+			$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
+		}
+	}
+
 }
