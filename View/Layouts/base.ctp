@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <link rel="favicon" href="<?php echo $this->Html->url('/img/favicon.png') ?>" type="image/png" />
-<?php echo $this->Html->css(array('https://fonts.googleapis.com/css?family=Oswald:300|Open+Sans|Open+Sans:400italic|Open+Sans:600|Open+Sans:600italic', 'global', 'markitup')); ?>
+<?php echo $this->Html->css(array('global', 'markitup')); ?>
 <?php echo $this->Html->script('modernizr') ?>
 <script type="text/javascript">Modernizr.load({ test: Modernizr.fontface, nope: 'js/cufon.js' });</script>
 </head>
