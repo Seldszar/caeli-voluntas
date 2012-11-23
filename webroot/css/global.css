@@ -1193,6 +1193,30 @@ strong, b {
   background-color: #96a3bb;
 }
 
+.latest-topic {
+  margin-bottom: 10px;
+}
+.latest-topic:last-child {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.latest-topic .name a, .latest-topic .name a.ui-button, .latest-topic .name input[type='submit'], .latest-topic .name input[type='reset'], .latest-topic .name input[type='button'], .latest-topic .name button {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.latest-topic .created {
+  color: #676767;
+  font-size: 11px;
+}
+.latest-topic .created a, .latest-topic .created a.ui-button, .latest-topic .created input[type='submit'], .latest-topic .created input[type='reset'], .latest-topic .created input[type='button'], .latest-topic .created button {
+  border-bottom: 1px dashed #363636;
+  color: inherit;
+}
+
 .boss-status {
   color: #ffd4d4;
 }

@@ -95,4 +95,21 @@ class AclComponent extends Component {
 		return @self::$roles['forums'][$forum][$name] || self::$isAdmin;
 	}
 
+	/**
+	 * Renvoie la liste des forums accessibles par l'utilisateur courant
+	 *
+	 * @return array Liste des forums accesibles
+	 */
+	public static function getForumsViewable() {
+		$forums = array();
+
+		foreach (self::$roles['forums'] as $k => $v) {
+			if ($v['view']) {
+				$forums[] = $k;
+			}
+		}
+
+		return $forums;
+	}
+
 }

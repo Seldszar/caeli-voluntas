@@ -33,6 +33,8 @@
 	Router::connect('/topics/delete/*', array('controller' => 'topics', 'action' => 'delete'));
 	Router::connect('/topics/sticky/*', array('controller' => 'topics', 'action' => 'sticky'));
 	Router::connect('/topics/close/*', array('controller' => 'topics', 'action' => 'close'));
+	Router::connect('/topics/latest/*', array('controller' => 'topics', 'action' => 'latest'));
+	Router::connect('/topics/latest', array('controller' => 'topics', 'action' => 'latest'));
 	Router::connect('/topics/*', array('controller' => 'topics', 'action' => 'view'));
 	Router::connect('/posts/edit/*', array('controller' => 'posts', 'action' => 'edit'));
 	Router::connect('/posts/create/*', array('controller' => 'posts', 'action' => 'create'));

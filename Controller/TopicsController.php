@@ -200,4 +200,19 @@ class TopicsController extends AppController {
 		}
 	}
 
+	
+	public function latest($limit = 5) {
+		return $this->ForumTopic->find('viewable', array(
+			'contain' => array(
+				'FirstPost' => array(
+					'CreatedBy'
+				)
+			),
+			'order' => array(
+				'ForumTopic.id' => 'DESC'
+			),
+			'limit' => $limit
+		));
+	}
+
 }

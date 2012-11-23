@@ -73,3 +73,28 @@
 	.heroic-mode
 		@extend .normal-mode
 		background-color: $widget-encounter-progress-heroic-mode
+
+.latest-topic
+	margin-bottom: 10px
+
+	&:last-child
+		border: 0
+		margin: 0
+		padding: 0
+
+	.name
+
+		a
+			display: inline-block
+			max-width: 100%
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+
+	.created
+		color: darken($body-font-color, 50%)
+		font-size: 11px
+
+		a
+			border-bottom: 1px dashed darken($body-font-color, 69%)
+			color: inherit

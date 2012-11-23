@@ -17,4 +17,5 @@
 <?php $this->start('right') ?>
 <?php echo $this->element('sidebar/encounters') ?>
 <?php echo $this->element('sidebar/recruitment') ?>
+<?php echo $this->element('sidebar/latest_topics') ?>
 <?php $this->end() ?>

@@ -4,6 +4,10 @@ App::uses('AppModel', 'Model');
 
 class ForumTopic extends AppModel {
 
+	public $findMethods = array(
+		'viewable' => true
+	);
+
 	var $hasMany = array(
 		'ForumPost' => array(
 			'foreignKey' => 'topic',
@@ -33,5 +37,14 @@ class ForumTopic extends AppModel {
 			)
 		)
 	);
+
+	protected function _findViewable($state, $query, $results = array()) {
+		if ($state == 'before') {
+			$query['conditions']['forum'] = AclComponent::getForumsViewable();
+			return $query;
+		}
+
+		return $results;
+	}
 
 }
