@@ -96,6 +96,15 @@ class AclComponent extends Component {
 	}
 
 	/**
+	 * Indique si l'utilisateur courant est administrateur
+	 *
+	 * @return boolean Tru si l'utilisateur est administrateur ; sinon false
+	 */
+	public static function isAdmin() {
+		return self::$isAdmin;
+	}
+
+	/**
 	 * Renvoie la liste des forums accessibles par l'utilisateur courant
 	 *
 	 * @return array Liste des forums accesibles

@@ -40,7 +40,10 @@ class ForumTopic extends AppModel {
 
 	protected function _findViewable($state, $query, $results = array()) {
 		if ($state == 'before') {
-			$query['conditions']['forum'] = AclComponent::getForumsViewable();
+			if (!AclComponent::isAdmin()) {
+				$query['conditions']['forum'] = AclComponent::getForumsViewable();
+			}
+
 			return $query;
 		}
 
