@@ -1,6 +1,6 @@
 <?php $topics = $this->requestAction(array('controller' => 'topics', 'action' => 'latest')) ?>
 <div class="sidebar-module">
-<h2>Derniers sujets</h2>
+<h2>Derniers sujets postés</h2>
 <div class="sidebar-module-content">
 <?php foreach ($topics as $topic) : ?>
 <div class="latest-topic">
