@@ -56,7 +56,7 @@ class RosterController extends AppController {
 		));
 
 		if (empty($characters)) {
-			throw new Exception("Il n'y a aucun personnage à ajouter dans le roster de la guilde");
+			throw new Exception("Il n'y a aucun personnage à ajouter");
 		}
 
 		$this->set('characters', $characters);
@@ -66,7 +66,7 @@ class RosterController extends AppController {
 		$this->Character->id = $id;
 
 		if (!$this->Character->exists()) {
-			throw new NotFoundException("Le personnage n'existe pas");
+			throw new NotFoundException("Le personnage demandé n'existe pas");
 		}
 
 		if ($this->Character->saveField('in_roster', false)) {

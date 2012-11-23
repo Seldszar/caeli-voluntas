@@ -33,19 +33,20 @@ class GalleryController extends AppController {
 	public function admin_create() {
 		if ($this->request->is('post')) {
 			$data = $this->data;
+
 			if ($this->GalleryImage->save($data)) {
 				$this->redirect(array('action' => 'index'));
 			}
 		}
 	}
-	
+
 	public function admin_delete($id) {
 		$this->GalleryImage->id = $id;
 
 		if (!$this->GalleryImage->exists()) {
 			throw new NotFoundException("L'image demandée n'existe pas");
 		}
-		
+
 		if ($this->GalleryImage->delete()) {
 			$this->redirect(array('action' => 'index'));
 		}

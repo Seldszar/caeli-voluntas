@@ -46,7 +46,7 @@ class BlogController extends AppController {
 		if ($this->request->is('post')) {
 			$data = $this->data;
 
-			if ($this->BlogArticle->save($data, true, array('title', 'content', 'created_by'))) {
+			if ($this->BlogArticle->save($data)) {
 				$this->redirect(array('action' => 'index'));
 			}
 		}
@@ -64,7 +64,7 @@ class BlogController extends AppController {
 		if ($this->request->is('put')) {
 			$data = $this->data;
 
-			if ($this->BlogArticle->save($data, true, array('title', 'content'))) {
+			if ($this->BlogArticle->save($data)) {
 				$this->redirect(array('action' => 'index'));
 			}
 		} else {

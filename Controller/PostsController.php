@@ -18,7 +18,7 @@ class PostsController extends AppController {
 
 		$forumId = $this->ForumTopic->field('forum');
 
-		if (!$this->Acl->hasForumRole(forumId, 'reply')) {
+		if (!$this->Acl->hasForumRole($forumId, 'reply')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à répondre à ce sujet");
 		}
 
@@ -63,7 +63,7 @@ class PostsController extends AppController {
 			}
 		} else if (isset($this->request->query['quote'])) {
 			$this->ForumPost->id = $this->request->query['quote'];
-			
+
 			if ($this->ForumPost->exists()) {
 				$this->request->data['ForumPost']['content'] =
 					sprintf('[quote=%s]%s[/quote]', $this->ForumPost->CreatedBy->field('username'), $this->ForumPost->field('content'));
@@ -85,12 +85,12 @@ class PostsController extends AppController {
 			throw new UnauthorizedException("Le fil de discussion est fermé");
 		}
 
-		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->ForumPost->field('created_by') != $this->Auth->user('id')) {
+		if (!$this->canTouchPost($id)) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer ce message");
 		}
 
 		if ($id == $this->ForumPost->ForumTopic->field('first_post')) {
-			$this->redirect(array('controller' => 'topics', 'action' => 'edit', $this->ForumPost->ForumTopic->field('id')));
+			$this->redirect(array('controller' => 'topics', 'action' => 'edit', $this->ForumTopic->field('id')));
 		}
 
 		$this->ForumPost->contain(array(
@@ -133,11 +133,11 @@ class PostsController extends AppController {
 			throw new NotFoundException("Le message demandé n'existe pas");
 		}
 
-		if (!$this->Acl->hasForumRole($id, 'moderate') && $this->Auth->user('id') != $this->ForumPost->field('created_by')) {
+		if (!$this->canTouchPost($id)) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce message");
 		}
 
-		if ($post['ForumPost']['id'] == $this->ForumPost->ForumTopic->field('first_post')) {
+		if ($post['ForumPost']['id'] == $this->ForumTopic->field('first_post')) {
 			$this->redirect(array('controller' => 'topics', 'action' => 'delete', $this->ForumPost->field('topic')));
 		}
 
@@ -166,6 +166,11 @@ class PostsController extends AppController {
 				}
 			}
 		}
+	}
+
+	private function canTouchPost($id) {
+		$this->ForumPost->id = $id;
+		return $this->Acl->hasForumRole($id, 'moderate') || $this->ForumPost->field('created_by') == $this->Auth->user('id');
 	}
 
 }

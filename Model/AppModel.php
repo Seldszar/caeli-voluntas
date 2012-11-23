@@ -45,13 +45,32 @@ class AppModel extends Model {
 			}
 		}
 
-		//debug($this->data);
-
 		if ($this->hasField($field) && !isset($this->data[$this->alias][$field])) {
 			$this->set($field, AuthComponent::user('id'));
 		}
 
 		return true;
+	}
+
+	/**
+	 * Bascule la valeur d'un champ représentant un booléen
+	 *
+	 * @param $fieldName Nom du champ à basculer
+	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
+	 */
+	public function toggleField($fieldName) {
+		return $this->saveField($fieldName, DboSource::expression('NOT ' . $fieldName));
+	}
+
+	/**
+	 * Incrémente la valeur d'un champ
+	 *
+	 * @param $fieldName Nom du champ à incrémenter
+	 * @param $value Valeur d'incrémentation
+	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
+	 */
+	public function incrementField($fieldName, $value = 1) {
+		return $this->saveField($fieldName, DboSource::expression($fieldName . ' + ' . $value));
 	}
 
 }

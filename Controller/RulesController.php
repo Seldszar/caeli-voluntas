@@ -25,8 +25,6 @@ class RulesController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->layout = 'user';
-
 		$this->set('page', $this->Page->read());
 	}
 
@@ -36,8 +34,6 @@ class RulesController extends AppController {
 		if (!$this->Page->exists()) {
 			throw new NotFoundException();
 		}
-
-		$this->layout = 'user';
 
 		$page = $this->Page->read();
 
@@ -55,7 +51,7 @@ class RulesController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 
-		if (@$this->params['admin'] && !$this->Acl->hasRole('edit_rules')) {
+		if (isset($this->params['admin']) && !$this->Acl->hasRole('edit_rules')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à cette page");
 		}
 	}

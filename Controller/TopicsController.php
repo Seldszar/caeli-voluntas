@@ -18,17 +18,14 @@ class TopicsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé est introuvable");
 		}
 
-		$topic = $this->ForumTopic->read();
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'view')) {
+		if (!$this->Acl->hasForumRole($this->ForumTopic->field('forum'), 'view')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à ce forum");
 		}
 
-		$this->ForumTopic->saveField('num_views', ++$topic['ForumTopic']['num_views']);
-
+		$topic = $this->ForumTopic->read();
 		$this->paginate = array(
 			'ForumPost' => array(
-				'limit' => 10,
+				'limit' => 25,
 				'paramType' => 'querystring',
 				'conditions' => array(
 					'topic' => $id
@@ -44,6 +41,8 @@ class TopicsController extends AppController {
 
 		$this->set('topic', $topic);
 		$this->set('posts', $this->paginate('ForumPost'));
+
+		$this->ForumTopic->incrementField('num_views');
 
 		$threadsViewed = $this->Cookie->read("threadsViewed");
 		$threadsViewed[$id] = time();
@@ -102,6 +101,10 @@ class TopicsController extends AppController {
 			throw new NotFoundException("Le sujet demandé n'existe pas");
 		}
 
+		if (!$this->canTouchTopic($id)) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer ce sujet");
+		}
+
 		$this->ForumTopic->contain(array(
 			'Forum',
 			'FirstPost',
@@ -119,17 +122,11 @@ class TopicsController extends AppController {
 
 		$topic = $this->ForumTopic->read();
 
-		$postId = $topic['FirstPost']['id'];
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer ce sujet");
-		}
-
 		if ($this->request->is('put')) {
 			$data = $this->data;
 
 			$data['ForumTopic']['id'] = $id;
-			$data['ForumPost']['id'] = $postId;
+			$data['ForumPost']['id'] = $topic['FirstPost']['id'];
 			$data['ForumPost']['content'] = $data['FirstPost']['content'];
 
 			if ($this->ForumPost->saveAssociated($data, array('deep' => true))) {
@@ -149,17 +146,17 @@ class TopicsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé n'existe pas");
 		}
 
-		$topic = $this->ForumTopic->read();
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
+		if (!$this->canTouchTopic($id)) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce sujet");
 		}
 
+		$forumId = $this->ForumTopic->field('forum');
+
 		if ($this->ForumTopic->delete()) {
-			$this->Forum->id = $topic['ForumTopic']['forum'];
+			$this->Forum->id = $forumId;
 
 			if ($this->Forum->updateStatistics()) {
-				$this->redirect(array('controller' => 'forums', 'action' => 'view', $topic['ForumTopic']['forum']));
+				$this->redirect(array('controller' => 'forums', 'action' => 'view', $forumId));
 			}
 		}
 	}
@@ -171,13 +168,11 @@ class TopicsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé n'existe pas");
 		}
 
-		$topic = $this->ForumTopic->read();
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce sujet");
+		if (!$this->canTouchTopic($id)) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à effectuer cette action");
 		}
 
-		if ($this->ForumTopic->saveField('sticky', !(bool)$this->ForumTopic->field('sticky'))) {
+		if ($this->ForumTopic->toggleField('sticky')) {
 			$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
 		}
 	}
@@ -189,18 +184,15 @@ class TopicsController extends AppController {
 			throw new NotFoundException("Le fil de discussion demandé n'existe pas");
 		}
 
-		$topic = $this->ForumTopic->read();
-
-		if (!$this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') && $topic['FirstPost']['created_by'] != $this->Auth->user('id')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce sujet");
+		if (!$this->canTouchTopic($id)) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à effectuer cette action");
 		}
 
-		if ($this->ForumTopic->saveField('closed', !(bool)$this->ForumTopic->field('closed'))) {
+		if ($this->ForumTopic->toggleField('closed')) {
 			$this->redirect(array('controller' => 'topics', 'action' => 'view', $id));
 		}
 	}
 
-	
 	public function latest($limit = 5) {
 		return $this->ForumTopic->find('viewable', array(
 			'contain' => array(
@@ -213,6 +205,20 @@ class TopicsController extends AppController {
 			),
 			'limit' => $limit
 		));
+	}
+
+	/**
+	 * Vérifie si l'utilisateur courant peut effecteur une action modifiant le fil de discussion
+	 *
+	 * @param $id ID du sujet de discussion
+	 * @return boolean True si l'utilisateur y est autorisé ; sinon false
+	 */
+	private function canTouchTopic($id) {
+		$this->ForumTopic->id = $id;
+		$this->ForumTopic->contain('FirstPost.created_by');
+		$topic = $this->ForumTopic->read();
+
+		return $this->Acl->hasForumRole($topic['ForumTopic']['forum'], 'moderate') || $topic['FirstPost']['created_by'] == $this->Auth->user('id');
 	}
 
 }

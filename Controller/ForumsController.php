@@ -12,37 +12,32 @@ class ForumsController extends AppController {
 
 	public function index() {
 		$this->layout = 'two_column';
-
-		$categories = $this->ForumCategory->find('all', array(
-			'contain' => array(
-				'Forum' => array(
-					'LastPost' => array(
-						'ForumTopic',
-						'CreatedBy'
-					)
+		$contain = array(
+			'Forum' => array(
+				'LastPost' => array(
+					'ForumTopic',
+					'CreatedBy'
 				)
 			)
-		));
+		);
+
+		if (!$this->Acl->isAdmin()) {
+			$contain['Forum']['conditions'] = array(
+				'id' => $this->Acl->getForumsViewable()
+			);
+		}
+
+		$categories = $this->ForumCategory->find('all', array('contain' => $contain));
 
 		foreach ($categories as &$category) {
-			$forums = &$category['Forum'];
+			foreach ($category['Forum'] as &$forum) {
+				$lastPost = $forum['LastPost'];
 
-			foreach ($forums as $k => &$forum) {
-				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
-					$lastPost = $forum['LastPost'];
-					
-					if ($lastPost) {
-						$threadViewed = $this->Cookie->read("threadsViewed.{$lastPost['topic']}");
-					}
-					
-					$forum['new_messages'] = !$threadViewed || !empty($lastPost) && $threadViewed < $lastPost['created'];
-				} else {
-					unset($forums[$k]);
+				if ($lastPost) {
+					$threadViewed = $this->Cookie->read("threadsViewed.{$lastPost['topic']}");
 				}
-			}
 
-			if (empty($forums)) {
-				unset($category);
+				$forum['new_messages'] = !$threadViewed || !empty($lastPost) && $threadViewed < $lastPost['created'];
 			}
 		}
 
@@ -50,14 +45,14 @@ class ForumsController extends AppController {
 	}
 
 	public function view($id) {
-		if (!$this->Acl->hasForumRole($id, 'view')) {
-			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à ce forum");
-		}
-
 		$this->Forum->id = $id;
 
 		if (!$this->Forum->exists()) {
 			throw new NotFoundException("Le forum demandé est introuvable");
+		}
+
+		if (!$this->Acl->hasForumRole($id, 'view')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à ce forum");
 		}
 
 		$paginate = array(
@@ -79,7 +74,6 @@ class ForumsController extends AppController {
 		);
 
 		$this->paginate = $paginate;
-
 		$topics = $this->paginate('ForumTopic');
 
 		foreach ($topics as $k => &$topic) {
@@ -101,26 +95,11 @@ class ForumsController extends AppController {
 	}
 
 	public function markread() {
-		$categories = $this->ForumCategory->find('all', array(
-			'contain' => array(
-				'Forum' => array(
-					'ForumTopic'
-				)
-			)
-		));
-
+		$topics = $this->ForumTopic->find('viewable', array('recursive' => 0));
 		$threadsViewed = $this->Cookie->read('threadsViewed');
 
-		foreach ($categories as $category) {
-			foreach ($category['Forum'] as $forum) {
-				if ($this->Acl->hasForumRole($forum['id'], 'view')) {
-					$topics = $forum['ForumTopic'];
-
-					foreach ($topics as $topic) {
-						$threadsViewed[$topic['id']] = time();
-					}
-				}
-			}
+		foreach ($topics as $topic) {
+			$threadsViewed[$topic['ForumTopic']['id']] = time();
 		}
 
 		$this->Cookie->write('threadsViewed', $threadsViewed, false);

@@ -51,7 +51,7 @@ class RecruitmentController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$value = !((bool)$this->CharacterSpec->field('recruitment_active'));
+		$value = !$this->CharacterSpec->field('recruitment_active');
 
 		$this->CharacterSpec->saveField('recruitment_active', $value);
 

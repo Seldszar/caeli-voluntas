@@ -18,9 +18,9 @@ class EncountersController extends AppController {
 		if ($this->request->is('post')) {
 			$data = $this->data;
 
-			$data['Encounter']['zone'] = $id;
+			$this->Encounter->set('zone', $id);
 
-			if ($this->Encounter->save($data, true, array('zone', 'name'))) {
+			if ($this->Encounter->save($data)) {
 				$this->redirect(array('controller' => 'encounterZones', 'action' => 'view', $id));
 			}
 		}
@@ -42,7 +42,7 @@ class EncountersController extends AppController {
 		if ($this->request->is('put')) {
 			$data = $this->data;
 
-			if ($this->Encounter->save($data, array('name'))) {
+			if ($this->Encounter->save($data)) {
 				$this->redirect(array('controller' => 'encounterZones', 'action' => 'view', $encounter['EncounterZone']['id']));
 			}
 		} else {
@@ -101,13 +101,11 @@ class EncountersController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$position = 0;
-
-		foreach ($this->data['encounter'] as $encounterId) {
-			$this->Encounter->id = $encounterId;
+		foreach ($this->data['encounter'] as $k => $id) {
+			$this->Encounter->id = $id;
 
 			if ($this->Encounter->exists()) {
-				$this->Encounter->saveField('position', $position++);
+				$this->Encounter->saveField('position', $k);
 			}
 		}
 
@@ -117,7 +115,7 @@ class EncountersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 
-		if (@$this->params['admin'] && !$this->Acl->hasRole('manage_encounters')) {
+		if (isset($this->params['admin']) && !$this->Acl->hasRole('manage_encounters')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à cette page");
 		}
 	}

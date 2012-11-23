@@ -34,6 +34,7 @@ class Group extends AppModel {
 		parent::__construct($id, $table, $ds);
 
 		$this->virtualFields['allow_delete'] = sprintf("%s.id NOT IN (1, 2, 3)", $this->alias);
+		$this->virtualFields['editable'] = sprintf("%s.id > 2", $this->alias);
 		$this->virtualFields['visible'] = sprintf("%s.id > 2", $this->alias);
 	}
 

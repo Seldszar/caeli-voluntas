@@ -4,7 +4,7 @@ App::uses('AppController', 'Controller');
 
 class GroupsController extends AppController {
 
-	public $uses = array('Group', 'Role');
+	public $uses = array('Group', 'User', 'Role');
 
 	public function admin_index() {
 		$this->set('groups', $this->Group->find('all'));
@@ -33,10 +33,14 @@ class GroupsController extends AppController {
 			throw new NotFoundException("Le groupe demandé est introuvable");
 		}
 
+		$this->Group->contain(array(
+			'Role'
+		));
+
 		if ($this->request->is('put')) {
 			$data = $this->data;
 
-			if (in_array($id, array(1, 2))) {
+			if (!$this->Group->field('editable'))) {
 				unset($data['Role']);
 			}
 
@@ -44,13 +48,12 @@ class GroupsController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			}
 		} else {
-			$this->Group->contain(array('Role'));
 			$this->data = $this->Group->read();
 		}
 
 		$roles = array();
 
-		if (!in_array($id, array(1, 2))) {
+		if ($this->Group->field('editable')) {
 			$roles = $this->Role->find('list');
 		}
 
@@ -64,7 +67,7 @@ class GroupsController extends AppController {
 			throw new NotFoundException("Le groupe demandé est introuvable");
 		}
 
-		$userCount = $this->Group->User->find('count', array('conditions' => array('group' => $id)));
+		$userCount = $this->User->find('count', array('conditions' => array('group' => $id)));
 		$canDelete = false;
 
 		if ($userCount == 0) {
@@ -72,7 +75,7 @@ class GroupsController extends AppController {
 		} else if ($this->request->is('put')) {
 			$data = $this->data;
 
-			if ($this->Group->User->updateAll(array('group' => $data['Group']['id']), array('group' => $id))) {
+			if ($this->User->updateAll(array('group' => $data['Group']['id']), array('group' => $id))) {
 				$canDelete = true;
 			}
 		} else {
@@ -91,14 +94,11 @@ class GroupsController extends AppController {
 		}
 	}
 
-
 	public function beforeFilter() {
 		parent::beforeFilter();
 
-		if ($this->Auth->user()) {
-			if (isset($this->params['admin']) && !$this->Acl->hasRole('manage_groups')) {
-				throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à cette page");
-			}
+		if (isset($this->params['admin']) && !$this->Acl->hasRole('manage_groups')) {
+			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à cette page");
 		}
 	}
 
