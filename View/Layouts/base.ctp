@@ -68,7 +68,7 @@ La guilde Caeli Voluntas est une guilde côté Alliance présente depuis plus de
 <h3><span class="icon-cog"></span>Informations complémentaires</h3>
 <div class="footer-group-content">
 <div id="copyright">&copy; Caeli Voluntas 2012 - Tous droits réservés</div>
-<div id="created-by">Développé par Alexandre B. (<?php echo $this->Html->link('Seldszar', array('controller' => 'users', 'action' => 'view', 2)) ?>) avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
+<div id="created-by">Développé par Alexandre B. (<?php echo $this->Html->link('Seldszar', array('admin' => false, 'controller' => 'users', 'action' => 'view', 2)) ?>) avec <?php echo $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
 </div>
 </div>
 </div>

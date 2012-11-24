@@ -357,7 +357,7 @@ blockquote blockquote {
   margin: 0 auto;
   min-height: 100%;
   position: relative;
-  width: 930px;
+  width: 1000px;
 }
 
 #header {
@@ -468,13 +468,13 @@ blockquote blockquote {
 
 #left {
   float: left;
-  width: 660px;
+  width: 700px;
 }
 
 #right {
   float: left;
   margin-left: 10px;
-  width: 260px;
+  width: 290px;
 }
 
 .ui-tooltip {
@@ -776,7 +776,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 }
 #gallery li {
   float: left;
-  width: 283px;
+  width: 306.333px;
   height: 152px;
   margin-bottom: 20px;
 }
@@ -895,7 +895,7 @@ ul.ui-custom-list .ui-button-set li a.checked, ol.ui-custom-list .ui-button-set 
 .footer-group {
   float: left;
   margin-right: 20px;
-  width: 283.333px;
+  width: 306.667px;
 }
 .footer-group:last-child {
   margin-right: 0;
@@ -1327,7 +1327,7 @@ strong, b {
   display: inline-block;
   margin-left: 18px;
   padding-top: 20px;
-  width: 193.333px;
+  width: 206.667px;
 }
 .roster-class:nth-of-type(3n-2), .forum-list li:nth-of-type(3n-2) {
   margin-left: 0;
@@ -1455,7 +1455,7 @@ strong, b {
 }
 
 .category-item {
-  background: url('../img/page-content.jpg') repeat-x top;
+  background: url('../img/page-content.jpg') no-repeat top left;
   padding: 20px 20px 0;
 }
 .category-item:first-child {
@@ -1545,7 +1545,7 @@ body#user #left {
   width: 210px;
 }
 body#user #right {
-  width: 710px;
+  width: 780px;
 }
 
 .user-section {
