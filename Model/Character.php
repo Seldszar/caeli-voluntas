@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppModel', 'Model');
+App::uses('HttpSocket', 'Network/Http');
 
 class Character extends AppModel {
 
@@ -54,10 +55,31 @@ class Character extends AppModel {
 		return true;
 	}
 
+	public function afterFind($results, $primary = false) {
+		foreach ($results as &$v) {
+			$this->Realm->id = $v[$this->alias]['realm'];
+
+			$avatarUrl = false;
+			$name = $v[$this->alias]['name'];
+			$slug = $this->Realm->field('slug');
+			$http = new HttpSocket();
+
+			if ($response = $http->get(sprintf('http://eu.battle.net/api/wow/character/%s/%s', $slug, $name))) {
+				if ($response->isOk()) {
+					$data = json_decode($response->body);
+					$avatarUrl = sprintf('http://eu.battle.net/static-render/eu/%s?alt=/wow/static/images/2d/avatar/%d-%d.jpg', $data->thumbnail, $data->race, $data->gender);
+				}
+			}
+
+			$v[$this->alias]['armory_url'] = sprintf('http://eu.battle.net/wow/fr/character/%s/%s/simple', $slug, $name);
+			$v[$this->alias]['avatar_url'] = $avatarUrl;
+		}
+
+		return $results;
+	}
+
 	public function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct($id, $table, $ds);
-		//$this->virtualFields['armory_url'] = "'http://eu.battle.net/wow/fr/character/la-croisade-ecarlate/Kaorel/simple'";
-		//$this->virtualFields['avatar_url'] = "CONCAT('http://eu.battle.net/static-render/eu/', avatar_url)";
 	}
 
 }

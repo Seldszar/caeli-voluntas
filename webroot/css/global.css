@@ -1549,7 +1549,7 @@ body#user #right {
 }
 
 .user-section {
-  background: url('../img/page-content.jpg') no-repeat top right;
+  background: url('../img/page-content.jpg') no-repeat top left;
   padding: 20px;
 }
 .user-section h2 {

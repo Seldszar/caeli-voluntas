@@ -1,31 +1,52 @@
 <?php $this->Html->addCrumb($user['User']['username']) ?>
 
 <?php $this->assign('header.image', 'user') ?>
-<?php $this->assign('header.title', $user['User']['username']) ?>
-<?php $this->assign('header.description', $user['Group']['name']) ?>
+<?php $this->assign('header.title', $user['User']['username'] . " <em>{$user['Group']['name']}</em>") ?>
+<?php $this->assign('content.class', 'no-padding') ?>
 
-<?php if (!empty($user['User']['presentation'])): ?>
-<div class="section">
-<h3>Présentation</h3>
+<?php if (AclComponent::hasRole('moderate_users')) : ?>
+<?php $this->assign('header.description', $this->Html->link('Modérer le compte', array('action' => 'edit', $user['User']['id']), array('class' => 'ui-button'))) ?>
+<?php endif ?>
+
+<div class="user-section">
+<h2>Présentation</h2>
+<?php if (!empty($user['User']['presentation'])) : ?>
+<div class="user-section-content">
+<blockquote>
 <?php echo $this->MarkitUp->parse($user['User']['presentation']) ?>
+</blockquote>
+</div>
+<?php endif ?>
+</div>
+
+<div class="user-section">
+<h2>Signature</h2>
+<?php if (!empty($user['User']['signature'])) : ?>
+<div class="user-section-content">
+<blockquote>
+<?php echo $this->MarkitUp->parse($user['User']['signature']) ?>
+</blockquote>
+</div>
+<?php endif ?>
+</div>
+
+<?php if (!empty($user['Character'])) : ?>
+<div class="user-section">
+<h2>Ses personnages</h2>
+<div class="user-section-content">
+<div id="user-characters">
+<?php foreach($user['Character'] as $character): ?>
+<?php echo $this->Html->link($this->Html->image($character['avatar_url']), $character['armory_url'], array('title' => $character['name'], 'class' => 'user-character', 'escape' => false)) ?>
+<?php endforeach ?>
+</div>
+</div>
 </div>
 <?php endif ?>
 
-<?php if (!empty($user['Character'])): ?>
-<div class="section">
-<h3>Ses personnages</h3>
-<ul class="ui-custom-list">
-<?php foreach($user['Character'] as $character): ?>
-<li class="span-2">
-<?php echo $this->Html->link($character['name'], sprintf('http://eu.battle.net/wow/fr/character/%s/%s/', $character['Realm']['slug'], $character['name']), array('class' => "color-c{$character['class']}")) ?>
-</li>
-<?php endforeach ?>
-</ul>
-</div>
-<?php endif ?>
-<?php if (AclComponent::hasRole('moderate_users')): ?>
-<div class="section">
-<h3>Informations complémentaires <em>(visibles uniquement par les modérateurs)</em></h3>
+<?php if (AclComponent::hasRole('moderate_users')) : ?>
+<div class="user-section">
+<h2>Informations de modération</h2>
+<div class="user-section-content">
 <ul class="ui-custom-list">
 <li>
 <ul class="float-left">
@@ -48,7 +69,7 @@
 <li>Etat du compte :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo $user['User']['active'] ? "Confirmé" : "Non confirmé" ?></li>
+<li><?php echo $user['User']['active'] ? 'Confirmé' : 'Non confirmé' ?></li>
 </ul>
 </li>
 <li>
@@ -56,7 +77,7 @@
 <li>Dernière connexion :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo !empty($user['User']['last_login']) ? $this->Time->timeAgoInWords($user['User']['last_login']) : "Indisponible" ?></li>
+<li><?php echo !empty($user['User']['last_login']) ? $this->Time->timeAgoInWords($user['User']['last_login']) : 'Indisponible' ?></li>
 </ul>
 </li>
 <li>
@@ -64,12 +85,10 @@
 <li>Dernière IP connue :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo !empty($user['User']['last_ip']) ? $user['User']['last_ip'] : "Indisponible" ?></li>
+<li><?php echo !empty($user['User']['last_ip']) ? $user['User']['last_ip'] : 'Indisponible' ?></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section-action">
-<?php echo $this->Html->link('Editer', array('action' => 'edit', $user['User']['id']), array('class' => 'ui-button')) ?>
 </div>
 <?php endif ?>
