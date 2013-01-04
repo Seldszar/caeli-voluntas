@@ -3,8 +3,6 @@
 
 <?php $this->assign('header.image', 'user') ?>
 <?php $this->assign('header.title', 'Mon avatar') ?>
-<?php //$this->assign('header.description', $this->Html->link('Editer mes informations personnelles', array('action' => 'edit'), array('class' => 'ui-button'))) ?>
-<?php //$this->assign('content.class', 'no-padding') ?>
 
 <?php echo $this->Form->create(array('id' => 'user-avatar-form', 'type' => 'file')) ?>
 <table id="user-avatar-placeholder">
@@ -18,9 +16,11 @@
 </table>
 <?php echo $this->Form->end() ?>
 
+<?php if (!empty($user['User']['avatar'])) : ?>
 <?php echo $this->Form->create(array('id' => 'user-avatar-delete', 'type' => 'delete')) ?>
 <?php echo $this->Form->button("Supprimer") ?>
 <?php echo $this->Form->end() ?>
+<?php endif ?>
 
 <?php $this->start('scripts') ?>
 $(function() {
