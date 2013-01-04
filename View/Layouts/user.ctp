@@ -7,7 +7,7 @@
 <h2>Menu principal</h2>
 <ul>
 <li><?php echo $this->Html->link("Mon compte", array('controller' => 'users', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
-<li><?php echo $this->Html->link("Mon avatar <sup class=\"icon-export\"></sup>", 'http://fr.gravatar.com/', array('target' => '_blank', 'escape' => false)) ?></li>
+<li><?php echo $this->Html->link("Mon avatar", array('controller' => 'users', 'action' => 'avatar', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Mes personnages", array('controller' => 'characters', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Évènements", array('controller' => 'events', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Changer d'adresse e-mail", array('controller' => 'users', 'action' => 'email', 'admin' => false), array('current' => true)) ?></li>

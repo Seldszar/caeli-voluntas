@@ -250,18 +250,21 @@ class UsersController extends AppController {
 		)));
 	}
 
-	public function avatar($id) {
-		$this->viewClass = 'Media';
+	public function avatar() {
+		$this->User->id = $this->Auth->user('id');
 
-		$this->set(array(
-			'id' => "{$id}.jpg",
-			'name' => 'avatar',
-			'extension' => 'jpg',
-			'mimeType' => array(
-				'jpg' => 'image/jpeg'
-			),
-			'path' => 'img' . DS . 'avatars' . DS
-		));
+		if (!$this->User->exists()) {
+			throw new NotFoundException("L'utilisateur demandé est introuvable");
+		}
+
+		if ($this->request->isPost()) {
+			$data = $this->request->data;
+			$this->User->save($data);
+		} else if ($this->request->isDelete()) {
+			$this->User->saveField('avatar', null);
+		}
+
+		$this->set('user', $this->User->read());
 	}
 
 	public function admin_index() {

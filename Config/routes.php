@@ -41,6 +41,7 @@
 	Router::connect('/posts/delete/*', array('controller' => 'posts', 'action' => 'delete'));
 	Router::connect('/account/edit/*', array('controller' => 'users', 'action' => 'edit'));
 	Router::connect('/account', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/account/avatar', array('controller' => 'users', 'action' => 'avatar'));
 	Router::connect('/account/*', array('controller' => 'users', 'action' => 'view'));
 	Router::connect('/gallery', array('controller' => 'gallery', 'action' => 'index'));
 	Router::connect('/events', array('controller' => 'events', 'action' => 'index'));

@@ -17,7 +17,9 @@
 <?php if (AuthComponent::user()) : ?>
 <div id="profile">
 <div id="profile-avatar">
+<?php if (AuthComponent::user('avatar_url')) : ?>
 <?php echo $this->Html->image(AuthComponent::user('avatar_url')) ?>
+<?php endif ?>
 </div>
 <div id="profile-meta">
 <?php echo $this->Html->link("Mon profil", array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?>

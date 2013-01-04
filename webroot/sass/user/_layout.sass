@@ -73,3 +73,56 @@ body
 
 				display: block
 				padding: 7px 10px
+
+#user-avatar-placeholder
+	height: 300px
+	margin: 0 auto
+	width: 300px
+	
+	tr
+		border: none
+	
+	td
+		+border-radius(6px)
+		+box-shadow(0 0 15px #161616 inset)
+
+		background-color: #202020
+		padding: 10px
+		position: relative
+		text-align: center
+		vertical-align: middle
+
+	&:hover
+
+		#user-avatar-caption
+			opacity: 1
+	
+	&.in-progress
+	
+		#user-avatar-caption
+			opacity: 1 !important
+
+#user-avatar-caption, #user-avatar-file
+	bottom: 0
+	left: 0
+	position: absolute
+	right: 0
+	top: 0
+	z-index: 999
+
+#user-avatar-caption
+	+border-radius(6px)
+	+single-transition(all, .2s)
+
+	background-color: rgba(0, 0, 0, .5)
+	font-size: 18px
+	line-height: 300px
+	opacity: 0
+
+#user-avatar-file
+	cursor: pointer
+	opacity: 0
+
+#user-avatar-delete
+	margin-top: 10px
+	text-align: center
