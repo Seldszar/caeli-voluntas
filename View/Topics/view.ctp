@@ -27,11 +27,9 @@
 <?php foreach ($posts as $post) : ?>
 <tr class="post" id="p<?php echo $post['ForumPost']['id'] ?>">
 <td class="post-author">
-<?php if (isset($post['CreatedBy']['avatar'])) : ?>
 <div class="avatar">
 <?php echo $this->Html->image($post['CreatedBy']['avatar_url'], array('alt' => "Avatar de " . $post['CreatedBy']['username'])) ?>
 </div>
-<?php endif ?>
 <?php echo $this->Html->link($post['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $post['CreatedBy']['id']), array('class' => 'name', 'style' => (!empty($post['CreatedBy']['Group']['color']) ? "color: #{$post['CreatedBy']['Group']['color']}" : null))) ?>
 <div class="group"><?php echo $post['CreatedBy']['Group']['name'] ?></div>
 </td>
