@@ -1612,6 +1612,11 @@ body#user #right {
 #user-avatar-placeholder {
   height: 300px;
   margin: 0 auto;
+  position: relative;
+  width: 300px;
+}
+#user-avatar-placeholder table {
+  height: 300px;
   width: 300px;
 }
 #user-avatar-placeholder tr {
@@ -1628,7 +1633,6 @@ body#user #right {
   box-shadow: 0 0 15px #161616 inset;
   background-color: #202020;
   padding: 10px;
-  position: relative;
   text-align: center;
   vertical-align: middle;
 }
@@ -1639,13 +1643,22 @@ body#user #right {
   opacity: 1 !important;
 }
 
-#user-avatar-caption, #user-avatar-file {
-  bottom: 0;
+#user-avatar-file {
+  display: none;
+}
+
+#user-avatar-caption, #user-avatar-button {
+  height: 100%;
   left: 0;
+  padding: 0;
   position: absolute;
-  right: 0;
   top: 0;
+  width: 100%;
   z-index: 999;
+}
+
+#user-avatar-button {
+  opacity: 0;
 }
 
 #user-avatar-caption {

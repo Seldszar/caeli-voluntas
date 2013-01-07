@@ -77,7 +77,12 @@ body
 #user-avatar-placeholder
 	height: 300px
 	margin: 0 auto
+	position: relative
 	width: 300px
+	
+	table
+		height: 300px
+		width: 300px
 	
 	tr
 		border: none
@@ -88,7 +93,6 @@ body
 
 		background-color: #202020
 		padding: 10px
-		position: relative
 		text-align: center
 		vertical-align: middle
 
@@ -102,13 +106,20 @@ body
 		#user-avatar-caption
 			opacity: 1 !important
 
-#user-avatar-caption, #user-avatar-file
-	bottom: 0
+#user-avatar-file
+	display: none
+
+#user-avatar-caption, #user-avatar-button
+	height: 100%
 	left: 0
+	padding: 0
 	position: absolute
-	right: 0
 	top: 0
+	width: 100%
 	z-index: 999
+
+#user-avatar-button
+	opacity: 0
 
 #user-avatar-caption
 	+border-radius(6px)
