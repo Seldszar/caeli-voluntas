@@ -204,7 +204,7 @@ class UsersController extends AppController {
 		$_id = $id;
 
 		if ($_id) {
-			if (!$this->Acl->hasRole('moderate_user')) {
+			if (!$this->Acl->hasRole('moderate_users')) {
 				throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer cet utilisateur");
 			}
 		} else {
