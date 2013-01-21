@@ -227,7 +227,7 @@ class UsersController extends AppController {
 				'signature'
 			);
 
-			if ($this->Acl->hasRole('moderate_user') && $user['User']['group'] != 2) {
+			if ($this->Acl->hasRole('moderate_users') && $user['User']['group'] != 2) {
 				$fields[] = 'group';
 			}
 
