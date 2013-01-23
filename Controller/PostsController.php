@@ -65,8 +65,9 @@ class PostsController extends AppController {
 			$this->ForumPost->id = $this->request->query['quote'];
 
 			if ($this->ForumPost->exists()) {
+				$quotedBy = $this->User->read(array('username'), $this->ForumPost->field('created_by'));
 				$this->request->data['ForumPost']['content'] =
-					sprintf('[quote=%s]%s[/quote]', $this->ForumPost->CreatedBy->field('username'), $this->ForumPost->field('content'));
+					sprintf('[quote=%s]%s[/quote]', $quotedBy['User']['username'], $this->ForumPost->field('content'));
 				;
 			}
 		}
