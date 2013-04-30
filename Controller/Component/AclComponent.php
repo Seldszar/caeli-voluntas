@@ -9,7 +9,7 @@ class AclComponent extends Component {
 	private static $isAdmin = false;
 	private static $roles = null;
 
-	public function initialize($controller) {
+	public function initialize(Controller $controller) {
 		if (!isset(self::$roles)) {
 			self::$roles = array(
 				'global' => array(),

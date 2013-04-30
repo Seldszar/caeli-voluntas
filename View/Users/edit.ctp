@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?>
+<?php $this->Html->addCrumb($user['User']['username'], array('controller' => 'users', 'action' => 'view', $user['User']['id'], 'admin' => false)) ?>
 <?php $this->Html->addCrumb('Editer le compte') ?>
 
 <?php $this->assign('header.image', 'user') ?>
