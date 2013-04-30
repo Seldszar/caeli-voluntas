@@ -5,7 +5,7 @@
 <?php $this->assign('header.title', 'Editer le compte') ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 
-<?php echo $this->Form->create() ?>
+<?php echo $this->Form->create(null, array('type' => 'put')) ?>
 <div class="profile-section">
 <h2>Présentation</h2>
 <div class="profile-section-content">
