@@ -221,7 +221,7 @@ class UsersController extends AppController {
 
 		if ($this->request->is('put')) {
 			$data = $this->data;
-			if ($this->User->save($data))) {
+			if ($this->User->save($data)) {
 				if ($id) {
 					$this->redirect(array('action' => 'view', $id));
 				} else {
