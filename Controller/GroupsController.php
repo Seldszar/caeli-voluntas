@@ -40,7 +40,7 @@ class GroupsController extends AppController {
 		if ($this->request->is('put')) {
 			$data = $this->data;
 
-			if (!$this->Group->field('editable'))) {
+			if (!$this->Group->field('editable')) {
 				unset($data['Role']);
 			}
 
