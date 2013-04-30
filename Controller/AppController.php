@@ -24,7 +24,8 @@ class AppController extends Controller {
 		'Cookie' => array(
 			'name' => 'CaeliVoluntas',
 			'time' => '1 Year'
-		)
+		),
+		'Security'
 	);
 
 	public $helpers = array(

@@ -1,5 +1,7 @@
 <?php
 
+App::uses('Component', 'Controller');
+
 class AclComponent extends Component {
 
 	public $components = array('Auth');

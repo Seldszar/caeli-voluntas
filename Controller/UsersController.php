@@ -219,19 +219,9 @@ class UsersController extends AppController {
 
 		$user = $this->User->read();
 
-		if ($this->request->is('put'))
-		{
+		if ($this->request->is('put')) {
 			$data = $this->data;
-			$fields = array(
-				'presentation',
-				'signature'
-			);
-
-			if ($this->Acl->hasRole('moderate_users') && $user['User']['group'] != 2) {
-				$fields[] = 'group';
-			}
-
-			if ($this->User->save($data, array('fieldList' => $fields))) {
+			if ($this->User->save($data))) {
 				if ($id) {
 					$this->redirect(array('action' => 'view', $id));
 				} else {
