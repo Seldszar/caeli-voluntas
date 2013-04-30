@@ -212,16 +212,14 @@ class UsersController extends AppController {
 		}
 
 		$this->User->id = $_id;
-
 		if (!$this->User->exists()) {
 			throw new NotFoundException("L'utilisateur demandé est introuvable");
 		}
 
 		$user = $this->User->read();
-
 		if ($this->request->is('put')) {
 			$data = $this->data;
-			if ($this->User->save($data)) {
+			if ($this->User->save($data, false)) {
 				if ($id) {
 					$this->redirect(array('action' => 'view', $id));
 				} else {
