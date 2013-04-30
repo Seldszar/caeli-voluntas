@@ -1,3 +1,6 @@
 [submodule "Plugin/Migrations"]
 	path = Plugin/Migrations
 	url = https://github.com/CakeDC/migrations.git
+[submodule "Plugin/ClearCache"]
+	path = Plugin/ClearCache
+	url = https://github.com/ceeram/clear_cache.git
