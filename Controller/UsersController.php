@@ -95,7 +95,6 @@ class UsersController extends AppController {
 		}
 
 		$this->User->id = $user['User']['id'];
-
 		$this->User->set(array(
 			'active' => true,
 			'salt' => null
@@ -111,14 +110,11 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
 				$this->User->id = $this->Auth->user('id');
-				
-				$this->User->set(array(
+				$this->User->save(array(
 					'last_login' => CakeTime::toServer(time()),
 					'last_ip' => $this->request->clientIp()
-				));
-				
-				$this->User->save();
-				
+				), false);
+
 				$this->redirect($this->Auth->redirect());
 			} else {
 				$this->Session->setFlash("Informations de connexion invalides, veuillez vérifier vos identifiants", "error_message");
@@ -165,7 +161,6 @@ class UsersController extends AppController {
 
 	public function resetPassword($salt) {
 		$user = $this->User->findBySalt($salt, array('id'));
-
 		if (!$user) {
 			throw new NotFoundException("La clé de réinitialisation de mot de passe est introuvable");
 		}
@@ -185,7 +180,6 @@ class UsersController extends AppController {
 
 	public function view($id) {
 		$this->User->id = $id;
-
 		if (!$this->User->exists()) {
 			throw new NotFoundException("L'utilisateur demandé est introuvable");
 		}
@@ -201,26 +195,22 @@ class UsersController extends AppController {
 	}
 
 	public function edit($id = null) {
-		$_id = $id;
-
-		if ($_id) {
+		if ($id) {
 			if (!$this->Acl->hasRole('moderate_users')) {
 				throw new UnauthorizedException("Vous n'êtes pas autorisé à éditer cet utilisateur");
 			}
 		} else {
-			$_id = $this->Auth->user('id');
+			$id = $this->Auth->user('id');
 		}
 
-		$this->User->id = $_id;
-		if (!$this->User->exists()) {
+		$user = $this->User->read(null, $id);
+		if (!$user) {
 			throw new NotFoundException("L'utilisateur demandé est introuvable");
 		}
 
-		$user = $this->User->read();
 		if ($this->request->is('put')) {
-			$data = $this->data;
-			if ($this->User->save($data, false)) {
-				if ($id) {
+			if ($this->User->save($this->data, false)) {
+				if ($id != $this->Auth->user('id')) {
 					$this->redirect(array('action' => 'view', $id));
 				} else {
 					$this->redirect(array('action' => 'index'));
@@ -267,7 +257,7 @@ class UsersController extends AppController {
 			)
 		)));
 	}
-	
+
 	public function admin_tooltip($id) {
 		$this->User->id = $id;
 
