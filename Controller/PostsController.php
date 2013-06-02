@@ -151,7 +151,7 @@ class PostsController extends AppController {
 			));
 
 			$this->ForumTopic->set(array(
-				'num_replies' => $this->ForumPost->find('count', array('conditions' => array('topic' => $post['ForumPost']['topic']))) - 1,
+				'num_replies' => $this->ForumPost->find('count', array('conditions' => array('topic' => $lastPost['ForumPost']['topic']))) - 1,
 				'last_post' => $lastPost['ForumPost']['id']
 			));
 
@@ -159,7 +159,7 @@ class PostsController extends AppController {
 				$this->Forum->id = $this->ForumTopic->field('forum');
 
 				if ($this->Forum->updateStatistics()) {
-					$this->redirect(array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic']));
+					$this->redirect(array('controller' => 'topics', 'action' => 'view', $lastPost['ForumPost']['topic']));
 				}
 			}
 		}
