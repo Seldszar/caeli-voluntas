@@ -138,10 +138,6 @@ class PostsController extends AppController {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à supprimer ce message");
 		}
 
-		if ($post['ForumPost']['id'] == $this->ForumTopic->field('first_post')) {
-			$this->redirect(array('controller' => 'topics', 'action' => 'delete', $this->ForumPost->field('topic')));
-		}
-
 		if ($this->ForumPost->delete()) {
 			$this->ForumTopic->id = $this->ForumPost->field('topic');
 
