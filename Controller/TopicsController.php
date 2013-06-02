@@ -42,6 +42,12 @@ class TopicsController extends AppController {
 		$this->set('topic', $topic);
 		$this->set('posts', $this->paginate('ForumPost'));
 
+		if (isset($this->request->query['goto'])) {
+			if ($this->request->query['goto'] == 'last') {
+				$this->redirect(array('action' => 'view', $id, '?' => array('page' => $this->request->params['paging']['Post']['pageCount']), '#' => "p{$topic['Topic']['last_post_id']}"));
+			}
+		}
+
 		$this->ForumTopic->incrementField('num_views');
 
 		$threadsViewed = $this->Cookie->read("threadsViewed");
