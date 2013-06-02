@@ -44,7 +44,7 @@ class TopicsController extends AppController {
 
 		if (isset($this->request->query['goto'])) {
 			if ($this->request->query['goto'] == 'last') {
-				$this->redirect(array('action' => 'view', $id, '?' => array('page' => $this->request->params['paging']['Post']['pageCount']), '#' => "p{$topic['Topic']['last_post_id']}"));
+				$this->redirect(array('action' => 'view', $id, '?' => array('page' => $this->request->params['paging']['Post']['pageCount']), '#' => "p{$topic['Topic']['last_post']}"));
 			}
 		}
 
