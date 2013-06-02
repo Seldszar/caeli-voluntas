@@ -118,6 +118,8 @@ class EncountersController extends AppController {
 		if (isset($this->params['admin']) && !$this->Acl->hasRole('manage_encounters')) {
 			throw new UnauthorizedException("Vous n'êtes pas autorisé à accéder à cette page");
 		}
+
+		$this->Security->unlockedActions = array('admin_toggle', 'admin_order');
 	}
 
 }
