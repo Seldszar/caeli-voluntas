@@ -37,10 +37,10 @@ $randomMessages = array(
 <html>
 <head>
 <title>Caeli Voluntas</title>
-<?php echo $this->Html->charset() ?>
-<?php echo $this->Html->meta(array('name' => 'robots', 'content' => 'noindex')) ?>
-<?php echo $this->Html->meta('favicon.png', 'favicon.png', array('type' => 'icon')) ?>
-<?php echo $this->Html->css(array('landing', 'https://fonts.googleapis.com/css?family=Oswald:300')) ?>
+<?= $this->Html->charset() ?>
+<?= $this->Html->meta(array('name' => 'robots', 'content' => 'noindex')) ?>
+<?= $this->Html->meta('favicon.png', 'favicon.png', array('type' => 'icon')) ?>
+<?= $this->Html->css(array('landing', 'https://fonts.googleapis.com/css?family=Oswald:300')) ?>
 </head>
 <body>
 <div id="landing">

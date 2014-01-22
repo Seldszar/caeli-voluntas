@@ -51,7 +51,7 @@
 
 <?php $this->start('right') ?>
 <?php if ($this->fetch('page-header')): ?>
-<?php echo $this->fetch('page-header') ?>
+<?= $this->fetch('page-header') ?>
 <?php else: ?>
 <div id="page-header"<?php if ($this->fetch('header.image')) : ?> style="background-image: url('<?php echo $this->Html->url('/img/headers/right-' . $this->fetch('header.image') . '.jpg') ?>')"<?php endif ?>>
 <h1><?php echo $this->fetch('header.title') ?></h1>
@@ -61,6 +61,6 @@
 </div>
 <?php endif ?>
 <div id="page-content" class="<?php echo $this->fetch('content.class') ?>">
-<?php echo $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 </div>
 <?php $this->end() ?>

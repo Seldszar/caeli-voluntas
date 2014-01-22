@@ -5,10 +5,10 @@
 <?php $this->assign('header.image', 'administration') ?>
 <?php $this->assign('header.title', 'Ajouter un article') ?>
 
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('title', array('label' => false, 'placeholder' => 'Saisissez le titre')) ?>
-<?php echo $this->Form->input('content', array('label' => false, 'placeholder' => 'Saisissez le contenu')) ?>
-<?php echo $this->Form->end('Sauver') ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input('title', array('label' => false, 'placeholder' => 'Saisissez le titre')) ?>
+<?= $this->Form->input('content', array('label' => false, 'placeholder' => 'Saisissez le contenu')) ?>
+<?= $this->Form->end('Sauver') ?>
 
 <?php $this->start('scripts') ?>
 $(function() {

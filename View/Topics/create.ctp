@@ -5,11 +5,11 @@
 <?php $this->assign('header.image', 'forums') ?>
 <?php $this->assign('header.title', 'Nouveau sujet') ?>
 
-<?php echo $this->Session->flash() ?>
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('title', array('label' => false, 'placeholder' => 'Titre du sujet')) ?>
-<?php echo $this->Form->input('ForumPost.0.content', array('label' => false, 'placeholder' => 'Message', 'rows' => 12)) ?>
-<?php echo $this->Form->end(array('label' => "Envoyer", 'div' => array('class' => "form-action"))) ?>
+<?= $this->Session->flash() ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input('title', array('label' => false, 'placeholder' => 'Titre du sujet')) ?>
+<?= $this->Form->input('ForumPost.0.content', array('label' => false, 'placeholder' => 'Message', 'rows' => 12)) ?>
+<?= $this->Form->end(array('label' => "Envoyer", 'div' => array('class' => "form-action"))) ?>
 
 <?php $this->start('scripts') ?>
 $(function() {

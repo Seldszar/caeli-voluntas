@@ -5,6 +5,6 @@
 <?php $this->assign('header.image', 'administration') ?>
 <?php $this->assign('header.title', 'Ajouter un personnage') ?>
 
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('id', array('label' => 'Nom', 'options' => $characters)) ?>
-<?php echo $this->Form->end('Ajouter') ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input('id', array('label' => 'Nom', 'options' => $characters)) ?>
+<?= $this->Form->end('Ajouter') ?>

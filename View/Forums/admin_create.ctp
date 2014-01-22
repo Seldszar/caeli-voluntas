@@ -7,10 +7,10 @@
 <?php $this->assign('header.title', 'Ajouter un forum') ?>
 
 <div class="section">
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('name', array('label' => 'Nom')) ?>
-<?php echo $this->Form->input('description', array('label' => 'Description')) ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input('name', array('label' => 'Nom')) ?>
+<?= $this->Form->input('description', array('label' => 'Description')) ?>
 <div class="section-action">
-<?php echo $this->Form->end('Sauver') ?>
+<?= $this->Form->end('Sauver') ?>
 </div>
 </div>

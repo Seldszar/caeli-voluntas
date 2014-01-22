@@ -11,14 +11,14 @@
 <li><?php echo $this->Html->link($zone['EncounterZone']['name'], array('action' => 'view', $zone['EncounterZone']['id'])) ?></li>
 </ul>
 <ul class="float-right">
-<li><div class="link-desc">Normal : <?php echo $zone['EncounterZone']['normal_progress'] ?> / <?php echo $zone['EncounterZone']['num_bosses'] ?></div></li>
-<li><div class="link-desc">Héroïque : <?php echo $zone['EncounterZone']['heroic_progress'] ?> / <?php echo $zone['EncounterZone']['num_bosses'] ?></div></li>
+<li><div class="link-desc">Normal : <?= $zone['EncounterZone']['normal_progress'] ?> / <?= $zone['EncounterZone']['num_bosses'] ?></div></li>
+<li><div class="link-desc">Héroïque : <?= $zone['EncounterZone']['heroic_progress'] ?> / <?= $zone['EncounterZone']['num_bosses'] ?></div></li>
 </ul>
 </li>
 <?php endforeach ?>
 </ul>
 <div class="section-action">
-<?php echo $this->Html->link('Ajouter une zone', array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter une zone', array('action' => 'create'), array('class' => 'ui-button')) ?>
 </div>
 
 <?php $this->start('scripts') ?>

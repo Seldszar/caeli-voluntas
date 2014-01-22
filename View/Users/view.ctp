@@ -13,7 +13,7 @@
 <?php if (!empty($user['User']['signature'])) : ?>
 <div class="user-section-content">
 <blockquote>
-<?php echo $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
+<?= $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>

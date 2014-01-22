@@ -6,7 +6,7 @@
 <?php $this->assign('header.title', $category['ForumCategory']['name']) ?>
 <?php $this->start('header.description') ?>
 <div class="section-action">
-<?php echo $this->Html->link('Editer', array('action' => 'edit', $category['ForumCategory']['id']), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Editer', array('action' => 'edit', $category['ForumCategory']['id']), array('class' => 'ui-button')) ?>
 </div>
 <?php $this->end() ?>
 
@@ -16,7 +16,7 @@
 <li id="forum-<?php echo $forum['id'] ?>">
 <ul class="float-left">
 <li>
-<?php echo $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'edit', $forum['id'])) ?>
+<?= $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'edit', $forum['id'])) ?>
 <div class="link-desc"><?php echo $forum['description'] ?></div>
 </li>
 </ul>
@@ -30,7 +30,7 @@
 <h2 class="caption-empty">Il n'y a actuellement aucun forum</h2>
 <?php endif ?>
 <div class="section-action">
-<?php echo $this->Html->link('Ajouter un forum', array('controller' => 'forums', 'action' => 'create', $category['ForumCategory']['id']), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter un forum', array('controller' => 'forums', 'action' => 'create', $category['ForumCategory']['id']), array('class' => 'ui-button')) ?>
 </div>
 
 <?php $this->start('scripts') ?>

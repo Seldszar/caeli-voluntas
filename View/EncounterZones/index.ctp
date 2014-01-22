@@ -5,7 +5,7 @@
 <?php foreach($zones as $zone): ?>
 <tr>
 <td>
-<?php echo $this->Html->link($zone['EncounterZone']['name'], array('action' => 'edit', $zone['EncounterZone']['id'], 'admin' => true)) ?>
+<?= $this->Html->link($zone['EncounterZone']['name'], array('action' => 'edit', $zone['EncounterZone']['id'], 'admin' => true)) ?>
 </td>
 </tr>
 <?php endforeach ?>

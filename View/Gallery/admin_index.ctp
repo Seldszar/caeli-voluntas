@@ -18,4 +18,4 @@
 <?php endforeach ?>
 </ul>
 <?php endif ?>
-<?php echo $this->Html->link('Ajouter une image', array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter une image', array('action' => 'create'), array('class' => 'ui-button')) ?>

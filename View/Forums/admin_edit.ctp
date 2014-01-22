@@ -7,11 +7,11 @@
 <?php $this->assign('header.title', 'Editer un forum') ?>
 
 <div class="section">
-<?php echo $this->Form->create() ?>
+<?= $this->Form->create() ?>
 <h3>Modifier les informations sur le forum</h3>
-<?php echo $this->Form->input('name', array('label' => 'Nom')) ?>
-<?php echo $this->Form->input('description', array('label' => 'Description')) ?>
-<?php echo $this->Form->input('category', array('label' => 'Catégorie', 'options' => $categories)) ?>
+<?= $this->Form->input('name', array('label' => 'Nom')) ?>
+<?= $this->Form->input('description', array('label' => 'Description')) ?>
+<?= $this->Form->input('category', array('label' => 'Catégorie', 'options' => $categories)) ?>
 </div>
 <div class="section">
 <h3>Modifier les permissions des groupes pour ce forum</h3>
@@ -37,5 +37,5 @@
 <?php endforeach ?>
 </tbody>
 </table>
-<?php echo $this->Form->end('Sauver') ?>
+<?= $this->Form->end('Sauver') ?>
 </div>

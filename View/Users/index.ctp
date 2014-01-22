@@ -6,21 +6,21 @@
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <div class="profile-section">
-<h2>Présentation<?php echo empty($user['User']['presentation']) ? " <em>(Vous n'avez actuellement aucune présentation)</em>" : null ?></h2>
+<h2>Présentation<?= empty($user['User']['presentation']) ? " <em>(Vous n'avez actuellement aucune présentation)</em>" : null ?></h2>
 <?php if (!empty($user['User']['presentation'])): ?>
 <div class="profile-section-content">
 <blockquote>
-<?php echo $this->Parser->parseAsString($user['User']['presentation'], 'bbcode') ?>
+<?= $this->Parser->parseAsString($user['User']['presentation'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>
 </div>
 <div class="profile-section">
-<h2>Signature<?php echo empty($user['User']['signature']) ? " <em>(Vous n'avez actuellement aucune signature)</em>" : null ?></h2>
+<h2>Signature<?= empty($user['User']['signature']) ? " <em>(Vous n'avez actuellement aucune signature)</em>" : null ?></h2>
 <?php if (!empty($user['User']['signature'])): ?>
 <div class="profile-section-content">
 <blockquote>
-<?php echo $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
+<?= $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>

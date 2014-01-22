@@ -6,6 +6,6 @@
 <?php $this->assign('header.image', 'administration') ?>
 <?php $this->assign('header.title', 'Editer un boss') ?>
 
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input('name', array('label' => 'Nom')) ?>
-<?php echo $this->Form->end(array('label' => 'Sauver', 'after' => $this->Html->link('Supprimer', array('action' => 'delete', $encounter['Encounter']['id']), null, 'Voulez-vous vraiment supprimer ce boss ?'))) ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input('name', array('label' => 'Nom')) ?>
+<?= $this->Form->end(array('label' => 'Sauver', 'after' => $this->Html->link('Supprimer', array('action' => 'delete', $encounter['Encounter']['id']), null, 'Voulez-vous vraiment supprimer ce boss ?'))) ?>

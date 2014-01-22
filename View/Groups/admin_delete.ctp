@@ -5,8 +5,8 @@
 <?php $this->assign('header.image', 'administration') ?>
 <?php $this->assign('header.title', "Supprimer un groupe d'utilisateur") ?>
 
-<?php echo $this->Form->create() ?>
+<?= $this->Form->create() ?>
 <p>Plusieurs utilisateurs font partie de ce groupe.</p>
 <p>Vous devez sélectionner un nouveau groupe dans lequel ils seront déplacés.</p>
-<?php echo $this->Form->input('id', array('label' => "Nouveau groupe d'utilisateur", 'options' => $groups)) ?>
-<?php echo $this->Form->end('Supprimer') ?>
+<?= $this->Form->input('id', array('label' => "Nouveau groupe d'utilisateur", 'options' => $groups)) ?>
+<?= $this->Form->end('Supprimer') ?>

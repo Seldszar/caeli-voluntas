@@ -5,7 +5,7 @@
 
 <div id="login">
 <p>Veuillez saisir l'adresse e-mail avec laquelle vous vous êtes inscrit pour reçevoir un lien vous permettant de réinitialiser votre mot de passe.</p>
-<?php echo $this->Form->create() ?>
-<?php echo $this->Form->input("email", array('label' => false, 'placeholder' => 'Saisissez votre adresse e-mail')) ?>
-<?php echo $this->Form->end("Réinitialiser mon mot de passe") ?>
+<?= $this->Form->create() ?>
+<?= $this->Form->input("email", array('label' => false, 'placeholder' => 'Saisissez votre adresse e-mail')) ?>
+<?= $this->Form->end("Réinitialiser mon mot de passe") ?>
 </div>

@@ -19,7 +19,7 @@
 </ul>
 <?php endif ?>
 <div class="section-action">
-<?php echo $this->Html->link('Ajouter une catégorie', array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter une catégorie', array('action' => 'create'), array('class' => 'ui-button')) ?>
 </div>
 
 <?php $this->start('scripts') ?>

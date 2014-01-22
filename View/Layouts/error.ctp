@@ -5,5 +5,5 @@
 <?php $this->Html->addCrumb('Une erreur est survenue') ?>
 
 <?php $this->start('_content') ?>
-<?php echo $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 <?php $this->end() ?>
