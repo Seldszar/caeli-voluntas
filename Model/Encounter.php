@@ -12,7 +12,7 @@ class Encounter extends AppModel {
 
 	private $_zoneId;
 
-	public function afterSave($created) {
+	public function afterSave($created, $options = array()) {
 		$this->_zoneId = $this->field('zone');
 		$this->_updateStatistics($created);
 	}
