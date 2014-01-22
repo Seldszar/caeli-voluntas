@@ -32,7 +32,7 @@ class AppController extends Controller {
 		'Html' => array(
 			'className' => 'SzHtml'
 		),
-		'Markitup',
+		'MarkupParsers.Parser',
 		'Session' => array(
 			//'className' => 'CaSession'
 		)

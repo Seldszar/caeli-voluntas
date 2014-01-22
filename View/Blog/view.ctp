@@ -7,4 +7,4 @@
 
 <?php $this->Html->addCrumb($article['BlogArticle']['title']) ?>
 
-<?php echo $this->Markitup->parse($article['BlogArticle']['content']) ?>
+<?php echo $this->Parser->parseAsString($article['BlogArticle']['content'], 'bbcode') ?>

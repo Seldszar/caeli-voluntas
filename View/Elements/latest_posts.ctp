@@ -14,7 +14,7 @@
 <td>
 <div class="post-date"><?php echo $this->Html->link($this->Time->timeAgoInWords($post['created']), array('controller' => 'topics', 'action' => 'view', $post['topic'], '#' => 'p' . $post['id'])) ?> <?php if ($post['edited']) : ?>(édité par <?php echo $post['EditedBy']['username'] ?>, <?php echo $this->Time->timeAgoInWords($post['edited']) ?>)<?php endif ?></div>
 <div class="post-body">
-<?php echo $this->Markitup->parse($post['content']) ?>
+<?php echo $this->Parser->parseAsString($post['content'], 'bbcode') ?>
 </div>
 </td>
 </tr>
