@@ -58,7 +58,7 @@
 <?php endif ?>
 <?php if (!empty($post['CreatedBy']['signature'])) : ?>
 <div class="post-author-signature">
-<?php echo $this->MarkitUp->parse($post['CreatedBy']['signature']) ?>
+<?php echo $this->Parser->parseAsString($post['CreatedBy']['signature'], 'bbcode') ?>
 </div>
 <?php endif ?>
 </td>

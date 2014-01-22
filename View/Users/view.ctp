@@ -9,39 +9,15 @@
 <?php endif ?>
 
 <div class="user-section">
-<h2>Présentation</h2>
-<?php if (!empty($user['User']['presentation'])) : ?>
-<div class="user-section-content">
-<blockquote>
-<?php echo $this->MarkitUp->parse($user['User']['presentation']) ?>
-</blockquote>
-</div>
-<?php endif ?>
-</div>
-
-<div class="user-section">
 <h2>Signature</h2>
 <?php if (!empty($user['User']['signature'])) : ?>
 <div class="user-section-content">
 <blockquote>
-<?php echo $this->MarkitUp->parse($user['User']['signature']) ?>
+<?php echo $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>
 </div>
-
-<?php if (!empty($user['Character'])) : ?>
-<div class="user-section">
-<h2>Ses personnages</h2>
-<div class="user-section-content">
-<div id="user-characters">
-<?php foreach($user['Character'] as $character): ?>
-<?php echo $this->Html->link($this->Html->image($character['avatar_url']), $character['armory_url'], array('title' => $character['name'], 'class' => 'user-character', 'escape' => false)) ?>
-<?php endforeach ?>
-</div>
-</div>
-</div>
-<?php endif ?>
 
 <?php if (AclComponent::hasRole('moderate_users')) : ?>
 <div class="user-section">

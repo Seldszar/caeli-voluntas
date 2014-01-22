@@ -10,7 +10,7 @@
 <?php if (!empty($user['User']['presentation'])): ?>
 <div class="profile-section-content">
 <blockquote>
-<?php echo $this->MarkitUp->parse($user['User']['presentation']) ?>
+<?php echo $this->Parser->parseAsString($user['User']['presentation'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>
@@ -20,7 +20,7 @@
 <?php if (!empty($user['User']['signature'])): ?>
 <div class="profile-section-content">
 <blockquote>
-<?php echo $this->MarkitUp->parse($user['User']['signature']) ?>
+<?php echo $this->Parser->parseAsString($user['User']['signature'], 'bbcode') ?>
 </blockquote>
 </div>
 <?php endif ?>
