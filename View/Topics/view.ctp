@@ -17,7 +17,7 @@
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <?php $this->start('top') ?>
-<?php if (AuthComponent::user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
+<?php if ($this->Auth->user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
 <?php echo $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id']), array('class' => 'ui-button float-left')) ?>
 <?php endif ?>
 <?php echo $this->element('paginator', array('class' => 'float-right')) ?>
@@ -38,9 +38,9 @@
 <div class="post-body">
 <?php echo $this->Parser->parseAsString($post['ForumPost']['content'], 'bbcode') ?>
 </div>
-<?php if (AuthComponent::user()) : ?>
+<?php if ($this->Auth->user()) : ?>
 <ul class="post-action">
-<?php if (($post['CreatedBy']['id'] == AuthComponent::user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<?php if (($post['CreatedBy']['id'] == $this->Auth->user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
 <li><?php echo $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>

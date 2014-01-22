@@ -1,7 +1,7 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 
 <?php $this->assign('header.image', 'user') ?>
-<?php $this->assign('header.title', AuthComponent::user('username') . " <em>{$user['Group']['name']}</em>") ?>
+<?php $this->assign('header.title', $this->Auth->user('username') . " <em>{$user['Group']['name']}</em>") ?>
 <?php $this->assign('header.description', $this->Html->link('Editer mes informations personnelles', array('action' => 'edit'), array('class' => 'ui-button'))) ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 

@@ -2,25 +2,22 @@
 <html>
 <head>
 <title><?php echo $this->Html->getCrumbListStr(" - ", "Caeli Voluntas") ?></title>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=9" />
-<link rel="favicon" href="<?php echo $this->Html->url('/img/favicon.png') ?>" type="image/png" />
+<?php echo $this->Html->charset() ?>
+<?php echo $this->Html->meta('icon', $this->Html->url('/img/favicon.png')) ?>
 <?php echo $this->Html->css(array('global', 'markitup')); ?>
-<?php echo $this->Html->script('modernizr') ?>
-<script type="text/javascript">Modernizr.load({ test: Modernizr.fontface, nope: 'js/cufon.js' });</script>
 </head>
 <body id="<?php echo $this->fetch('body.id') ?>" class="<?php echo $this->fetch('body.class') ?>">
 <div id="background"></div>
 <div id="page">
 <div id="header">
 <a id="logo" href="<?php echo $this->Html->url(array('controller' => 'blog', 'action' => 'index', 'admin' => false)) ?>"></a>
-<?php if (AuthComponent::user()) : ?>
+<?php if ($this->Auth->user()) : ?>
 <div id="profile">
 <div id="profile-avatar">
-<?php echo $this->Html->image(AuthComponent::user('avatar_url')) ?>
+<?php echo $this->Html->image($this->Auth->user('avatar_url')) ?>
 </div>
 <div id="profile-meta">
-<?php echo $this->Html->link("Mon profil", array('controller' => 'users', 'action' => 'index', 'admin' => false)) ?>
+<?php echo $this->Html->link("Mon profil", array('controller' => 'users', 'action' => 'view', $this->Auth->user('id'), 'admin' => false)) ?>
 <?php echo $this->Html->link("Se déconnecter", array('controller' => 'users', 'action' => 'logout', 'admin' => false), array('class' => 'fs11')) ?>
 </div>
 </div>
@@ -74,8 +71,7 @@ La guilde Caeli Voluntas est une guilde côté Alliance présente depuis plus de
 </div>
 </div>
 <?php echo $this->Html->script(array('jquery', 'jquery.markitup', 'jquery.markitup.set', 'jquery.autosize', 'jquery-ui', 'common', 'toolbar')); ?>
-<?php if ($this->fetch('scripts')) : ?>
-<script type="text/javascript">
+<script>
 <?php echo $this->fetch('scripts') ?>
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-35239300-1']);
@@ -83,6 +79,5 @@ _gaq.push(['_setDomainName', 'caeli-voluntas.fr']);
 _gaq.push(['_trackPageview']);
 (function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();
 </script>
-<?php endif ?>
 </body>
 </html>

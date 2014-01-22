@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Avancée raids', array('controller' => 'encounterZones', 'action' => 'index')) ?>
 <?php $this->Html->addCrumb($encounter['EncounterZone']['name'], array('controller' => 'encounterZones', 'action' => 'view', $encounter['EncounterZone']['id'])) ?>
 <?php $this->Html->addCrumb('Editer un boss') ?>

@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users', 'action' => 'index')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users', 'action' => 'index')) ?>
 <?php $this->Html->addCrumb('Mon avatar') ?>
 
 <?php $this->assign('header.image', 'user') ?>

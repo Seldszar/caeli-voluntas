@@ -5,7 +5,7 @@
 <?php $this->assign('header.title', $forum['Forum']['name']) ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 
-<?php if (AuthComponent::user() && AclComponent::hasForumRole($forum['Forum']['id'], 'create')) : ?>
+<?php if ($this->Auth->user() && AclComponent::hasForumRole($forum['Forum']['id'], 'create')) : ?>
 <?php $this->start('top') ?>
 <?php echo $this->Html->link('Nouveau sujet', array('controller' => 'topics', 'action' => 'create', $forum['Forum']['id']), array('class' => 'ui-button float-left')) ?>
 <?php echo $this->element('paginator', array('class' => 'float-right')) ?>

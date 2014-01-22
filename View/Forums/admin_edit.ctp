@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Forums', array('controller' => 'forumCategories', 'action' => 'index')) ?>
 <?php $this->Html->addCrumb($forum['ForumCategory']['name'], array('controller' => 'forumCategories', 'action' => 'view', $forum['ForumCategory']['id'])) ?>
 <?php $this->Html->addCrumb('Editer un forum') ?>

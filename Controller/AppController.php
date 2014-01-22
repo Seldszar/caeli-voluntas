@@ -33,9 +33,8 @@ class AppController extends Controller {
 			'className' => 'SzHtml'
 		),
 		'MarkupParsers.Parser',
-		'Session' => array(
-			//'className' => 'CaSession'
-		)
+		'Session',
+        'Auth'
 	);
 
 	public function beforeFilter() {
