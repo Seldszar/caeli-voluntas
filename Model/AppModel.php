@@ -73,4 +73,17 @@ class AppModel extends Model {
 		return $this->saveField($fieldName, $this->getDataSource()->expression($fieldName . ' + ' . $value));
 	}
 
+	/**
+	 * Vérifie si deux champs sont identiques
+	 *
+	 * @return True si les deux champs sont identiques ; sinon false
+	 */
+	public function sameAsField($check, $field2) {
+		$value = array_keys($check);
+		$field1 = $this->data[$this->alias][$value[0]];
+		$field2 = $this->data[$this->alias][$field2];
+
+		return !empty($field1) && !empty($field2) && ($field1 === $field2);
+	}
+
 }

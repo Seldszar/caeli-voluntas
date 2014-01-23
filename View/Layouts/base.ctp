@@ -34,7 +34,7 @@
 <li><?php echo $this->Html->link('Roster', array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link('Galerie', array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?></li>
 <li><?php echo $this->Html->link('Charte', array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Evènements <sup class="icon-export"></sup>', 'http://events.caeli-voluntas.fr/', array('target' => '_blank', 'escape' => false)) ?></li>
+<li><?php echo $this->Html->link('Evènements', '//events.caeli-voluntas.fr') ?></li>
 </ul>
 </div>
 <div id="breadcrumb">
@@ -64,8 +64,8 @@ La guilde Caeli Voluntas est une guilde côté Alliance présente depuis plus de
 <div class="footer-group">
 <h3><span class="icon-cog"></span>Informations complémentaires</h3>
 <div class="footer-group-content">
-<div id="copyright">&copy; Caeli Voluntas 2012 - Tous droits réservés</div>
-<div id="created-by">Développé par Alexandre B. (<?php echo $this->Html->link('Seldszar', array('admin' => false, 'controller' => 'users', 'action' => 'view', 2)) ?>) avec <?= $this->Html->link('CakePHP', 'http://cakephp.org/') ?></div>
+<div id="copyright">&copy; Caeli Voluntas 2012-<?= date('Y') ?> - Tous droits réservés</div>
+<div id="created-by">Website made with love by <?php echo $this->Html->link('Seldszar', '//seldszar.fr') ?></div>
 </div>
 </div>
 </div>

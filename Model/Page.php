@@ -2,6 +2,4 @@
 
 App::uses('AppModel', 'Model');
 
-class Page extends AppModel {
-
-}
+class Page extends AppModel { }
