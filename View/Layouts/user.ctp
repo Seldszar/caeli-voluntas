@@ -9,7 +9,6 @@
 <li><?php echo $this->Html->link("Mon compte", array('controller' => 'users', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Mon avatar", array('controller' => 'users', 'action' => 'avatar', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Mes personnages", array('controller' => 'characters', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
-<li><?php echo $this->Html->link("Évènements", array('controller' => 'events', 'action' => 'index', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Changer d'adresse e-mail", array('controller' => 'users', 'action' => 'email', 'admin' => false), array('current' => true)) ?></li>
 <li><?php echo $this->Html->link("Changer le mot de passe", array('controller' => 'users', 'action' => 'password', 'admin' => false), array('current' => true)) ?></li>
 </ul>
@@ -52,7 +51,7 @@
 
 <?php $this->start('right') ?>
 <?php if ($this->fetch('page-header')): ?>
-<?php echo $this->fetch('page-header') ?>
+<?= $this->fetch('page-header') ?>
 <?php else: ?>
 <div id="page-header"<?php if ($this->fetch('header.image')) : ?> style="background-image: url('<?php echo $this->Html->url('/img/headers/right-' . $this->fetch('header.image') . '.jpg') ?>')"<?php endif ?>>
 <h1><?php echo $this->fetch('header.title') ?></h1>
@@ -62,6 +61,6 @@
 </div>
 <?php endif ?>
 <div id="page-content" class="<?php echo $this->fetch('content.class') ?>">
-<?php echo $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 </div>
 <?php $this->end() ?>

@@ -8,10 +8,10 @@
 <?php foreach ($roster as $k => $class): ?>
 <?php if (!empty($class['Character'])): ?>
 <div class="roster-class">
-<h2 class="color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></h2>
+<h2 class="color-c<?= $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></h2>
 <div class="roster-characters">
 <?php foreach ($class['Character'] as $k => $character) : ?>
-<?php echo $this->Html->link($this->Html->image($character['User']['avatar_url'], array('title' => $character['name'])), array('controller' => 'users', 'action' => 'view', $character['user']), array('escape' => false, 'class' => array('roster-character', ($k < 2 ? 'first' : null)))) ?>
+<?= $this->Html->link($this->Html->image($character['User']['avatar_url'], array('title' => $character['name'])), array('controller' => 'users', 'action' => 'view', $character['user']), array('escape' => false, 'class' => array('roster-character', ($k < 2 ? 'first' : null)))) ?>
 <?php endforeach ?>
 </div>
 </div>

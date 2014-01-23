@@ -4,12 +4,12 @@
 <?php $this->start('_content') ?>
 <div id="page-header" style="background-image: url('<?php echo $this->Html->url('/img/headers/full-forums.jpg') ?>')">
 <h1><?php echo $this->fetch('header.title') ?></h1>
-<?php echo $this->fetch('header.description') ?>
+<?= $this->fetch('header.description') ?>
 </div>
 <div id="forums-top">
-<?php echo $this->fetch('forums.top') ?>
+<?= $this->fetch('forums.top') ?>
 </div>
 <div id="page-content" class="<?php echo $this->fetch('content.class') ?>">
-<?php echo $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 </div>
 <?php $this->end() ?>

@@ -7,12 +7,12 @@
 <?php $this->assign('header.title', 'Répondre') ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 
-<?php echo $this->Session->flash() ?>
-<?php echo $this->Form->create(array('id' => 'forum-post-form')) ?>
-<?php echo $this->Form->input('content', array('label' => false)) ?>
-<?php echo $this->Form->end('Envoyer') ?>
+<?= $this->Session->flash() ?>
+<?= $this->Form->create(array('id' => 'forum-post-form')) ?>
+<?= $this->Form->input('content', array('label' => false)) ?>
+<?= $this->Form->end('Envoyer') ?>
 
-<?php echo $this->element('latest_posts', array('posts' => $topic['ForumPost'])) ?>
+<?= $this->element('latest_posts', array('posts' => $topic['ForumPost'])) ?>
 
 <?php $this->start('scripts') ?>
 $(function() {

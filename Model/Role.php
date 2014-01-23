@@ -2,6 +2,4 @@
 
 App::uses('AppModel', 'Model');
 
-class Role extends AppModel {
-
-}
+class Role extends AppModel { }

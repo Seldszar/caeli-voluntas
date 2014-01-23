@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Galerie') ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -18,4 +18,4 @@
 <?php endforeach ?>
 </ul>
 <?php endif ?>
-<?php echo $this->Html->link('Ajouter une image', array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter une image', array('action' => 'create'), array('class' => 'ui-button')) ?>

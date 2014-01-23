@@ -4,9 +4,9 @@
 
 <?php $this->start('_content') ?>
 <div id="left">
-<?php echo $this->fetch('left') ?>
+<?= $this->fetch('left') ?>
 </div>
 <div id="right">
-<?php echo $this->fetch('right') ?>
+<?= $this->fetch('right') ?>
 </div>
 <?php $this->end() ?>

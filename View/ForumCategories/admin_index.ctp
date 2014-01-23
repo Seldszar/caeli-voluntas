@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Catégories') ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -19,7 +19,7 @@
 </ul>
 <?php endif ?>
 <div class="section-action">
-<?php echo $this->Html->link('Ajouter une catégorie', array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link('Ajouter une catégorie', array('action' => 'create'), array('class' => 'ui-button')) ?>
 </div>
 
 <?php $this->start('scripts') ?>

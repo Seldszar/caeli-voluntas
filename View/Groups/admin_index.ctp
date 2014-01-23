@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb("Groupes d'utilisateurs") ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -23,5 +23,5 @@
 <p>Il n'y a actuellement aucun groupe d'utilisateur</p>
 <?php endif ?>
 <div class="section-action">
-<?php echo $this->Html->link("Ajouter un groupe d'utilisateur", array('action' => 'create'), array('class' => 'ui-button')) ?>
+<?= $this->Html->link("Ajouter un groupe d'utilisateur", array('action' => 'create'), array('class' => 'ui-button')) ?>
 </div>

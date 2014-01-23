@@ -421,7 +421,7 @@ blockquote blockquote {
 #menu li:first-child a, #menu li:first-child input[type='submit'], #menu li:first-child input[type='reset'], #menu li:first-child input[type='button'], #menu li:first-child button {
   border-left: none;
 }
-#menu li a, #menu li a.ui-button, #menu li input[type='submit'], #menu li input[type='reset'], #menu li input[type='button'], #menu li button {
+#menu li a, #menu li input[type='submit'], #menu li input[type='reset'], #menu li input[type='button'], #menu li button {
   -webkit-transition: background-color 0.2s, color 0.2s;
   -moz-transition: background-color 0.2s, color 0.2s;
   -o-transition: background-color 0.2s, color 0.2s;
@@ -501,7 +501,7 @@ blockquote blockquote {
   margin: 0;
 }
 
-.link-desc a, .link-rem a, .link-rem a.ui-button, .link-desc input[type='submit'], .link-rem input[type='submit'], .link-desc input[type='reset'], .link-rem input[type='reset'], .link-desc input[type='button'], .link-rem input[type='button'], .link-desc button, .link-rem button {
+.link-desc a, .link-rem a, .link-desc input[type='submit'], .link-rem input[type='submit'], .link-desc input[type='reset'], .link-rem input[type='reset'], .link-desc input[type='button'], .link-rem input[type='button'], .link-desc button, .link-rem button {
   border-bottom: 1px dashed #343434;
   color: inherit;
 }
@@ -1422,9 +1422,9 @@ strong, b {
   -moz-box-shadow: 0 0 15px black;
   box-shadow: 0 0 15px black;
   float: left;
-  height: 80px;
+  max-height: 80px;
   margin-right: 10px;
-  width: 80px;
+  max-width: 80px;
 }
 
 .post-date {

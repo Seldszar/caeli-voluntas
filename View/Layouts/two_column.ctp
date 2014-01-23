@@ -10,12 +10,12 @@
 </div>
 <?php endif ?>
 <div id="page-content" class="<?php echo $this->fetch('content.class') ?>">
-<?php echo $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 </div>
 <?php $this->end() ?>
 
 <?php $this->start('right') ?>
-<?php echo $this->element('sidebar/encounters') ?>
-<?php echo $this->element('sidebar/recruitment') ?>
-<?php echo $this->element('sidebar/latest_topics') ?>
+<?= $this->element('sidebar/encounters') ?>
+<?= $this->element('sidebar/recruitment') ?>
+<?= $this->element('sidebar/latest_topics') ?>
 <?php $this->end() ?>

@@ -10,12 +10,12 @@
 <table style="color: #E6E6E6; font: 13px 'Open Sans', Arial, sans-serif; width: 600px;">
 <tr>
 <td colspan="2" style="width: 200px; padding-bottom: 10px;">
-<?php echo $this->Html->image('logo.png') ?>
+<?= $this->Html->image('logo.png') ?>
 </td>
 </tr>
 <tr>
 <td colspan="2" style="padding: 10px 0;">
-<?php echo $content_for_layout ?>
+<?= $content_for_layout ?>
 </td>
 </tr>
 </table>

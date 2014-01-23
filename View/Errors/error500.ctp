@@ -18,7 +18,7 @@
 ?>
 <h1><?php echo $name; ?></h4>
 <p>
-<?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
+<?= __d('cake', 'An Internal Error Has Occurred.'); ?>
 </p>
 <?php
 if (Configure::read('debug') > 0 ):

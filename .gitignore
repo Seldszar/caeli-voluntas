@@ -1,9 +1,8 @@
 .sass-cache
-/tmp/logs/*
-/tmp/cache/*/*
-!/tmp/cache/*/empty
-/webroot/watch.bat
-/webroot/mg/gallery/*
-!/webroot/mg/gallery/empty
 /Config/email.php
 /Config/database.php
+/tmp/**
+/webroot/watch.bat
+/webroot/img/gallery/**
+/Plugin
+!empty

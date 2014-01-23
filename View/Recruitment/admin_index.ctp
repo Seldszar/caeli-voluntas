@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb('Etat du recrutement') ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -8,7 +8,7 @@
 <?php foreach ($classes as $class): ?>
 <li>
 <ul class="float-left">
-<li class="color-c<?php echo $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></li>
+<li class="color-c<?= $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></li>
 </ul>
 <ul class="float-right ui-button-set on-hover">
 <?php foreach ($class['CharacterSpec'] as $spec): ?>

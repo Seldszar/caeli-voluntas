@@ -5,7 +5,7 @@
 <?php $this->assign('header.image', 'forums') ?>
 
 <?php $this->start('header.title') ?>
-<?php echo $topic['ForumTopic']['title'] ?> 
+<?= $topic['ForumTopic']['title'] ?> 
 <?php if ($topic['ForumTopic']['sticky']) : ?>
 <em class="topic-sticky icon-attach" title="Epinglé"></em>
 <?php endif ?>
@@ -17,30 +17,30 @@
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <?php $this->start('top') ?>
-<?php if (AuthComponent::user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
-<?php echo $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id']), array('class' => 'ui-button float-left')) ?>
+<?php if ($this->Auth->user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
+<?= $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id']), array('class' => 'ui-button float-left')) ?>
 <?php endif ?>
-<?php echo $this->element('paginator', array('class' => 'float-right')) ?>
+<?= $this->element('paginator', array('class' => 'float-right')) ?>
 <?php $this->end() ?>
 
 <table id="posts">
 <?php foreach ($posts as $post) : ?>
-<tr class="post" id="p<?php echo $post['ForumPost']['id'] ?>">
+<tr class="post" id="p<?= $post['ForumPost']['id'] ?>">
 <td class="post-author">
 <div class="avatar">
-<?php echo $this->Html->image($post['CreatedBy']['avatar_url'], array('alt' => "Avatar de " . $post['CreatedBy']['username'])) ?>
+<?= $this->Html->image($post['CreatedBy']['avatar_url'], array('alt' => "Avatar de " . $post['CreatedBy']['username'])) ?>
 </div>
-<?php echo $this->Html->link($post['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $post['CreatedBy']['id']), array('class' => 'name', 'style' => (!empty($post['CreatedBy']['Group']['color']) ? "color: #{$post['CreatedBy']['Group']['color']}" : null))) ?>
+<?= $this->Html->link($post['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $post['CreatedBy']['id']), array('class' => 'name', 'style' => (!empty($post['CreatedBy']['Group']['color']) ? "color: #{$post['CreatedBy']['Group']['color']}" : null))) ?>
 <div class="group"><?php echo $post['CreatedBy']['Group']['name'] ?></div>
 </td>
 <td>
-<div class="post-date"><?php echo $this->Html->link($this->Time->timeAgoInWords($post['ForumPost']['created']), array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic'], '#' => 'p' . $post['ForumPost']['id'])) ?> <?php if ($post['ForumPost']['edited']) : ?>(édité par <?php echo $post['EditedBy']['username'] ?>, <?php echo $this->Time->timeAgoInWords($post['ForumPost']['edited']) ?>)<?php endif ?></div>
+<div class="post-date"><?php echo $this->Html->link($this->Time->timeAgoInWords($post['ForumPost']['created']), array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic'], '#' => 'p' . $post['ForumPost']['id'])) ?> <?php if ($post['ForumPost']['edited']) : ?>(édité par <?= $post['EditedBy']['username'] ?>, <?= $this->Time->timeAgoInWords($post['ForumPost']['edited']) ?>)<?php endif ?></div>
 <div class="post-body">
-<?php echo $this->Markitup->parse($post['ForumPost']['content']) ?>
+<?= $this->Parser->parseAsString($post['ForumPost']['content'], 'bbcode') ?>
 </div>
-<?php if (AuthComponent::user()) : ?>
+<?php if ($this->Auth->user()) : ?>
 <ul class="post-action">
-<?php if (($post['CreatedBy']['id'] == AuthComponent::user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<?php if (($post['CreatedBy']['id'] == $this->Auth->user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
 <li><?php echo $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
@@ -58,7 +58,7 @@
 <?php endif ?>
 <?php if (!empty($post['CreatedBy']['signature'])) : ?>
 <div class="post-author-signature">
-<?php echo $this->MarkitUp->parse($post['CreatedBy']['signature']) ?>
+<?= $this->Parser->parseAsString($post['CreatedBy']['signature'], 'bbcode') ?>
 </div>
 <?php endif ?>
 </td>

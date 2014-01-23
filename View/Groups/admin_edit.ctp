@@ -1,20 +1,20 @@
-<?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
+<?php $this->Html->addCrumb($this->Auth->user('username'), array('controller' => 'users')) ?>
 <?php $this->Html->addCrumb("Groupes d'utilisateurs", array('action' => 'index')) ?>
 <?php $this->Html->addCrumb("Editer un groupe d'utilisateur") ?>
 
 <?php $this->assign('header.image', 'administration') ?>
 <?php $this->assign('header.title', "Editer un groupe d'utilisateur") ?>
 
-<?php echo $this->Form->create() ?>
+<?= $this->Form->create() ?>
 <div class="section">
 <h3>Informations sur le groupe d'utilisateur</h3>
-<?php echo $this->Form->input('name', array('label' => 'Nom')) ?>
-<?php echo $this->Form->input('color', array('label' => 'Couleur')) ?>
+<?= $this->Form->input('name', array('label' => 'Nom')) ?>
+<?= $this->Form->input('color', array('label' => 'Couleur')) ?>
 </div>
 <?php if (!empty($roles)) : ?>
 <div class="section">
 <h3>Permissions du groupe d'utilisateur</h3>
-<?php echo $this->Form->input('Role', array('label' => false, 'multiple' => 'checkbox')) ?>
+<?= $this->Form->input('Role', array('label' => false, 'multiple' => 'checkbox')) ?>
 </div>
 <?php endif ?>
-<?php echo $this->Form->end('Editer') ?>
+<?= $this->Form->end('Editer') ?>

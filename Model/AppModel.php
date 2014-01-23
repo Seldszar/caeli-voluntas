@@ -59,7 +59,7 @@ class AppModel extends Model {
 	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
 	 */
 	public function toggleField($fieldName) {
-		return $this->saveField($fieldName, DboSource::expression('NOT ' . $fieldName));
+		return $this->saveField($fieldName, $this->getDataSource()->expression('NOT ' . $fieldName));
 	}
 
 	/**
@@ -70,7 +70,20 @@ class AppModel extends Model {
 	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
 	 */
 	public function incrementField($fieldName, $value = 1) {
-		return $this->saveField($fieldName, DboSource::expression($fieldName . ' + ' . $value));
+		return $this->saveField($fieldName, $this->getDataSource()->expression($fieldName . ' + ' . $value));
+	}
+
+	/**
+	 * Vérifie si deux champs sont identiques
+	 *
+	 * @return True si les deux champs sont identiques ; sinon false
+	 */
+	public function sameAsField($check, $field2) {
+		$value = array_keys($check);
+		$field1 = $this->data[$this->alias][$value[0]];
+		$field2 = $this->data[$this->alias][$field2];
+
+		return !empty($field1) && !empty($field2) && ($field1 === $field2);
 	}
 
 }
