@@ -73,14 +73,6 @@ class User extends AppModel {
 		)
 	);
 
-	public function sameAsField($check, $field2) {
-		$value = array_keys($check);
-		$field1 = $this->data[$this->alias][$value[0]];
-		$field2 = $this->data[$this->alias][$field2];
-
-		return !empty($field1) && !empty($field2) && ($field1 === $field2);
-	}
-
 	public function valueExists($check) {
 		$value = array_keys($check);
 		$field = $value[0];
