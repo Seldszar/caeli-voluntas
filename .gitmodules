@@ -4,9 +4,6 @@
 [submodule "Plugin/ClearCache"]
 	path = Plugin/ClearCache
 	url = https://github.com/ceeram/clear_cache.git
-[submodule "Vendor/MarkupParsers"]
-	path = Vendor/MarkupParsers
-	url = https://github.com/CakeDC/markup_parsers.git
 [submodule "Plugin/MarkupParsers"]
 	path = Plugin/MarkupParsers
 	url = https://github.com/CakeDC/markup_parsers.git
