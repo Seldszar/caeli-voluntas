@@ -16,16 +16,6 @@ class GalleryController extends AppController {
 		$this->set('images', $this->paginate('GalleryImage'));
 	}
 
-	public function view($id) {
-		$this->GalleryImage->id = $id;
-
-		if (!$this->GalleryImage->exists()) {
-			throw new NotFoundException("L'image demandée n'existe pas");
-		}
-
-		$this->set('image', $this->GalleryImage->read());
-	}
-
 	public function admin_index() {
 		$this->set('images', $this->GalleryImage->find('all'));
 	}

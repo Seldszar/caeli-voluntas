@@ -7,7 +7,6 @@
 <?= $this->Html->css(array('global', 'markitup')); ?>
 </head>
 <body id="<?php echo $this->fetch('body.id') ?>" class="<?php echo $this->fetch('body.class') ?>">
-<div id="background"></div>
 <div id="page">
 <div id="header">
 <a id="logo" href="<?php echo $this->Html->url(array('controller' => 'blog', 'action' => 'index', 'admin' => false)) ?>"></a>

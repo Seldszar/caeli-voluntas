@@ -18,7 +18,7 @@ class UsersController extends AppController {
 			throw new NotFoundException("L'utilisateur demandé est introuvable");
 		}
 
-		$this->User->contain(array('Character', 'Group'));
+		$this->User->contain(array('Group'));
 
 		$this->set('user', $this->User->read());
 	}
@@ -184,12 +184,7 @@ class UsersController extends AppController {
 			throw new NotFoundException("L'utilisateur demandé est introuvable");
 		}
 
-		$this->User->contain(array(
-			'Character' => array(
-				'Realm'
-			),
-			'Group'
-		));
+		$this->User->contain(array('Group'));
 
 		$this->set('user', $this->User->read());
 	}

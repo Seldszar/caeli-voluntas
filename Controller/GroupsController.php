@@ -4,7 +4,13 @@ App::uses('AppController', 'Controller');
 
 class GroupsController extends AppController {
 
+	public $layout = 'two_column';
+
 	public $uses = array('Group', 'User', 'Role');
+
+	public function index() {
+		$this->set('groups', $this->Group->findAllByVisibleInRoster(true));
+	}
 
 	public function admin_index() {
 		$this->set('groups', $this->Group->find('all'));

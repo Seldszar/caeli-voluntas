@@ -45,6 +45,7 @@
 	Router::connect('/account/*', array('controller' => 'users', 'action' => 'view'));
 	Router::connect('/gallery', array('controller' => 'gallery', 'action' => 'index'));
 	Router::connect('/gallery/*', array('controller' => 'gallery', 'action' => 'view'));
+	Router::connect('/roster', array('controller' => 'groups', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**

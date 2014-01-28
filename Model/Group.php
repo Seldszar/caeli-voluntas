@@ -4,6 +4,8 @@ App::uses('AppModel', 'Model');
 
 class Group extends AppModel {
 
+	public $order = "position";
+
 	public $hasAndBelongsToMany = array(
 		'Role' => array(
 			'foreignKey' => 'group',
@@ -35,7 +37,7 @@ class Group extends AppModel {
 
 		$this->virtualFields['allow_delete'] = sprintf("%s.id NOT IN (1, 2, 3)", $this->alias);
 		$this->virtualFields['editable'] = sprintf("%s.id > 2", $this->alias);
-		$this->virtualFields['visible'] = sprintf("%s.id > 2", $this->alias);
+		$this->virtualFields['visible'] = sprintf("%s.id <> 1", $this->alias);
 	}
 
 }
