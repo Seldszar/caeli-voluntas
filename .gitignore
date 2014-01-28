@@ -4,5 +4,4 @@
 /tmp/**
 /webroot/watch.bat
 /webroot/img/gallery/**
-/Plugin
 !empty
