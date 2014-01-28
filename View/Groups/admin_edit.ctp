@@ -9,7 +9,7 @@
 <div class="section">
 <h3>Informations sur le groupe d'utilisateur</h3>
 <?= $this->Form->input('name', array('label' => 'Nom')) ?>
-<?= $this->Form->input('color', array('label' => 'Couleur')) ?>
+<?= $this->Form->input('position', array('label' => 'Position')) ?>
 </div>
 <?php if (!empty($roles)) : ?>
 <div class="section">

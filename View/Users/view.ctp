@@ -4,7 +4,7 @@
 <?php $this->assign('header.title', $user['User']['username'] . " <em>{$user['Group']['name']}</em>") ?>
 <?php $this->assign('content.class', 'no-padding') ?>
 
-<?php if (AclComponent::hasRole('moderate_users')) : ?>
+<?php if ($this->Acl->hasRole('moderate_users')) : ?>
 <?php $this->assign('header.description', $this->Html->link('Modérer le compte', array('action' => 'edit', $user['User']['id']), array('class' => 'ui-button'))) ?>
 <?php endif ?>
 
@@ -19,7 +19,7 @@
 <?php endif ?>
 </div>
 
-<?php if (AclComponent::hasRole('moderate_users')) : ?>
+<?php if ($this->Acl->hasRole('moderate_users')) : ?>
 <div class="user-section">
 <h2>Informations de modération</h2>
 <div class="user-section-content">

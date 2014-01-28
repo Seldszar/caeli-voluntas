@@ -6,16 +6,11 @@ App::uses('String', 'Utility');
 
 class User extends AppModel {
 
+	public $order = "username";
+
 	public $belongsTo = array(
 		'Group' => array(
 			'foreignKey' => 'group'
-		)
-	);
-
-	public $hasMany = array(
-		'Character' => array(
-			'foreignKey' => 'user',
-			'dependent' => true
 		)
 	);
 

@@ -34,7 +34,8 @@ class AppController extends Controller {
 		),
 		'MarkupParsers.Parser',
 		'Session',
-        'Auth'
+		'Auth',
+		'Acl'
 	);
 
 	public function beforeFilter() {

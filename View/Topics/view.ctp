@@ -17,7 +17,7 @@
 <?php $this->assign('content.class', 'no-padding') ?>
 
 <?php $this->start('top') ?>
-<?php if ($this->Auth->user() && (AclComponent::hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
+<?php if ($this->Auth->user() && ($this->Acl->hasForumRole($topic['Forum']['id'], 'reply') && !$topic['ForumTopic']['closed'] || $this->Acl->hasForumRole($topic['Forum']['id'], 'moderate'))) : ?>
 <?= $this->Html->link("Répondre", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id']), array('class' => 'ui-button float-left')) ?>
 <?php endif ?>
 <?= $this->element('paginator', array('class' => 'float-right')) ?>
@@ -40,12 +40,12 @@
 </div>
 <?php if ($this->Auth->user()) : ?>
 <ul class="post-action">
-<?php if (($post['CreatedBy']['id'] == $this->Auth->user('id') && AclComponent::hasForumRole($topic['Forum']['id'], 'reply')) || AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<?php if (($post['CreatedBy']['id'] == $this->Auth->user('id') && $this->Acl->hasForumRole($topic['Forum']['id'], 'reply')) || $this->Acl->hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
 <li><?php echo $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
 <li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
 <li><?php echo $this->Html->link("Supprimer", array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']), null, 'Voulez-vous vraiment supprimer ce fil de discussion ?') ?></li>
-<?php if (AclComponent::hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
+<?php if ($this->Acl->hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
 <li><?php echo $this->Html->link(($topic['ForumTopic']['sticky'] ? 'Ne plus épingler' : 'Epingler'), array('controller' => 'topics', 'action' => 'sticky', $post['ForumPost']['topic'])) ?></li>
 <li><?php echo $this->Html->link(($topic['ForumTopic']['closed'] ? 'Rouvrir le sujet' : 'Fermer'), array('controller' => 'topics', 'action' => 'close', $post['ForumPost']['topic'])) ?></li>
 <?php endif ?>

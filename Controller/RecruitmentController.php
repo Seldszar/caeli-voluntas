@@ -58,4 +58,9 @@ class RecruitmentController extends AppController {
 		return new CakeResponse(array('body' => json_encode(array('value' => $value))));
 	}
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Security->unlockedActions = array("admin_toggle");
+	}
+
 }

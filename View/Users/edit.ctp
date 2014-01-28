@@ -18,7 +18,7 @@
 <?= $this->Form->input('signature', array('label' => false, 'rows' => 4)) ?>
 </div>
 </div>
-<?php if (AclComponent::hasRole('moderate_users') && $this->data['User']['group'] != 2) : ?>
+<?php if ($this->Acl->hasRole('moderate_users') && $this->data['User']['group'] != 2) : ?>
 <div class="profile-section">
 <h2>Groupe d'utilisateur</h2>
 <div class="profile-section-content">
