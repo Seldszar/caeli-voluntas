@@ -90,10 +90,6 @@ class UsersController extends AppController {
 			throw new NotFoundException("La clé de confirmation est introuvable");
 		}
 
-		if (!CakeTime::wasWithinLast(Configure::read('Confirmation.expires'), $user['User']['created'])) {
-			throw new UnauthorizedException("La clé de confirmation a expirée");
-		}
-
 		$this->User->id = $user['User']['id'];
 		$this->User->set(array(
 			'active' => true,

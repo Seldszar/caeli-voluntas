@@ -6,13 +6,15 @@ class AppController extends Controller {
 
 	public $layout = 'one_column';
 
-	var $components = array(
+	public $cacheAction = '3 hours';
+
+	public $components = array(
 		'Session',
 		'Auth' => array(
 			'authError' => "Vous devez d'abord vous connecter avant de pouvoir accéder à cette page",
-	        'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
-	        'loginRedirect' => array('controller' => 'blog', 'action' => 'index', 'admin' => false),
-	        'logoutRedirect' => array('controller' => 'blog', 'action' => 'index', 'admin' => false),
+			'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
+			'loginRedirect' => array('controller' => 'blog', 'action' => 'index', 'admin' => false),
+			'logoutRedirect' => array('controller' => 'blog', 'action' => 'index', 'admin' => false),
 			'authenticate' => array(
 				'Form' => array(
 					'fields' => array('username' => 'email'),
@@ -20,7 +22,7 @@ class AppController extends Controller {
 				)
 			)
 		),
-	    'Acl',
+		'Acl',
 		'Cookie' => array(
 			'name' => 'CaeliVoluntas',
 			'time' => '1 Year'
@@ -35,7 +37,8 @@ class AppController extends Controller {
 		'MarkupParsers.Parser',
 		'Session',
 		'Auth',
-		'Acl'
+		'Acl',
+		'Cache'
 	);
 
 	public function beforeFilter() {
@@ -55,7 +58,7 @@ class AppController extends Controller {
 			$this->layout = 'error';
 		}
 
-	    if ($this->request->is('ajax')) {
+		if ($this->request->is('ajax')) {
 			$this->layout = 'ajax';
 		}
 	}
