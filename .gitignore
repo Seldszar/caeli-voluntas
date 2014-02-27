@@ -2,6 +2,10 @@
 /Config/email.php
 /Config/database.php
 /tmp/**
+/Vendor/*
 /webroot/watch.bat
 /webroot/img/gallery/**
+composer.lock
+.DS_Store
+Thumbs.db
 !empty
