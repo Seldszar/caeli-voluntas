@@ -45,8 +45,8 @@ $randomMessages = array(
 <body>
 <div id="landing">
 <div id="logo"></div>
-<div id="landing-message"><?php echo $message ?></div>
-<div id="landing-quote"><?php echo $randomMessages[array_rand($randomMessages)] ?></div>
+<div id="landing-message"><?= $message ?></div>
+<div id="landing-quote"><?= $randomMessages[array_rand($randomMessages)] ?></div>
 </div>
 </body>
 </html>

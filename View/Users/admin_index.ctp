@@ -7,12 +7,12 @@
 <?php if (!empty($groups)) : ?>
 <?php foreach ($groups as $group): ?>
 <div class="section">
-<h3><?php echo $group['Group']['name'] ?> <em><?php echo count($group['User']) ?> membre(s)</em></h3>
+<h3><?= $group['Group']['name'] ?> <em><?= count($group['User']) ?> membre(s)</em></h3>
 <ul class="ui-custom-list">
 <?php foreach ($group['User'] as $user): ?>
 <li>
 <ul class="float-left">
-<li><?php echo $this->Html->link($user['username'], array('action' => 'view', $user['id'], 'admin' => false), array('title' => $this->requestAction(array('action' => 'tooltip', $user['id']), array('return')))) ?></li>
+<li><?= $this->Html->link($user['username'], array('action' => 'view', $user['id'], 'admin' => false), array('title' => $this->requestAction(array('action' => 'tooltip', $user['id']), array('return')))) ?></li>
 </ul>
 <ul class="float-right link-desc">
 <?php if (!$user['active']): ?>

@@ -9,7 +9,7 @@
 <?php foreach ($categories as $category): ?>
 <?php if (!empty($category['Forum'])): ?>
 <div class="category-item">
-<h2><?php echo $category['ForumCategory']['name'] ?></h2>
+<h2><?= $category['ForumCategory']['name'] ?></h2>
 <table>
 <?php foreach ($category['Forum'] as $forum) : ?>
 <tr class="forum-item">
@@ -17,8 +17,8 @@
 <?= $this->Html->link(null, array('controller' => 'forums', 'action' => 'view', $forum['id'], '?' => array('unread' => true)), array('class' => array('forum-icon', ($forum['new_messages'] ? 'new-messages' : null)), 'title' => 'Voir les messages non-lus')) ?>
 </td>
 <td class="forum-item-desc">
-<?= $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?> <span class="link-desc">(<?php echo $forum['num_topics'] ?> sujets, <?= $forum['num_posts'] ?> messages)</span>
-<div class="link-desc"><?php echo $forum['description'] ?></div>
+<?= $this->Html->link($forum['name'], array('controller' => 'forums', 'action' => 'view', $forum['id'])) ?> <span class="link-desc">(<?= $forum['num_topics'] ?> sujets, <?= $forum['num_posts'] ?> messages)</span>
+<div class="link-desc"><?= $forum['description'] ?></div>
 <?php if ($forum['last_post']) : ?>
 <div class="link-desc">Dernier message : <?= $this->Html->link($this->Time->timeAgoInWords($forum['LastPost']['created']), array('controller' => 'topics', 'action' => 'view', $forum['LastPost']['topic'], '?' => array('goto' => 'last'))) ?> par <?= $this->Html->link($forum['LastPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $forum['LastPost']['CreatedBy']['id'])) ?></div>
 <?php endif ?>

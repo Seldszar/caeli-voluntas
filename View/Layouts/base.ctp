@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $this->Html->getCrumbListStr(" - ", "Caeli Voluntas") ?></title>
+<title><?= $this->Html->getCrumbListStr(" - ", "Caeli Voluntas") ?></title>
 <?= $this->Html->charset() ?>
 <?= $this->Html->meta('icon', $this->Html->url('/img/favicon.png')) ?>
 <?= $this->Html->css(array('global', 'markitup')); ?>
 </head>
-<body id="<?php echo $this->fetch('body.id') ?>" class="<?php echo $this->fetch('body.class') ?>">
+<body id="<?= $this->fetch('body.id') ?>" class="<?= $this->fetch('body.class') ?>">
 <div id="page">
 <div id="header">
-<a id="logo" href="<?php echo $this->Html->url(array('controller' => 'blog', 'action' => 'index', 'admin' => false)) ?>"></a>
+<a id="logo" href="<?= $this->Html->url(array('controller' => 'blog', 'action' => 'index', 'admin' => false)) ?>"></a>
 <?php if ($this->Auth->user()) : ?>
 <div id="profile">
 <div id="profile-avatar">
@@ -29,11 +29,11 @@
 </div>
 <div id="menu">
 <ul>
-<li><?php echo $this->Html->link('Forums', array('controller' => 'forums', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Roster', array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Galerie', array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Charte', array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?></li>
-<li><?php echo $this->Html->link('Evènements', '//events.caeli-voluntas.fr') ?></li>
+<li><?= $this->Html->link('Forums', array('controller' => 'forums', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?= $this->Html->link('Roster', array('controller' => 'roster', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?= $this->Html->link('Galerie', array('controller' => 'gallery', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?= $this->Html->link('Charte', array('controller' => 'rules', 'action' => 'index', 'admin' => false)) ?></li>
+<li><?= $this->Html->link('Evènements', '//events.caeli-voluntas.fr') ?></li>
 </ul>
 </div>
 <div id="breadcrumb">
@@ -64,7 +64,7 @@ La guilde Caeli Voluntas est une guilde côté Alliance présente depuis plus de
 <h3><span class="icon-cog"></span>Informations complémentaires</h3>
 <div class="footer-group-content">
 <div id="copyright">&copy; Caeli Voluntas 2012-<?= date('Y') ?> - Tous droits réservés</div>
-<div id="created-by">Website made with love by <?php echo $this->Html->link('Seldszar', '//seldszar.fr') ?></div>
+<div id="created-by">Website made with love by <?= $this->Html->link('Seldszar', '//seldszar.fr') ?></div>
 </div>
 </div>
 </div>

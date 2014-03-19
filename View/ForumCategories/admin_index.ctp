@@ -7,12 +7,12 @@
 <?php if (!empty($categories)) : ?>
 <ul class="ui-custom-list" id="categories">
 <?php foreach ($categories as $category) : ?>
-<li id="category-<?php echo $category['ForumCategory']['id'] ?>">
+<li id="category-<?= $category['ForumCategory']['id'] ?>">
 <ul class="float-left">
-<li><?php echo $this->Html->link($category['ForumCategory']['name'], array('action' => 'view', $category['ForumCategory']['id'])) ?></li>
+<li><?= $this->Html->link($category['ForumCategory']['name'], array('action' => 'view', $category['ForumCategory']['id'])) ?></li>
 </ul>
 <ul class="float-right ui-button-set on-hover">
-<li><?php echo $this->Html->link('Supprimer', array('action' => 'delete', $category['ForumCategory']['id']), null, 'Voulez-vous vraiment supprimer cette catégorie ?') ?></li>
+<li><?= $this->Html->link('Supprimer', array('action' => 'delete', $category['ForumCategory']['id']), null, 'Voulez-vous vraiment supprimer cette catégorie ?') ?></li>
 </ul>
 </li>
 <?php endforeach ?>
@@ -27,7 +27,7 @@ $(function() {
 	$('#categories').sortable({
 		axis: 'y',
 		update: function() {
-			$.post('<?php echo $this->Html->url(array('action' => 'order')) ?>', $(this).sortable('serialize'));
+			$.post('<?= $this->Html->url(array('action' => 'order')) ?>', $(this).sortable('serialize'));
 		}
 	});
 });

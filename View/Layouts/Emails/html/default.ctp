@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<title><?php echo $title_for_layout ?></title>
+<title><?= $title_for_layout ?></title>
 </head>
 <body style="background-color: #212121; padding: 20px;">
 <table width="100%">

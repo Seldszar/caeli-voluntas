@@ -9,10 +9,10 @@
 <?php foreach ($images as $image): ?>
 <li>
 <ul class="float-left">
-<li><?php echo $this->Html->link($image['GalleryImage']['caption'], array('action' => 'view', $image['GalleryImage']['id'])) ?></li>
+<li><?= $this->Html->link($image['GalleryImage']['caption'], array('action' => 'view', $image['GalleryImage']['id'])) ?></li>
 </ul>
 <ul class="float-right on-hover">
-<li><?php echo $this->Html->link('Supprimer', array('action' => 'delete', $image['GalleryImage']['id']), null, "Voulez-vous vraiment supprimer cette image ?") ?></li>
+<li><?= $this->Html->link('Supprimer', array('action' => 'delete', $image['GalleryImage']['id']), null, "Voulez-vous vraiment supprimer cette image ?") ?></li>
 </ul>
 </li>
 <?php endforeach ?>

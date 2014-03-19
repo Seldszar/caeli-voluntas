@@ -25,15 +25,15 @@
 <span class="topic-closed icon-lock" title="Fermé"></span>
 <?php endif ?>
 <?= $this->Html->link($topic['ForumTopic']['title'], array('controller' => 'topics', 'action' => 'view', $topic['ForumTopic']['id']), array('class' => 'topic-title')) ?>
-<div class="topic-meta"><?php echo $this->Html->link($topic['FirstPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $topic['FirstPost']['CreatedBy']['id'])) ?>, <?= $this->Time->timeAgoInWords($topic['FirstPost']['created']) ?></div>
+<div class="topic-meta"><?= $this->Html->link($topic['FirstPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $topic['FirstPost']['CreatedBy']['id'])) ?>, <?= $this->Time->timeAgoInWords($topic['FirstPost']['created']) ?></div>
 </td>
 <td>
 <?= $topic['ForumTopic']['num_replies'] ?> réponses<br />
 <?= $topic['ForumTopic']['num_views'] ?> vues
 </td>
 <td>
-<div class="last-post-author"><?php echo $this->Html->link($topic['LastPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $topic['LastPost']['CreatedBy']['id'])) ?></div>
-<div class="last-post-date"><?php echo $this->Time->timeAgoInWords($topic['LastPost']['created']) ?></div>
+<div class="last-post-author"><?= $this->Html->link($topic['LastPost']['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $topic['LastPost']['CreatedBy']['id'])) ?></div>
+<div class="last-post-date"><?= $this->Time->timeAgoInWords($topic['LastPost']['created']) ?></div>
 </td>
 </tr>
 <?php endforeach ?>

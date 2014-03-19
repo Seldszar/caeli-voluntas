@@ -1,1 +1,1 @@
-<div class="error-message"><?php echo $message ?></div>
+<div class="error-message"><?= $message ?></div>

@@ -16,7 +16,7 @@
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<h1><?php echo $name; ?></h4>
+<h1><?= $name; ?></h4>
 <p>
 <?= __d('cake', 'An Internal Error Has Occurred.'); ?>
 </p>

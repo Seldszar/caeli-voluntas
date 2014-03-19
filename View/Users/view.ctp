@@ -29,7 +29,7 @@
 <li>Date d'inscription :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo $this->Time->timeAgoInWords($user['User']['created']) ?></li>
+<li><?= $this->Time->timeAgoInWords($user['User']['created']) ?></li>
 </ul>
 </li>
 <li>
@@ -37,7 +37,7 @@
 <li>Adresse e-mail actuelle :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo $user['User']['email'] ?></li>
+<li><?= $user['User']['email'] ?></li>
 </ul>
 </li>
 <li>
@@ -45,7 +45,7 @@
 <li>Etat du compte :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo $user['User']['active'] ? 'Confirmé' : 'Non confirmé' ?></li>
+<li><?= $user['User']['active'] ? 'Confirmé' : 'Non confirmé' ?></li>
 </ul>
 </li>
 <li>
@@ -53,7 +53,7 @@
 <li>Dernière connexion :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo !empty($user['User']['last_login']) ? $this->Time->timeAgoInWords($user['User']['last_login']) : 'Indisponible' ?></li>
+<li><?= !empty($user['User']['last_login']) ? $this->Time->timeAgoInWords($user['User']['last_login']) : 'Indisponible' ?></li>
 </ul>
 </li>
 <li>
@@ -61,7 +61,7 @@
 <li>Dernière IP connue :</li>
 </ul>
 <ul class="float-right">
-<li><?php echo !empty($user['User']['last_ip']) ? $user['User']['last_ip'] : 'Indisponible' ?></li>
+<li><?= !empty($user['User']['last_ip']) ? $user['User']['last_ip'] : 'Indisponible' ?></li>
 </ul>
 </li>
 </ul>

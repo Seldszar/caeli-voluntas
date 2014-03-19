@@ -31,27 +31,27 @@
 <?= $this->Html->image($post['CreatedBy']['avatar_url'], array('alt' => "Avatar de " . $post['CreatedBy']['username'])) ?>
 </div>
 <?= $this->Html->link($post['CreatedBy']['username'], array('controller' => 'users', 'action' => 'view', $post['CreatedBy']['id']), array('class' => 'name', 'style' => (!empty($post['CreatedBy']['Group']['color']) ? "color: #{$post['CreatedBy']['Group']['color']}" : null))) ?>
-<div class="group"><?php echo $post['CreatedBy']['Group']['name'] ?></div>
+<div class="group"><?= $post['CreatedBy']['Group']['name'] ?></div>
 </td>
 <td>
-<div class="post-date"><?php echo $this->Html->link($this->Time->timeAgoInWords($post['ForumPost']['created']), array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic'], '#' => 'p' . $post['ForumPost']['id'])) ?> <?php if ($post['ForumPost']['edited']) : ?>(édité par <?= $post['EditedBy']['username'] ?>, <?= $this->Time->timeAgoInWords($post['ForumPost']['edited']) ?>)<?php endif ?></div>
+<div class="post-date"><?= $this->Html->link($this->Time->timeAgoInWords($post['ForumPost']['created']), array('controller' => 'topics', 'action' => 'view', $post['ForumPost']['topic'], '#' => 'p' . $post['ForumPost']['id'])) ?> <?php if ($post['ForumPost']['edited']) : ?>(édité par <?= $post['EditedBy']['username'] ?>, <?= $this->Time->timeAgoInWords($post['ForumPost']['edited']) ?>)<?php endif ?></div>
 <div class="post-body">
 <?= $this->Parser->parseAsString($post['ForumPost']['content'], 'bbcode') ?>
 </div>
 <?php if ($this->Auth->user()) : ?>
 <ul class="post-action">
 <?php if (($post['CreatedBy']['id'] == $this->Auth->user('id') && $this->Acl->hasForumRole($topic['Forum']['id'], 'reply')) || $this->Acl->hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
-<li><?php echo $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
+<li><?= $this->Html->link("Citer", array('controller' => 'posts', 'action' => 'create', $topic['ForumTopic']['id'], '?' => array('quote' => $post['ForumPost']['id']))) ?></li>
 <?php if ($post['ForumPost']['id'] == $topic['ForumTopic']['first_post']): ?>
-<li><?php echo $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
-<li><?php echo $this->Html->link("Supprimer", array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']), null, 'Voulez-vous vraiment supprimer ce fil de discussion ?') ?></li>
+<li><?= $this->Html->link("Editer", array('controller' => 'topics', 'action' => 'edit', $post['ForumPost']['topic'])) ?></li>
+<li><?= $this->Html->link("Supprimer", array('controller' => 'topics', 'action' => 'delete', $post['ForumPost']['topic']), null, 'Voulez-vous vraiment supprimer ce fil de discussion ?') ?></li>
 <?php if ($this->Acl->hasForumRole($topic['Forum']['id'], 'moderate')) : ?>
-<li><?php echo $this->Html->link(($topic['ForumTopic']['sticky'] ? 'Ne plus épingler' : 'Epingler'), array('controller' => 'topics', 'action' => 'sticky', $post['ForumPost']['topic'])) ?></li>
-<li><?php echo $this->Html->link(($topic['ForumTopic']['closed'] ? 'Rouvrir le sujet' : 'Fermer'), array('controller' => 'topics', 'action' => 'close', $post['ForumPost']['topic'])) ?></li>
+<li><?= $this->Html->link(($topic['ForumTopic']['sticky'] ? 'Ne plus épingler' : 'Epingler'), array('controller' => 'topics', 'action' => 'sticky', $post['ForumPost']['topic'])) ?></li>
+<li><?= $this->Html->link(($topic['ForumTopic']['closed'] ? 'Rouvrir le sujet' : 'Fermer'), array('controller' => 'topics', 'action' => 'close', $post['ForumPost']['topic'])) ?></li>
 <?php endif ?>
 <?php else: ?>
-<li><?php echo $this->Html->link("Editer", array('controller' => 'posts', 'action' => 'edit', $post['ForumPost']['id'])) ?></li>
-<li><?php echo $this->Html->link("Supprimer", array('controller' => 'posts', 'action' => 'delete', $post['ForumPost']['id']), null, 'Voulez-vous vraiment supprimer ce message ?') ?></li>
+<li><?= $this->Html->link("Editer", array('controller' => 'posts', 'action' => 'edit', $post['ForumPost']['id'])) ?></li>
+<li><?= $this->Html->link("Supprimer", array('controller' => 'posts', 'action' => 'delete', $post['ForumPost']['id']), null, 'Voulez-vous vraiment supprimer ce message ?') ?></li>
 <?php endif ?>
 <?php endif ?>
 </ul>

@@ -6,5 +6,5 @@
 <div id="login">
 <p>Félicitations ! Vous êtes désormais inscrit.</p>
 <p>Vous pouvez dès maintenant vous connecter et profiter des services mis à votre disposition.</p>
-<p><?php echo $this->Html->link('Se connecter', array('action' => 'login'), array('class' => 'ui-button')) ?></p>
+<p><?= $this->Html->link('Se connecter', array('action' => 'login'), array('class' => 'ui-button')) ?></p>
 </div>

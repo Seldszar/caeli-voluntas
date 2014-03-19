@@ -16,7 +16,7 @@
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<h1><?php echo $name; ?></h1>
+<h1><?= $name; ?></h1>
 <p>
 <?php printf(
 __d('cake', 'The requested address %s was not found on this server.'),

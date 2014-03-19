@@ -9,11 +9,11 @@
 <?php foreach ($groups as $group): ?>
 <li>
 <ul class="float-left">
-<li><?php echo $this->Html->link($group['Group']['name'], array('action' => 'edit', $group['Group']['id'])) ?></li>
+<li><?= $this->Html->link($group['Group']['name'], array('action' => 'edit', $group['Group']['id'])) ?></li>
 </ul>
 <?php if ($group['Group']['allow_delete']) : ?>
 <ul class="float-right ui-button-set on-hover">
-<li><?php echo $this->Html->link('Supprimer', array('action' => 'delete', $group['Group']['id']), null, "Voulez-vous vraiment supprimer ce groupe d'utilisateur ?") ?></li>
+<li><?= $this->Html->link('Supprimer', array('action' => 'delete', $group['Group']['id']), null, "Voulez-vous vraiment supprimer ce groupe d'utilisateur ?") ?></li>
 </ul>
 <?php endif ?>
 </li>

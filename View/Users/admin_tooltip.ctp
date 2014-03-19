@@ -1,4 +1,4 @@
-<h3><?php echo $user['User']['username'] ?></h3>
+<h3><?= $user['User']['username'] ?></h3>
 <ul>
 <li>Inscription : <?= $this->Time->timeAgoInWords($user['User']['created']) ?></li>
 <li>Dernière connexion : <?= $user['User']['last_login'] ? $this->Time->timeAgoInWords($user['User']['last_login']) : 'Aucune' ?></li>

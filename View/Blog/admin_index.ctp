@@ -8,7 +8,7 @@
 <?php foreach($articles as $article): ?>
 <li>
 <?= $this->Html->link($article['BlogArticle']['title'], array('action' => 'edit', $article['BlogArticle']['id'], 'admin' => true)) ?>
-<div class="link-desc"><?php echo $this->Time->timeAgoInWords($article['BlogArticle']['created']) ?> par <?= $article['CreatedBy']['username'] ?></div>
+<div class="link-desc"><?= $this->Time->timeAgoInWords($article['BlogArticle']['created']) ?> par <?= $article['CreatedBy']['username'] ?></div>
 </li>
 <?php endforeach ?>
 </ul>

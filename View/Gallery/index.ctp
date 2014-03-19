@@ -6,7 +6,7 @@
 <?php if (!empty($images)): ?>
 <ul id="gallery">
 <?php foreach ($images as $image): ?>
-<li><?php echo $this->Html->link($this->Html->image($image['GalleryImage']['file_url'], array('alt' => $image['GalleryImage']['caption'], 'title' => $image['GalleryImage']['caption'])), array('action' => 'view', $image['GalleryImage']['id']), array('escape' => false)) ?></li>
+<li><?= $this->Html->link($this->Html->image($image['GalleryImage']['file_url'], array('alt' => $image['GalleryImage']['caption'], 'title' => $image['GalleryImage']['caption'])), array('action' => 'view', $image['GalleryImage']['id']), array('escape' => false)) ?></li>
 <?php endforeach ?>
 </ul>
 <?php else: ?>

@@ -7,7 +7,7 @@
 <div id="roster">
     <?php foreach ($groups as $group) : ?>
         <div class="roster-class">
-            <h2><?php echo $group['Group']['name'] ?></h2>
+            <h2><?= $group['Group']['name'] ?></h2>
             <div class="roster-characters">
                 <?php foreach ($group['User'] as $k => $user) : ?>
                     <?= $this->Html->link($this->Html->image($user['avatar_url'], array('title' => $user['username'])), array('controller' => 'users', 'action' => 'view', $user['id']), array('escape' => false, 'class' => array('roster-character', ($k < 2 ? 'first' : null)))) ?>

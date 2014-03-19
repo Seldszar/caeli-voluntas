@@ -8,11 +8,11 @@
 <?php foreach ($classes as $class): ?>
 <li>
 <ul class="float-left">
-<li class="color-c<?= $class['CharacterClass']['id'] ?>"><?php echo $class['CharacterClass']['name'] ?></li>
+<li class="color-c<?= $class['CharacterClass']['id'] ?>"><?= $class['CharacterClass']['name'] ?></li>
 </ul>
 <ul class="float-right ui-button-set on-hover">
 <?php foreach ($class['CharacterSpec'] as $spec): ?>
-<li><?php echo $this->Html->link($spec['name'], '#', array('data-spec' => $spec['id'], 'class' => array($spec['recruitment_active'] ? 'checked' : null), 'style' => array('width: 93px;'))) ?></li>
+<li><?= $this->Html->link($spec['name'], '#', array('data-spec' => $spec['id'], 'class' => array($spec['recruitment_active'] ? 'checked' : null), 'style' => array('width: 93px;'))) ?></li>
 <?php endforeach ?>
 </ul>
 </li>
@@ -23,7 +23,7 @@
 $(function() {
 	$('a[data-spec]').click(function() {
 		var $t = $(this);
-		$.post('<?php echo $this->Html->url(array('action' => 'toggle')) ?>', { id: $t.data('spec') }, function(data) {
+		$.post('<?= $this->Html->url(array('action' => 'toggle')) ?>', { id: $t.data('spec') }, function(data) {
 			if (data.value) {
 				$t.addClass('checked');
 			} else {

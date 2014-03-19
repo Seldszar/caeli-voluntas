@@ -1,1 +1,1 @@
-<div class="success-message"><?php echo $message ?></div>
+<div class="success-message"><?= $message ?></div>

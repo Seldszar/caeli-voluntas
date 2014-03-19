@@ -14,11 +14,11 @@
 <?php $this->end() ?>
 <ul class="ui-custom-list" id="encounters">
 <?php foreach($zone['Encounter'] as $encounter): ?>
-<li id="encounter-<?php echo $encounter['id'] ?>">
+<li id="encounter-<?= $encounter['id'] ?>">
 <?= $this->Html->link($encounter['name'], array('controller' => 'encounters', 'action' => 'edit', $encounter['id']), array('class' => 'link-title')) ?>
 <ul class="float-right ui-button-set on-hover">
-<li><?php echo $this->Html->link('Normal', '#', array('class' => ($encounter['normal'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'normal')))) ?></li>
-<li><?php echo $this->Html->link('Héroïque', '#', array('class' => ($encounter['heroic'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'heroic')))) ?></li>
+<li><?= $this->Html->link('Normal', '#', array('class' => ($encounter['normal'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'normal')))) ?></li>
+<li><?= $this->Html->link('Héroïque', '#', array('class' => ($encounter['heroic'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'heroic')))) ?></li>
 </ul>
 </li>
 <?php endforeach ?>
@@ -30,7 +30,7 @@
 $(function() {
 	$('a[data-encounter]').click(function() {
 		var $t = $(this);
-		$.post('<?php echo $this->Html->url(array('controller' => 'encounters', 'action' => 'toggle')) ?>', $t.data('encounter'), function(data) {
+		$.post('<?= $this->Html->url(array('controller' => 'encounters', 'action' => 'toggle')) ?>', $t.data('encounter'), function(data) {
 			if (data.value) {
 				$t.addClass('checked');
 			} else {
@@ -43,7 +43,7 @@ $(function() {
 	$('#encounters').sortable({
 		axis: 'y',
 		update: function() {
-			$.post('<?php echo $this->Html->url(array('controller' => 'encounters', 'action' => 'order', $zone['EncounterZone']['id'])) ?>', $(this).sortable('serialize'));
+			$.post('<?= $this->Html->url(array('controller' => 'encounters', 'action' => 'order', $zone['EncounterZone']['id'])) ?>', $(this).sortable('serialize'));
 		}
 	});
 });
