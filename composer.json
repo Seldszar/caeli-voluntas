@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "pear-cakephp/cakephp": ">=2.4.0"
+        "pear-cakephp/cakephp": "2.3.x"
     },
     "config": {
         "vendor-dir": "Vendor/"
