@@ -7,3 +7,6 @@
 [submodule "Plugin/MarkupParsers"]
 	path = Plugin/MarkupParsers
 	url = https://github.com/CakeDC/markup_parsers.git
+[submodule "Plugin/Environments"]
+	path = Plugin/Environments
+	url = git://github.com/OctoBear/cakephp-environments.git

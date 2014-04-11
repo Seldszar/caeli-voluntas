@@ -69,7 +69,7 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
-CakePlugin::load(array('Migrations', 'ClearCache', 'MarkupParsers'));
+CakePlugin::loadAll();
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:
@@ -106,3 +106,8 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+/**
+ * Load environments
+ */
+include 'environments.php';
