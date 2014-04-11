@@ -20,6 +20,10 @@ class AppController extends Controller {
 					'fields' => array('username' => 'email'),
 					'scope' => array('User.active' => true)
 				)
+			),
+			'passwordHasher' => array(
+				'className' => 'Simple',
+				'hashType' => 'sha1'
 			)
 		),
 		'Acl',
