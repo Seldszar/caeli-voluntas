@@ -59,7 +59,8 @@ class AppModel extends Model {
 	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
 	 */
 	public function toggleField($fieldName) {
-		return $this->saveField($fieldName, DboSource::expression('NOT ' . $fieldName));
+		$db = $this->getDataSource();
+		return $this->saveField($fieldName, $db->expression('NOT ' . $fieldName));
 	}
 
 	/**
@@ -70,7 +71,8 @@ class AppModel extends Model {
 	 * @return boolean True si l'opération s'est déroulée avec succès ; sinon false
 	 */
 	public function incrementField($fieldName, $value = 1) {
-		return $this->saveField($fieldName, DboSource::expression($fieldName . ' + ' . $value));
+		$db = $this->getDataSource();
+		return $this->saveField($fieldName, $db->expression($fieldName . ' + ' . $value));
 	}
 
 }
