@@ -45,6 +45,14 @@ class Encounter extends AppModel {
 			)
 		)));
 
+		// Mise à jour de la progression en mode héroïque de la zone associée à la rencontre actuelle
+		$this->EncounterZone->saveField('mythic_progress', $this->find('count', array(
+			'conditions' => array(
+				'zone' => $this->_zoneId,
+				'mythic' => true
+			)
+		)));
+
 		if ($updateNumBosses) {
 			// Mise à jour du nombre de rencontres de la zone associée à la rencontre actuelle
 			$this->EncounterZone->saveField('num_bosses', $this->find('count', array(
