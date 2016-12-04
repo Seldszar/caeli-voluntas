@@ -1,6 +1,6 @@
 <?php $this->Html->addCrumb(AuthComponent::user('username'), array('controller' => 'users')) ?>
 
-<?php $this->Html->addCrumb('AvancÃ©e raids', array('action' => 'index')) ?>
+<?php $this->Html->addCrumb('Avancée raids', array('action' => 'index')) ?>
 <?php $this->Html->addCrumb($zone['EncounterZone']['name']) ?>
 
 <?php $this->assign('header.image', 'administration') ?>
@@ -18,7 +18,8 @@
 <?php echo $this->Html->link($encounter['name'], array('controller' => 'encounters', 'action' => 'edit', $encounter['id']), array('class' => 'link-title')) ?>
 <ul class="float-right ui-button-set on-hover">
 <li><?php echo $this->Html->link('Normal', '#', array('class' => ($encounter['normal'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'normal')))) ?></li>
-<li><?php echo $this->Html->link('HÃ©roÃ¯que', '#', array('class' => ($encounter['heroic'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'heroic')))) ?></li>
+<li><?php echo $this->Html->link('Héroïque', '#', array('class' => ($encounter['heroic'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'heroic')))) ?></li>
+<li><?php echo $this->Html->link('Mythique', '#', array('class' => ($encounter['mythic'] ? 'checked' : null), 'data-encounter' => json_encode(array('id' => $encounter['id'], 'difficulty' => 'mythic')))) ?></li>
 </ul>
 </li>
 <?php endforeach ?>
