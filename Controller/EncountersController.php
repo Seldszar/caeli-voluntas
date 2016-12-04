@@ -79,7 +79,7 @@ class EncountersController extends AppController {
 			throw new NotFoundException();
 		}
 
-		if (!in_array($data['difficulty'], array('normal', 'heroic'))) {
+		if (!in_array($data['difficulty'], array('normal', 'heroic', 'mythic'))) {
 			throw new NotFoundException();
 		}
 
